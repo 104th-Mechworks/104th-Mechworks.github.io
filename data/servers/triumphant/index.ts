@@ -1,4 +1,5 @@
-import type { Server } from "../types"
+import type { Server } from "../../types"
+import { triumphantWings } from "./wings"
 
 export const triumphantServer: Server = {
   id: "triumphant",
@@ -8,6 +9,9 @@ export const triumphantServer: Server = {
   status: "ONLINE",
   purpose:
     "Coordination center for all air and space combat operations. Houses starfighter squadrons and flight training facilities.",
-  departments: ["Fighter Command", "Bomber Division", "Reconnaissance", "Flight Training", "Maintenance"],
-  commandingOfficer: "Commodore Hawk",
+  commandingOfficer: "COM Snips",
+  wings: triumphantWings,
+  hasCustomStructure: true,
 }
+
+export { triumphantWings }

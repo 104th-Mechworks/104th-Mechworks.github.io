@@ -1,12 +1,12 @@
-import type { Server } from "../types"
+import { ravagerSpecialDepartments } from "./ravager/index"
 
-export const ravagerServer: Server = {
+export const ravagerServer = {
   id: "ravager",
   name: "Ravager",
-  description: "Special Forces hub for elite operations",
+  description: "Special Forces server for ARC and RC operations",
   imageSrc: "/images/ravager.png",
   status: "CLASSIFIED",
-  purpose: "Command center for special operations and covert missions. Houses ARC and RC training facilities.",
-  departments: ["ARC Operations", "RC Operations", "Covert Intelligence", "Advanced Training"],
-  commandingOfficer: "ARC Commander Blitz",
+  purpose: "Specialized training and operations for Advanced Recon Commandos (ARC) and Republic Commandos (RC).",
+  commandingOfficer: "CDR Fox",
+  specialDepartments: ravagerSpecialDepartments,
 }

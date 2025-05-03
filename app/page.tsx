@@ -17,9 +17,10 @@ import Breadcrumb from "@/components/breadcrumb"
 import LoadingScreen from "@/components/loading-screen"
 import CommandStaffDetail from "@/components/command-staff/command-staff-detail"
 import CommandStaffSection from "@/components/command-staff/command-staff-section"
-import type { Department, Company, CommandStaffMember } from "@/data/types"
+import type { Department, Company, CommandStaffMember, Wing, SpecialDepartment, Troop } from "@/data/types"
 import { rasDepartments } from "@/data/servers/ras"
 import { resilientCompanies } from "@/data/servers/resilient"
+import { triumphantWings } from "@/data/servers/triumphant"
 
 // Import data
 import { servers, branches, specialOps, ranks, positions } from "@/data"
@@ -42,6 +43,9 @@ export default function Home() {
   const [selectedServer, setSelectedServer] = useState<string | null>(null)
   const [selectedDepartment, setSelectedDepartment] = useState<Department | null>(null)
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null)
+  const [selectedWing, setSelectedWing] = useState<Wing | null>(null)
+  const [selectedSpecialDepartment, setSelectedSpecialDepartment] = useState<SpecialDepartment | null>(null)
+  const [selectedTroop, setSelectedTroop] = useState<Troop | null>(null)
   const [selectedCommandStaffMember, setSelectedCommandStaffMember] = useState<CommandStaffMember | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeRankTab, setActiveRankTab] = useState("command")
@@ -68,12 +72,18 @@ export default function Home() {
     setSelectedServer(serverId)
     setSelectedDepartment(null)
     setSelectedCompany(null)
+    setSelectedWing(null)
+    setSelectedSpecialDepartment(null)
+    setSelectedTroop(null)
   }
 
   const handleBackClick = () => {
     setSelectedServer(null)
     setSelectedDepartment(null)
     setSelectedCompany(null)
+    setSelectedWing(null)
+    setSelectedSpecialDepartment(null)
+    setSelectedTroop(null)
   }
 
   const handleDepartmentClick = (department: Department) => {
@@ -82,6 +92,19 @@ export default function Home() {
 
   const handleCompanyClick = (company: Company) => {
     setSelectedCompany(company)
+  }
+
+  const handleWingClick = (wing: Wing) => {
+    setSelectedWing(wing)
+  }
+
+  const handleSpecialDepartmentClick = (department: SpecialDepartment | null) => {
+    setSelectedSpecialDepartment(department)
+    setSelectedTroop(null)
+  }
+
+  const handleTroopClick = (troop: Troop | null) => {
+    setSelectedTroop(troop)
   }
 
   const handleCommandStaffMemberClick = (member: CommandStaffMember) => {
@@ -113,6 +136,9 @@ export default function Home() {
     setSelectedServer(null)
     setSelectedDepartment(null)
     setSelectedCompany(null)
+    setSelectedWing(null)
+    setSelectedSpecialDepartment(null)
+    setSelectedTroop(null)
     setSelectedCommandStaffMember(null)
   }
 
@@ -124,6 +150,9 @@ export default function Home() {
     setSelectedServer(null)
     setSelectedDepartment(null)
     setSelectedCompany(null)
+    setSelectedWing(null)
+    setSelectedSpecialDepartment(null)
+    setSelectedTroop(null)
     setSelectedCommandStaffMember(null)
   }
 
@@ -173,6 +202,9 @@ export default function Home() {
           onClick: () => {
             setSelectedDepartment(null)
             setSelectedCompany(null)
+            setSelectedWing(null)
+            setSelectedSpecialDepartment(null)
+            setSelectedTroop(null)
           },
         })
 
@@ -188,6 +220,27 @@ export default function Home() {
             label: selectedCompany.name,
             onClick: () => {},
           })
+        }
+
+        if (selectedServer === "triumphant" && selectedWing) {
+          items.push({
+            label: selectedWing.name,
+            onClick: () => {},
+          })
+        }
+
+        if (selectedServer === "ravager" && selectedSpecialDepartment) {
+          items.push({
+            label: selectedSpecialDepartment.name,
+            onClick: () => setSelectedTroop(null),
+          })
+
+          if (selectedTroop) {
+            items.push({
+              label: selectedTroop.name,
+              onClick: () => {},
+            })
+          }
         }
       }
 
@@ -216,19 +269,6 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-zinc-950">
       <header className="border-b border-zinc-800 bg-zinc-950 sticky top-0 z-50">
         <div className="container mx-auto py-4 px-4 flex items-center justify-between">
-          {/* Modify the logo/title area in the header to be clickable */}
-          {/* Find this section in the header: */}
-          {/* <div className="flex items-center gap-2">
-            <div className="h-8 w-8 relative">
-              <Image src="/images/104th.png" alt="104th Battalion" fill className="object-contain" />
-            </div>
-            <div className="flex flex-col">
-              <h1 className="text-xl font-bold text-zinc-200 font-mono">104TH BATTALION</h1>
-              <div className="text-xs text-zinc-500 font-mono">MILITARY DATABASE</div>
-            </div>
-          </div> */}
-
-          {/* Replace it with: */}
           <div className="flex items-center gap-2 cursor-pointer" onClick={handleLogoClick}>
             <div className="h-8 w-8 relative">
               <Image src="/images/104th.png" alt="104th Battalion" fill className="object-contain" />
@@ -245,19 +285,6 @@ export default function Home() {
           */}
           </div>
 
-          {/* Add a "HOME" button to the navigation menu */}
-          {/* Find the nav section: */}
-          {/* <nav className="hidden md:flex space-x-6">
-            <button
-              onClick={() => handleMobileNavigation("branches")}
-              className={`text-sm font-mono transition-colors ${
-                activeSection === "branches" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
-              }`}
-            >
-              BRANCHES
-            </button> */}
-
-          {/* Add a HOME button at the beginning: */}
           <nav className="hidden md:flex space-x-6">
             {/*
             <button
@@ -329,7 +356,6 @@ export default function Home() {
             className="md:hidden fixed top-[70px] left-0 right-0 bg-zinc-900 border-b border-zinc-800 z-40"
           >
             <div className="flex flex-col p-4 pt-6 space-y-3">
-              {/* Also add HOME to the mobile menu: */}
               <button
                 onClick={() => handleMobileNavigation("home")}
                 className={`text-sm font-mono py-2 px-4 rounded-sm transition-colors ${
@@ -408,6 +434,7 @@ export default function Home() {
               transition={{ duration: 0.3 }}
               className="space-y-8"
             >
+              {/* Home content */}
               <div className="flex items-center justify-center gap-2 mb-8">
                 <div className="h-px w-8 bg-blue-500"></div>
                 <h2 className="text-2xl font-bold text-center text-zinc-200 font-mono">104TH BATTALION</h2>
@@ -481,6 +508,81 @@ export default function Home() {
               </div>
             </motion.div>
           )}
+
+          {/* Servers section */}
+          {activeSection === "servers" && (
+            <motion.div
+              key="servers"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-8"
+            >
+              <div className="flex items-center justify-center gap-2 mb-8">
+                <div className="h-px w-8 bg-blue-500"></div>
+                <h2 className="text-2xl font-bold text-center text-zinc-200 font-mono">SERVERS</h2>
+                <div className="h-px w-8 bg-blue-500"></div>
+              </div>
+
+              {/* Persistent breadcrumb that updates based on selection */}
+              <motion.div layout className="mb-6">
+                <Breadcrumb items={getBreadcrumbItems()} />
+              </motion.div>
+
+              <AnimatePresence mode="wait">
+                {selectedServer ? (
+                  <motion.div
+                    key="server-detail"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ServerDetail
+                      server={selectedServerData!}
+                      onBack={handleBackClick}
+                      onServerListClick={() => setSelectedServer(null)}
+                      showBreadcrumb={false}
+                      onDepartmentClick={selectedServer === "ras" ? handleDepartmentClick : undefined}
+                      departments={selectedServer === "ras" ? rasDepartments : undefined}
+                      selectedDepartment={selectedDepartment}
+                      companies={selectedServer === "resilient" ? resilientCompanies : undefined}
+                      onCompanyClick={selectedServer === "resilient" ? handleCompanyClick : undefined}
+                      selectedCompany={selectedCompany}
+                      wings={selectedServer === "triumphant" ? triumphantWings : undefined}
+                      onWingClick={selectedServer === "triumphant" ? handleWingClick : undefined}
+                      selectedWing={selectedWing}
+                      onSpecialDepartmentClick={selectedServer === "ravager" ? handleSpecialDepartmentClick : undefined}
+                      selectedSpecialDepartment={selectedSpecialDepartment}
+                      onTroopClick={selectedServer === "ravager" ? handleTroopClick : undefined}
+                      selectedTroop={selectedTroop}
+                    />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="server-grid"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                  >
+                    {servers.map((server) => (
+                      <ServerCard
+                        key={server.id}
+                        name={server.name}
+                        description={server.description}
+                        imageSrc={server.imageSrc}
+                        onClick={() => handleServerClick(server.id)}
+                      />
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          )}
+
           {activeSection === "branches" && (
             <motion.div
               key="branches"
@@ -720,72 +822,6 @@ export default function Home() {
                   </Accordion>
                 </TabsContent>
               </Tabs>
-            </motion.div>
-          )}
-
-          {activeSection === "servers" && (
-            <motion.div
-              key="servers"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="space-y-8"
-            >
-              <div className="flex items-center justify-center gap-2 mb-8">
-                <div className="h-px w-8 bg-blue-500"></div>
-                <h2 className="text-2xl font-bold text-center text-zinc-200 font-mono">SERVERS</h2>
-                <div className="h-px w-8 bg-blue-500"></div>
-              </div>
-
-              {/* Persistent breadcrumb that updates based on selection */}
-              <motion.div layout className="mb-6">
-                <Breadcrumb items={getBreadcrumbItems()} />
-              </motion.div>
-
-              <AnimatePresence mode="wait">
-                {selectedServer ? (
-                  <motion.div
-                    key="server-detail"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ServerDetail
-                      server={selectedServerData!}
-                      onBack={handleBackClick}
-                      onServerListClick={() => setSelectedServer(null)}
-                      showBreadcrumb={false}
-                      onDepartmentClick={selectedServer === "ras" ? handleDepartmentClick : undefined}
-                      departments={selectedServer === "ras" ? rasDepartments : undefined}
-                      selectedDepartment={selectedDepartment}
-                      companies={selectedServer === "resilient" ? resilientCompanies : undefined}
-                      onCompanyClick={selectedServer === "resilient" ? handleCompanyClick : undefined}
-                      selectedCompany={selectedCompany}
-                    />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="server-grid"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                  >
-                    {servers.map((server) => (
-                      <ServerCard
-                        key={server.id}
-                        name={server.name}
-                        description={server.description}
-                        imageSrc={server.imageSrc}
-                        onClick={() => handleServerClick(server.id)}
-                      />
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </motion.div>
           )}
 

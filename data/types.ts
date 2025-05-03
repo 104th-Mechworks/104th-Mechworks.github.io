@@ -1,26 +1,19 @@
-// Common types used across data files
-
-export type TeamMember = {
-  role?: string
+export type Server = {
+  id: string
   name: string
-  description?: string
-  clearances?: string[]
-}
-
-export type TeamGroup = {
-  name: string
-  officer?: TeamMember
-  members: TeamMember[]
-}
-
-export type Team = {
-  name: string
-  lead?: TeamMember
-  members?: TeamMember[]
-  classified?: boolean
-  leadership?: TeamMember[]
-  groups?: TeamGroup[]
-  description?: string
+  description: string
+  imageSrc: string
+  status?: string
+  purpose?: string
+  departments?: string[]
+  commandingOfficer?: string
+  hasCustomStructure?: boolean
+  specialDepartments?: SpecialDepartment[]
+  qualificationCategories?: QualificationCategory[]
+  supervisingOfficer?: string
+  standardsOfficer?: string
+  companies?: Company[]
+  wings?: Wing[]
 }
 
 export type Department = {
@@ -32,94 +25,28 @@ export type Department = {
   teams: Team[]
 }
 
-export type CadreInfo = {
-  headCadre: string
-  sectorCadres: {
-    "01": string
-    "02": string
-    "03": string
-  }
-}
-
-export type RequirementPhase = {
-  phase: string
-  requirements: string[]
-}
-
-export type Qualification = {
+export type TeamMember = {
+  role?: string
   name: string
-  icon: string
+  clearances?: string[]
+}
+
+export type TeamGroup = {
+  name: string
+  officer?: TeamMember
+  members: TeamMember[]
+}
+
+export type Team = {
+  name: string
+  lead?: TeamMember | null
+  members?: TeamMember[]
+  classified?: boolean
+  leadership?: TeamMember[]
+  groups?: TeamGroup[]
   description?: string
-  cadre?: CadreInfo
-  rewards?: string[]
-  requirementPhases?: RequirementPhase[]
-  isAdvanced?: boolean
-  classifiedRequirements?: boolean
 }
 
-export type QualificationPathway = {
-  name: string
-  icon: string
-  description?: string
-  cadre?: CadreInfo
-  rewards?: string[]
-  requirementPhases?: RequirementPhase[]
-  nextQualifications?: Qualification[]
-}
-
-export type QualificationCategory = {
-  name: string
-  qualifications: QualificationPathway[]
-}
-
-// New types for Resilient server structure
-export type PlatoonLeadership = {
-  pco: string // Platoon Commanding Officer
-  pxo: string // Platoon Executive Officer
-  pnco: string // Platoon Non-Commissioned Officer
-}
-
-// Update the Platoon type to include platform information
-export type Platoon = {
-  id: string
-  name: string
-  specialization?: string
-  platform?: string // Add platform field for multi-platform companies
-  leadership: PlatoonLeadership
-  squads: string[]
-}
-
-export type Company = {
-  id: string
-  name: string
-  description: string
-  icon?: string
-  commandingOfficer: string
-  executiveOfficer: string
-  nonCommissionedOfficer: string
-  platforms: string[] // Add platforms field
-  platoons: Platoon[]
-}
-
-export type Server = {
-  id: string
-  name: string
-  description: string
-  imageSrc: string
-  status: string
-  purpose: string
-  departments?: string[]
-  qualifications?: string[]
-  qualificationCategories?: QualificationCategory[]
-  commandingOfficer?: string
-  supervisingOfficer?: string
-  standardsOfficer?: string
-  hasCustomDepartments?: boolean
-  hasCustomStructure?: boolean
-  companies?: Company[] // Added for Resilient server
-}
-
-// Update the Rank type to include category
 export type Rank = {
   rank: string
   code: string
@@ -147,25 +74,147 @@ export type SpecialOp = {
   description: string
 }
 
-// New Position type for military positions
 export type Position = {
   title: string
   code: string
   description: string
   requirements: string[]
   responsibilities: string[]
-  equipment?: string[]
+  equipment: string[]
 }
 
-// New CommandStaffMember type for command staff profiles
 export type CommandStaffMember = {
   id: string
   name: string
   rank: string
   role: string
-  imageSrc: string
+  imageSrc?: string
+  branch: string
   description: string
+  responsibilities: string[]
   achievements?: string[]
   specializations?: string[]
   commandDuties?: string[]
+  contactInfo?: {
+    office?: string
+    comms?: string
+  }
+}
+
+export type QualificationPathway = {
+  name: string
+  icon: string
+  description: string
+  cadre?: {
+    headCadre: string
+    sectorCadres: {
+      [key: string]: string
+    }
+  }
+  rewards: string[]
+  requirementPhases: RequirementPhase[]
+  nextQualifications?: Qualification[]
+  isAdvanced?: boolean
+  classifiedRequirements?: boolean
+}
+
+export type Qualification = {
+  name: string
+  icon: string
+  description: string
+  cadre?: {
+    headCadre: string
+    sectorCadres: {
+      [key: string]: string
+    }
+  }
+  rewards: string[]
+  requirementPhases?: RequirementPhase[]
+  isAdvanced?: boolean
+  classifiedRequirements?: boolean
+}
+
+export type RequirementPhase = {
+  phase: string
+  requirements: string[]
+}
+
+export type QualificationCategory = {
+  name: string
+  qualifications: (Qualification | QualificationPathway)[]
+}
+
+export type Company = {
+  id: string
+  name: string
+  description: string
+  commandingOfficer: string
+  executiveOfficer?: string
+  nonCommissionedOfficer?: string
+  platforms: string[]
+  platoons: Platoon[]
+}
+
+export type Platoon = {
+  id: string
+  name: string
+  specialization?: string
+  leadership: {
+    pco: string
+    pxo: string
+    pnco: string
+  }
+  squads: string[]
+  platform?: string
+}
+
+export type Wing = {
+  id: string
+  name: string
+  description: string
+  commandingOfficer: string
+  executiveOfficer?: string
+  nonCommissionedOfficer?: string
+  platforms: string[]
+  squadrons: Squadron[]
+}
+
+export type Squadron = {
+  id: string
+  name: string
+  specialization: string
+  leadership: {
+    sco: string
+    sxo: string
+    snco: string
+  }
+  flights: string[]
+  platform: string
+}
+
+export type SpecialDepartment = {
+  id: string
+  name: string
+  description: string
+  commandingOfficer: string
+  executiveOfficers: { position: string; name: string }[]
+  troops: Troop[]
+  color: string
+}
+
+export type Troop = {
+  id: string
+  name: string
+  commandingOfficer: string
+  lieutenants?: string[]
+  sergeants?: string[]
+  squadLeaders?: string[]
+  members?: string[]
+  description?: string
+  specialization?: string
+  platformBadge?: string
+  platform?: string
+  leadership?: {
+    tco: string
+  }
 }
