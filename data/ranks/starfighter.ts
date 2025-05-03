@@ -1,0 +1,160 @@
+import type { Rank } from "../types"
+
+export const starfighterRanks: Rank[] = [
+  {
+    rank: "Commodore",
+    code: "COM",
+    description: "Head of the Starfighter Corps",
+    insigniaPath: "/images/ranks/COM.webp",
+    category: "fleet-command",
+    additionalInfo: {
+      responsibilities: [
+        "Command of all starfighter operations",
+        "Strategic planning for air and space combat",
+        "Resource allocation for starfighter units",
+        "Coordination with ground forces",
+      ],
+      qualifications: [
+        "Previous service as Air Captain",
+        "Advanced flight command certification",
+        "Strategic air combat planning",
+      ],
+      notableMembers: ["Hawk", "Broadside"],
+      reportingTo: "Air Marshal",
+    },
+  },
+  {
+    rank: "Air Captain",
+    code: "CPT",
+    description: "2IC of the Starfighter Corps",
+    insigniaPath: "/images/ranks/Air_CPT.webp",
+    category: "command-staff",
+    additionalInfo: {
+      responsibilities: [
+        "Second-in-command of starfighter corps",
+        "Tactical planning for air operations",
+        "Training program oversight",
+        "Resource management",
+      ],
+      qualifications: [
+        "Previous service as Wing Commander",
+        "Advanced flight instructor certification",
+        "Command staff training",
+      ],
+      notableMembers: ["Axe", "Contrail"],
+      reportingTo: "Commodore",
+    },
+  },
+  {
+    rank: "Wing Commander",
+    code: "WCDR",
+    description: "Head of Starfighter Wing",
+    insigniaPath: "/images/ranks/WCDR.webp",
+    category: "high-officer",
+    additionalInfo: {
+      responsibilities: [
+        "Command of starfighter wing",
+        "Mission planning and execution",
+        "Pilot training oversight",
+        "Combat readiness",
+      ],
+      qualifications: [
+        "Previous service as Group Captain",
+        "Wing tactical certification",
+        "Advanced flight leadership",
+      ],
+      notableMembers: ["Odd Ball", "Matchstick"],
+      reportingTo: "Air Captain",
+    },
+  },
+  {
+    rank: "Group Captain",
+    code: "GCPT",
+    description: "2IC of Starfighter Wing",
+    insigniaPath: "/images/ranks/GCPT.webp",
+    category: "high-officer",
+    additionalInfo: {
+      responsibilities: [
+        "Second-in-command of wing",
+        "Squadron coordination",
+        "Training implementation",
+        "Administrative duties",
+      ],
+      qualifications: ["Previous service as Squadron Leader", "Advanced flight training", "Leadership assessment"],
+      notableMembers: ["Tucker", "Swoop"],
+      reportingTo: "Wing Commander",
+    },
+  },
+  {
+    rank: "Squadron Leader",
+    code: "SL",
+    description: "Senior Staff - Head of Squadron",
+    insigniaPath: "/images/ranks/SL.webp",
+    category: "officer",
+    additionalInfo: {
+      responsibilities: ["Squadron command", "Mission execution", "Pilot training", "Combat operations"],
+      qualifications: [
+        "Previous service as Flight Captain",
+        "Squadron tactics certification",
+        "Combat flight experience",
+      ],
+      notableMembers: ["Warthog", "Kickback"],
+      reportingTo: "Group Captain",
+    },
+  },
+  {
+    rank: "Flight Captain",
+    code: "FCPT",
+    description: "Key staff - Raid Hosts",
+    insigniaPath: "/images/ranks/FCPT.webp",
+    category: "nco",
+    additionalInfo: {
+      responsibilities: ["Flight leadership", "Raid hosting", "Training implementation", "Combat operations"],
+      qualifications: [
+        "Previous service as Flight Lieutenant",
+        "Advanced flight certification",
+        "Raid planning training",
+      ],
+      notableMembers: ["Slammer", "Killer"],
+      reportingTo: "Squadron Leader",
+    },
+  },
+  {
+    rank: "Flight Lieutenant",
+    code: "FLT",
+    description: "Staff - Raid Hosts",
+    insigniaPath: "/images/ranks/FLT.webp",
+    category: "nco",
+    additionalInfo: {
+      responsibilities: ["Element leadership", "Raid hosting", "Training assistance", "Combat operations"],
+      qualifications: ["Previous service as Flight Officer", "Flight leadership training", "Combat mission experience"],
+      notableMembers: ["Hez", "Sear"],
+      reportingTo: "Flight Captain",
+    },
+  },
+  {
+    rank: "Flight Officer",
+    code: "FO",
+    description: "Senior Pilot - Staff in Training",
+    insigniaPath: "/images/ranks/FO.webp",
+    category: "nco",
+    additionalInfo: {
+      responsibilities: ["Senior pilot duties", "Staff training", "Support operations", "Mentoring pilot officers"],
+      qualifications: ["Previous service as Pilot Officer", "Exceptional flight record", "Staff training initiation"],
+      notableMembers: ["Tracker", "Kickstart"],
+      reportingTo: "Flight Lieutenant",
+    },
+  },
+  {
+    rank: "Pilot Officer",
+    code: "PO",
+    description: "Standard Pilot",
+    category: "nco",
+    additionalInfo: {
+      responsibilities: ["Basic flight operations", "Mission execution", "Starfighter maintenance", "Flight formation"],
+      qualifications: ["Flight training completion", "Combat readiness certification", "Starfighter proficiency"],
+      notableMembers: ["Afterburn", "Boost"],
+      reportingTo: "Flight Officer",
+    },
+  },
+]
