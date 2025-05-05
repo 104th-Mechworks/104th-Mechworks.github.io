@@ -9,7 +9,7 @@ import Image from "next/image"
 type RankItemProps = Rank & {
   additionalInfo?: {
     responsibilities?: string[]
-    qualifications?: string[]
+    positions?: string[]
     notableMembers?: string[]
     reportingTo?: string
   }
@@ -22,7 +22,7 @@ export default function RankItem({ rank, code, description, additionalInfo, insi
   // Category badge colors
   const categoryColors = {
     "fleet-command": "bg-red-700 text-white",
-    "command-staff": "bg-yellow-600 text-black",
+    "command-staff": "bg-yellow-600 text-white",
     "high-officer": "bg-red-900 text-white",
     officer: "bg-blue-700 text-white",
     nco: "bg-green-800 text-white",
@@ -107,14 +107,14 @@ export default function RankItem({ rank, code, description, additionalInfo, insi
               </div>
             )}
 
-            {additionalInfo.qualifications && additionalInfo.qualifications.length > 0 && (
+            {additionalInfo.positions && additionalInfo.positions.length > 0 && (
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-zinc-300 font-mono text-sm">
                   <FileText size={14} className="text-blue-400" />
-                  <span>QUALIFICATIONS</span>
+                  <span>Positions</span>
                 </div>
                 <ul className="space-y-2 pl-5 list-disc text-zinc-400 text-sm">
-                  {additionalInfo.qualifications.map((item, i) => (
+                  {additionalInfo.positions.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>

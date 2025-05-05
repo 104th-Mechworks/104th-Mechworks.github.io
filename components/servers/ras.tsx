@@ -170,9 +170,13 @@ export default function RASServer({
                               LEADERSHIP
                             </div>
                             {team.leadership.map((leader, leaderIndex) => (
-                              <div key={leaderIndex} className="font-mono text-zinc-300 flex items-center gap-2">
-                                <span className="text-zinc-500">•</span>
-                                <span className="text-zinc-400">{leader.role}:</span> {leader.name}
+                              <div
+                                key={leaderIndex}
+                                className="font-mono text-zinc-300 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2"
+                              >
+                                <span className="text-zinc-500 hidden sm:inline">•</span>
+                                <span className="text-zinc-400">{leader.role}:</span>
+                                <span>{leader.name}</span>
                               </div>
                             ))}
                           </div>
@@ -186,8 +190,9 @@ export default function RASServer({
                             </div>
 
                             {group.officer && (
-                              <div className="font-mono text-zinc-300 mb-2 flex items-center gap-2">
-                                <span className="text-zinc-400">{group.officer.role}:</span> {group.officer.name}
+                              <div className="font-mono text-zinc-300 mb-2 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                                <span className="text-zinc-400">{group.officer.role}:</span>
+                                <span>{group.officer.name}</span>
                               </div>
                             )}
 
@@ -214,12 +219,16 @@ export default function RASServer({
                             </div>
                             <div className="space-y-1">
                               {team.members.map((member, memberIndex) => (
-                                <div key={memberIndex} className="flex items-center gap-2">
-                                  <span className="text-zinc-500">•</span>
+                                <div
+                                  key={memberIndex}
+                                  className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2"
+                                >
+                                  <span className="text-zinc-500 hidden sm:inline">•</span>
                                   <span className="text-zinc-300 font-mono">
-                                    <span className="text-zinc-400">{member.role}</span> {member.name}
+                                    <span className="text-zinc-400">{member.role}</span>
+                                    <span className="block sm:inline sm:ml-1">{member.name}</span>
                                     {member.clearances && member.clearances.length > 0 && (
-                                      <span className="ml-2 flex-wrap gap-1 inline-flex">
+                                      <span className="mt-1 sm:mt-0 sm:ml-2 flex-wrap gap-1 inline-flex">
                                         {member.clearances.map((clearance, i) => (
                                           <ClearanceBadge key={i} type={clearance} />
                                         ))}
@@ -239,12 +248,13 @@ export default function RASServer({
                         </div>
                         <div className="space-y-1">
                           {team.members.map((member, memberIndex) => (
-                            <div key={memberIndex} className="flex items-center gap-2">
-                              <span className="text-zinc-500">•</span>
+                            <div key={memberIndex} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                              <span className="text-zinc-500 hidden sm:inline">•</span>
                               <span className="text-zinc-300 font-mono">
-                                <span className="text-zinc-400">{member.role}</span> {member.name}
+                                <span className="text-zinc-400">{member.role}</span>
+                                <span className="block sm:inline sm:ml-1">{member.name}</span>
                                 {member.clearances && member.clearances.length > 0 && (
-                                  <span className="ml-2 flex-wrap gap-1 inline-flex">
+                                  <span className="mt-1 sm:mt-0 sm:ml-2 flex-wrap gap-1 inline-flex">
                                     {member.clearances.map((clearance, i) => (
                                       <ClearanceBadge key={i} type={clearance} />
                                     ))}

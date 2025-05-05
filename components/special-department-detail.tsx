@@ -1,21 +1,32 @@
 "use client"
-
+import { motion } from "framer-motion"
 import type { SpecialDepartment } from "@/data/types"
 import ARCDepartmentDetail from "./arc-department-detail"
 import RCDepartmentDetail from "./rc-department-detail"
 
 export default function SpecialDepartmentDetail({
   department,
-  onBack,
+  onBackAction,
 }: {
   department: SpecialDepartment
-  onBack: () => void
+  onBackAction: () => void
 }) {
-  // Determine which component to render based on department ID
-  if (department.id === "rc") {
-    return <RCDepartmentDetail department={department} onBack={onBack} />
-  }
+  // Determine if this is an ARC or RC department based on the color
+  const isARC = department.color === "#f009c9"
 
-  // Default to ARC department detail
-  return <ARCDepartmentDetail department={department} onBack={onBack} />
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="space-y-6"
+    >
+      {isARC ? (
+        <ARCDepartmentDetail department={department} onBackAction={onBackAction} />
+      ) : (
+        <RCDepartmentDetail department={department} onBackAction={onBackAction} />
+      )}
+    </motion.div>
+  )
 }

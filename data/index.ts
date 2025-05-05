@@ -16,6 +16,7 @@ import { branches, specialOps } from "./branches/index"
 import { ranks } from "./ranks/index"
 import { positions } from "./positions/index"
 import { commandStaffMembers } from "./command-staff/index"
+import { classes } from "./classes/index"
 
 export {
   // Types
@@ -37,4 +38,6 @@ export {
   ranks,
   positions,
   commandStaffMembers,
+  classes
 }
+

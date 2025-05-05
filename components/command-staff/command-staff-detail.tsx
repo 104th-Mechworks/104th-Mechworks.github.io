@@ -2,15 +2,15 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Shield, Star, Award } from "lucide-react"
+import { Shield, Award } from "lucide-react"
 import type { CommandStaffMember } from "@/data/types"
 
 export default function CommandStaffDetail({
   member,
-  onBack,
+  onBackAction,
 }: {
   member: CommandStaffMember
-  onBack: () => void
+  onBackAction: () => void
 }) {
   return (
     <motion.div
@@ -22,7 +22,7 @@ export default function CommandStaffDetail({
     >
       <div className="bg-zinc-900 border border-zinc-800 rounded-sm overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div className="relative h-[500px] w-full">
+          <div className="relative h-[500px] w-full flex items-center justify-center">
             <Image
               src={member.imageSrc || "/placeholder.svg"}
               alt={`${member.rank} ${member.name}`}
@@ -67,22 +67,6 @@ export default function CommandStaffDetail({
                 </ul>
               </div>
             )}
-
-            {/* 
-            {member.specializations && (
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <Star size={18} className="text-blue-400" />
-                  <h3 className="text-base font-mono text-zinc-300">SPECIALIZATIONS</h3>
-                </div>
-                <ul className="space-y-2 pl-5 list-disc text-zinc-400 text-sm">
-                  {member.specializations.map((specialization, index) => (
-                    <li key={index}>{specialization}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            */}
 
             {member.commandDuties && (
               <div className="space-y-3">

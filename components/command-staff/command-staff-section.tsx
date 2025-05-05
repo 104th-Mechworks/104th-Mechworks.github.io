@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import type { CommandStaffMember } from "@/data/types"
 import CommandStaffGrid from "./command-staff-grid"
+import Image from "next/image"
 
 export default function CommandStaffSection({
   title,
@@ -38,11 +39,13 @@ export default function CommandStaffSection({
               className="bg-zinc-900 border border-zinc-800 rounded-sm overflow-hidden cursor-pointer"
               onClick={() => onSelectMember(member)}
             >
-              <div className="relative h-64 w-full">
-                <img
+              <div className="relative h-64 w-full flex items-center justify-center">
+                <Image
                   src={member.imageSrc || "/placeholder.svg"}
                   alt={`${member.rank} ${member.name}`}
-                  className="object-cover w-full h-full"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
                 />
               </div>
               <div className="p-4 border-t border-zinc-800">

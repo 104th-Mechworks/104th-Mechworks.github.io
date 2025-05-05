@@ -8,10 +8,10 @@ import TroopDetail from "./troop-detail"
 
 export default function ARCDepartmentDetail({
   department,
-  onBack,
+  onBackAction,
 }: {
   department: SpecialDepartment
-  onBack: () => void
+  onBackAction: () => void
 }) {
   const [selectedTroop, setSelectedTroop] = useState<Troop | null>(null)
 
@@ -37,7 +37,7 @@ export default function ARCDepartmentDetail({
             key="troop-detail"
             troop={selectedTroop}
             departmentColor={department.color}
-            onBack={handleBackToTroops}
+            onBackAction={handleBackToTroops}
           />
         ) : (
           <motion.div
@@ -51,7 +51,10 @@ export default function ARCDepartmentDetail({
           >
             <div className="p-6 space-y-6">
               <div className="flex items-center gap-2">
-                <button onClick={onBack} className="p-1 rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors">
+                <button
+                  onClick={onBackAction}
+                  className="p-1 rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors"
+                >
                   <ArrowLeft size={16} className="text-zinc-400" />
                 </button>
                 <h3 className="text-xl font-bold font-mono text-zinc-200">{department.name}</h3>

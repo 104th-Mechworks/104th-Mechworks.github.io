@@ -1,4 +1,4 @@
-import type { Position } from "../../types"
+import type { Position } from "@/data"
 
 export const arcPositions: Position[] = [
   {
@@ -15,7 +15,7 @@ export const arcPositions: Position[] = [
   {
     title: "Executive Officer",
     code: "AMAJ",
-    description: "2nd in command of the ARC program and specialise in a specific sector",
+    description: "2nd in command of the ARC program and assist the ACDR",
     requirements: ["Classified"],
     responsibilities: [
       "Assist the ARC Commanding Officer",

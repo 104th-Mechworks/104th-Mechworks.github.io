@@ -1,0 +1,114 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import PositionItem from "@/components/position-item"
+import MobileTabSelect from "@/components/mobile-tab-select"
+import { positions } from "@/data"
+import { useState } from "react"
+
+export default function PositionsSection() {
+  const [activePositionTab, setActivePositionTab] = useState("command")
+
+  // Position tab options for the dropdown
+  const positionTabOptions = [
+    { value: "command", label: "COMMAND" },
+    { value: "army", label: "ARMY" },
+    { value: "starfighter", label: "STARFIGHTER CORPS" },
+    { value: "specialForces", label: "SPECIAL FORCES" },
+  ]
+
+  return (
+    <motion.div
+      key="positions"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3 }}
+      className="space-y-8"
+    >
+      <div className="flex items-center justify-center gap-2 mb-8">
+        <div className="h-px w-8 bg-blue-500"></div>
+        <h2 className="text-2xl font-bold text-center text-zinc-200 font-mono">POSITIONS</h2>
+        <div className="h-px w-8 bg-blue-500"></div>
+      </div>
+
+      {/* Mobile dropdown for positions */}
+      <div className="md:hidden mb-4">
+        <MobileTabSelect options={positionTabOptions} value={activePositionTab} onChange={setActivePositionTab} />
+      </div>
+
+      <Tabs value={activePositionTab} onValueChange={setActivePositionTab} className="w-full">
+        <TabsList className="hidden md:grid w-full grid-cols-4 bg-zinc-900 border border-zinc-800">
+          <TabsTrigger value="command" className="font-mono text-xs">
+            COMMAND
+          </TabsTrigger>
+          <TabsTrigger value="army" className="font-mono text-xs">
+            ARMY
+          </TabsTrigger>
+          <TabsTrigger value="starfighter" className="font-mono text-xs">
+            STARFIGHTER CORPS
+          </TabsTrigger>
+          <TabsTrigger value="specialForces" className="font-mono text-xs">
+            SPECIAL FORCES
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="command" className="mt-6">
+          <div className="space-y-4">
+            {positions.command.map((position, index) => (
+              <PositionItem key={index} {...position} />
+            ))}
+          </div>
+        </TabsContent>
+
+        <TabsContent value="army" className="mt-6">
+          <div className="space-y-4">
+            {positions.army.map((position, index) => (
+              <PositionItem key={index} {...position} />
+            ))}
+          </div>
+        </TabsContent>
+
+        <TabsContent value="starfighter" className="mt-6">
+          <div className="space-y-4">
+            {positions.starfighter.map((position, index) => (
+              <PositionItem key={index} {...position} />
+            ))}
+          </div>
+        </TabsContent>
+
+        <TabsContent value="specialForces" className="mt-6">
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            <AccordionItem value="arc" className="border border-zinc-800 rounded-lg overflow-hidden">
+              <AccordionTrigger className="text-base font-mono text-zinc-200 py-3 px-4 bg-zinc-900 hover:bg-zinc-800 accordion-trigger-no-underline">
+                ARC POSITIONS
+              </AccordionTrigger>
+              <AccordionContent className="bg-zinc-900 border-x border-b border-zinc-800">
+                <div className="space-y-4 pt-2 p-4">
+                  {positions.specialForces.arc.map((position, index) => (
+                    <PositionItem key={index} {...position} />
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="rc" className="border border-zinc-800 rounded-lg overflow-hidden">
+              <AccordionTrigger className="text-base font-mono text-zinc-200 py-3 px-4 bg-zinc-900 hover:bg-zinc-800 accordion-trigger-no-underline">
+                RC POSITIONS
+              </AccordionTrigger>
+              <AccordionContent className="bg-zinc-900 border-x border-b border-zinc-800">
+                <div className="space-y-4 pt-2 p-4">
+                  {positions.specialForces.rc.map((position, index) => (
+                    <PositionItem key={index} {...position} />
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </TabsContent>
+      </Tabs>
+    </motion.div>
+  )
+}

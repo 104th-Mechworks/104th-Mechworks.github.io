@@ -26,12 +26,12 @@ export default function CommandStaffGrid({
           className="bg-zinc-900 border border-zinc-800 rounded-sm overflow-hidden cursor-pointer"
           onClick={() => onSelectMember(member)}
         >
-          <div className="relative h-80 w-full">
+          <div className="relative h-80 w-full flex items-center justify-center">
             <Image
               src={member.imageSrc || "/placeholder.svg"}
               alt={`${member.rank} ${member.name}`}
               fill
-              className="object-cover"
+              className="object-contain"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>

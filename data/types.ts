@@ -218,3 +218,17 @@ export type Troop = {
     tco: string
   }
 }
+
+// New type for Classes
+export type TrooperClass = {
+  id: string
+  title: string
+  description: string
+  equipment: string[]
+  imageSrc: string
+}
+
+export type ClassCategory = {
+  name: string
+  classes: TrooperClass[]
+}

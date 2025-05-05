@@ -8,11 +8,10 @@ export const ravagerSpecialDepartments: SpecialDepartment[] = [
     name: "Advanced Recon Commandos (ARC)",
     description: "Elite clone troopers with specialized training in reconnaissance, sabotage, and assassination.",
     color: "#f009c9", // Pink/magenta color for ARC
-    commandingOfficer: 'ACDR Mako"',
+    commandingOfficer: 'ACDR Mako',
     executiveOfficers: [
-      { position: "01", name: 'VACANT' },
-      { position: "02", name: 'AMAJ Jesse' },
-      { position: "03", name: 'AMAJ Vanok' },
+      { name: 'AMAJ Jesse' },
+      { name: 'AMAJ Vanok' },
     ],
     troops: arcTroops,
   },

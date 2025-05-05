@@ -8,10 +8,10 @@ import TroopDetail from "./troop-detail"
 
 export default function RCDepartmentDetail({
   department,
-  onBack,
+  onBackAction,
 }: {
   department: SpecialDepartment
-  onBack: () => void
+  onBackAction: () => void
 }) {
   const [selectedTroop, setSelectedTroop] = useState<Troop | null>(null)
 
@@ -37,7 +37,7 @@ export default function RCDepartmentDetail({
             key="troop-detail"
             troop={selectedTroop}
             departmentColor={department.color}
-            onBack={handleBackToTroops}
+            onBackAction={handleBackToTroops}
           />
         ) : (
           <motion.div
@@ -51,7 +51,10 @@ export default function RCDepartmentDetail({
           >
             <div className="p-6 space-y-6">
               <div className="flex items-center gap-2">
-                <button onClick={onBack} className="p-1 rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors">
+                <button
+                  onClick={onBackAction}
+                  className="p-1 rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors"
+                >
                   <ArrowLeft size={16} className="text-zinc-400" />
                 </button>
                 <h3 className="text-xl font-bold font-mono text-zinc-200">{department.name}</h3>
@@ -62,7 +65,6 @@ export default function RCDepartmentDetail({
                   <span className="text-zinc-400 font-mono">Commanding Officer:</span>
                   <span className="text-zinc-200 font-mono">{department.commandingOfficer}</span>
                 </div>
-                {/* No executive officers for RC department */}
               </div>
 
               <div className="pt-4 border-t border-zinc-800">
@@ -79,7 +81,7 @@ export default function RCDepartmentDetail({
                       <div className="flex justify-between items-center">
                         <h4 className="font-mono text-zinc-200">{troop.name}</h4>
                       </div>
-                      {/* No CO for RC squads */}
+                      <div className="mt-2 text-xs text-zinc-500 font-mono">CO: {troop.leadership.tco}</div>
                     </motion.div>
                   ))}
                 </div>
