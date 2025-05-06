@@ -89,9 +89,9 @@ export type CommandStaffMember = {
   rank: string
   role: string
   imageSrc?: string
-  branch: string
+  branch?: string
   description: string
-  responsibilities: string[]
+  responsibilities?: string[]
   achievements?: string[]
   specializations?: string[]
   commandDuties?: string[]
