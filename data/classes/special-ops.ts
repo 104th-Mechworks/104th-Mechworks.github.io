@@ -2,29 +2,56 @@ import type { ClassCategory } from "../types"
 
 export const specialOpsClasses: ClassCategory[] = [
   {
-    name: "Special Forces",
+    name: "ARC Troopers",
     classes: [
       {
-        id: "arc",
-        title: "ARC Trooper",
+        id: "arc-heavy",
+        title: "ARC Heavy Specialist",
         description:
-          "Advanced Recon Commandos are the best of the best out of the clones on the frontline. A mixture of Officer Training and great combat training these are the deadliest weapons of the 104th battalion, ready to sacrifice everything to help defeat the separatist scum. You will find that ARC Troopers are the most loyal clones in the unit as they don't question or disobey any commands given and will execute any orders that are received  from high command. Trained in sabotaging the enemy these boys will role up with standard infantry showing how things should be done by racking up more kills then anyone. \n \"Why hello clanker!\"",
-        equipment: ["Dual DC-17 Blaster Pistols", "Power Blast", "Helmet Scanner", "Shock Trap"],
-        imageSrc: "/images/classes/arc.png",
+          "ARC Heavy Specialists are elite troopers equipped with advanced weaponry and armor. They provide overwhelming firepower in special operations, capable of engaging multiple targets and breaching fortified positions.",
+        equipment: ["Rotary Blaster Cannon", "Wrist Rocket", "Jetpack", "Reinforced Armor", "Thermal Imploder"],
+        imageSrc: "/images/classes/arc-heavy.png",
       },
       {
-        id: "rc",
-        title: "Republic Commando",
+        id: "arc-recon",
+        title: "ARC Recon",
         description:
-          "Clone Commandos, also known as RepublicCommandos, are an elite class of trooper within the Grand Army of the Republic. Trained in sabotage, demolition, and advanced small unit infantry tactics these clones were deemed perfect by their Kaminoan creators due to their unmatched loyalty and formidable combat capabilities compared to their more common brethren. Unlike ARCs who operate independently and act as battlefield liaisons to military commanders, these troopers operate in four man squads that are expected to carry out their objective(s) in all battlefield conditions without question.\"Let's rearrange some architecture, Commandos!\"",
+          "ARC Recon troopers are stealth specialists trained for infiltration and intelligence gathering. They operate behind enemy lines, providing critical battlefield information and executing precision strikes.",
         equipment: [
-          "DC-17m ICWS",
-          "Katarn-Class Armor",
-          "Anti-Armor Attachment",
-          "Battle Focus Damage Reduction Aura",
-          "Repulsor Blast",
+          "DC-17M Sniper Configuration",
+          "Stealth Field Generator",
+          "Recon Droid",
+          "Thermal Vision",
+          "Vibroblade",
         ],
-        imageSrc: "/images/classes/rc.png",
+        imageSrc: "/images/classes/arc-recon.png",
+      },
+    ],
+  },
+  {
+    name: "Republic Commandos",
+    classes: [
+      {
+        id: "rc-demolitions",
+        title: "RC Demolitions Expert",
+        description:
+          "Republic Commando Demolitions Experts are specialized in breaching, sabotage, and explosive ordnance. They can destroy enemy fortifications, vehicles, and infrastructure with surgical precision.",
+        equipment: [
+          "DC-17M Anti-Armor Configuration",
+          "Thermal Detonators",
+          "Breach Charges",
+          "Katarn Armor",
+          "Anti-Vehicle Mines",
+        ],
+        imageSrc: "/images/classes/rc-demolitions.png",
+      },
+      {
+        id: "rc-tech",
+        title: "RC Tech Specialist",
+        description:
+          "Republic Commando Tech Specialists are experts in electronic warfare, slicing, and technical sabotage. They can hack enemy systems, disable security measures, and provide technical support for complex operations.",
+        equipment: ["DC-17M Blaster Rifle", "Slicing Kit", "EMP Grenades", "Katarn Armor", "Bacta Dispenser"],
+        imageSrc: "/images/classes/rc-tech.png",
       },
     ],
   },

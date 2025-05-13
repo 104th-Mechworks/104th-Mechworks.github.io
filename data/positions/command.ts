@@ -19,7 +19,7 @@ export const commandPositions: Position[] = [
   },
   {
     title: "Fleet Executive",
-    code: "FXO",
+    code: "FC",
     description: "2nd in command of the fleet",
     requirements: ["Rank: SCDR or MSHL", "Previous command experience", "Strategic planning expertise"],
     responsibilities: [

@@ -88,6 +88,14 @@ export default function Header({ activeSection, onNavigate, onLogoClick }: Heade
             >
               COMMAND STAFF
             </button>
+            <button
+              onClick={() => handleMobileNavigation("rules")}
+              className={`text-sm font-mono transition-colors ${
+                activeSection === "rules" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
+              }`}
+            >
+              RULES
+            </button>
           </nav>
 
           {/* Mobile menu button */}
@@ -177,6 +185,16 @@ export default function Header({ activeSection, onNavigate, onLogoClick }: Heade
                 }`}
               >
                 COMMAND STAFF
+              </button>
+              <button
+                onClick={() => handleMobileNavigation("rules")}
+                className={`text-sm font-mono py-2 px-4 rounded-sm transition-colors ${
+                  activeSection === "rules"
+                    ? "bg-zinc-800 text-blue-400"
+                    : "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200"
+                }`}
+              >
+                RULES
               </button>
             </div>
           </motion.div>

@@ -12,6 +12,7 @@ import PositionsSection from "@/components/sections/positions/positions-section"
 import ClassesSection from "@/components/sections/classes/classes-section"
 import ServersSection from "@/components/sections/servers/servers-section"
 import CommandStaffSectionComponent from "@/components/sections/command-staff/command-staff-section"
+import RulesSection from "@/components/sections/rules/rules-section"
 import { getIconComponent } from "@/components/utils/icon-helper"
 
 export default function Home() {
@@ -76,6 +77,8 @@ export default function Home() {
           {activeSection === "command-staff" && (
             <CommandStaffSectionComponent getBreadcrumbItems={getBreadcrumbItems} />
           )}
+
+          {activeSection === "rules" && <RulesSection />}
         </AnimatePresence>
       </main>
 

@@ -8,7 +8,7 @@ export const fleetCommandMembers: CommandStaffMember[] = [
     rank: "MCDR",
     role: "Fleet Commanding Officer",
     imageSrc:
-      "/images/command_renders/DarkRender.png",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DarkRender-removebg-preview-ESqZrVhJUJ0UIpevo73WASwywfh4i0.png",
     description:
       "Marshal Commander Dark leads the 104th Battalion with distinction, overseeing all operations across the fleet and guides the direction of the milsim.",
     achievements: [
@@ -30,7 +30,7 @@ export const fleetCommandMembers: CommandStaffMember[] = [
     rank: "SCDR",
     role: "Fleet Executive Officer",
     imageSrc:
-      "/images/command_renders/WarpathRender.png",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WarpathRender-removebg-preview-UwmfEWY697UWsii6Btm0yXnf6dbhuy.png",
     description:
       "Senior Commander Warpath serves as the right hand of Marshal Commander Dark, bringing tactical expertise and battlefield experience to the fleet command. Known for his decisive leadership and unwavering resolve.",
     achievements: [
@@ -52,7 +52,7 @@ export const fleetCommandMembers: CommandStaffMember[] = [
     rank: "MSHL",
     role: "Air Marshal",
     imageSrc:
-      "/images/command_renders/RainRender.png",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/RainRender-removebg-preview-VQEcB3z6JTrjEA7pCrz0FFUqoUtjAT.png",
     description:
       "Air Marshal Rain commands the starfighter operations of the 104th Battalion with exceptional skill and foresight. His expertise in aerial combat tactics has proven decisive in numerous engagements against Separatist forces.",
     achievements: [
@@ -78,7 +78,7 @@ export const branchCommandMembers: CommandStaffMember[] = [
     rank: "BCDR",
     role: "Army Commanding Officer",
     imageSrc:
-      "/images/command_renders/ShatterstormRender.png",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ShatterstormRender-removebg-preview-7Y8SV8OZK98Xy8XkEAGJ5YQVMsZn2f.png",
     description:
       "Battalion Commander Shatterstorm leads the Army branch of the 104th with tactical precision and unwavering determination. His leadership has been instrumental in countless ground operations against Separatist forces.",
     achievements: [
@@ -100,7 +100,7 @@ export const branchCommandMembers: CommandStaffMember[] = [
     rank: "COM",
     role: "Starfighter Corps Commander",
     imageSrc:
-      "/images/command_renders/SnipsRender.png",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SnipsRender-removebg-preview-v1jdSBmNhfC6ctSlC6dn7lxcstCE1y.png",
     description:
       "Commodore Snips commands the Starfighter Corps with exceptional skill and innovative tactics. Under his leadership, the 104th's pilots have become renowned throughout the Republic for their precision and effectiveness.",
     achievements: [
@@ -131,7 +131,7 @@ export const specialForcesCommandMembers: CommandStaffMember[] = [
     rank: "CDR",
     role: "Head of Special Forces",
     imageSrc:
-      "/images/command_renders/FoxRender.png",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FoxRender-removebg-preview-09OELYAQIv9FWZKO1LCEFYilIpz9Rv.png",
     description:
       "Commander Fox leads the Special Forces division with precision and expertise. His strategic mind and tactical prowess have made the 104th's special operations units among the most effective in the Republic military.",
     achievements: [
@@ -153,7 +153,7 @@ export const specialForcesCommandMembers: CommandStaffMember[] = [
     rank: "ACDR",
     role: "Head of ARC Program",
     imageSrc:
-      "/images/command_renders/MakoRender.png",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MakoRender-removebg-preview-EOFDv8qyGOjVXe50LNaYKFCWdT6sHu.png",
     description:
       "ARC Commander Mako oversees the elite Advanced Recon Commando program with uncompromising standards and exceptional leadership. His training methods have produced some of the most capable special forces operatives in the Republic.",
     achievements: [
@@ -178,7 +178,7 @@ export const specialForcesExecutiveMembers: CommandStaffMember[] = [
     name: "Vanok",
     rank: "AMAJ",
     role: "Special Forces Executive Officer - 03 Sector",
-    imageSrc: "/images/command_renders/VanokRender.png",
+    imageSrc: "/placeholder.svg?key=ock0a",
     description:
       "ARC Major Vanok serves as the Special Forces Executive Officer for 03 Sector, coordinating covert operations and specialized training. His expertise in infiltration tactics has been crucial for numerous successful missions behind enemy lines.",
     achievements: [
@@ -199,7 +199,7 @@ export const specialForcesExecutiveMembers: CommandStaffMember[] = [
     name: "Jesse",
     rank: "AMAJ",
     role: "Special Forces Executive Officer - 02 Sector",
-    imageSrc: "/images/command_renders/JesseRender.png",
+    imageSrc: "/placeholder.svg?key=sqctd",
     description:
       "ARC Major Jesse oversees Special Forces operations in 02 Sector with exceptional tactical acumen. His leadership in high-risk missions has earned him a reputation as one of the most reliable officers in the 104th's special operations division.",
     achievements: [
@@ -281,7 +281,7 @@ export const sectorCommandMembers: CommandStaffMember[] = [
     name: "Feedback",
     rank: "CDR",
     role: "01 Sector Army Commander",
-    imageSrc: "/images/command_renders/FeedbackRender.png",
+    imageSrc: "/placeholder.svg?key=jo773",
     description:
       "Commander Feedback leads the 01 Sector of the Army with methodical precision and tactical insight. His analytical approach to battlefield situations has saved countless lives and secured numerous victories.",
     achievements: [
@@ -303,7 +303,7 @@ export const sectorCommandMembers: CommandStaffMember[] = [
     rank: "CDR",
     role: "02 Army Sector Commander",
     imageSrc:
-      "/images/command_renders/DerangedRender.png",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DerangedRender-removebg-preview-HDdD7f1MhXZUwXOBBn9IZWyi2wt3IJ.png",
     description:
       "Commander Deranged leads the 02 Sector of the Army with bold initiative and calculated aggression. His unconventional tactics have repeatedly caught Separatist forces off guard, leading to significant Republic victories.",
     achievements: [
