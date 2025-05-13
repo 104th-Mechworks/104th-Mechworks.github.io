@@ -6,7 +6,7 @@ import reportingPolicies from "./reporting"
 import activityPolicies from "./activity"
 import medbayPolicies from "./medbay"
 import banAppealsPolicies from "./ban-appeals"
-import strikesPolicies from "./strikes"
+import disciplinaryPolicies from "./disciplinary"
 
 // Combine all policies
 export const allPolicies: Rule[] = [
@@ -17,7 +17,7 @@ export const allPolicies: Rule[] = [
   ...activityPolicies,
   ...medbayPolicies,
   ...banAppealsPolicies,
-  ...strikesPolicies,
+  ...disciplinaryPolicies,
 ]
 
 // Export policies by category
@@ -29,5 +29,5 @@ export const policiesByCategory = {
   activity: activityPolicies,
   medbay: medbayPolicies,
   "ban-appeals": banAppealsPolicies,
-  strikes: strikesPolicies,
+  disciplinary: disciplinaryPolicies,
 }

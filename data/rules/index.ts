@@ -20,7 +20,7 @@ export interface Rule {
     | "activity"
     | "medbay"
     | "ban-appeals"
-    | "strikes"
+    | "disciplinary"
     | "milsim"
   type: "rule" | "policy"
   importance: "critical" | "high" | "standard" | "staff-only"
@@ -53,7 +53,7 @@ export const categoryNames = {
   activity: "Activity",
   medbay: "Medbay",
   "ban-appeals": "Ban Appeals",
-  strikes: "Strikes",
+  disciplinary: "Disciplinary",
 }
 
 import discordRules from "./discord"

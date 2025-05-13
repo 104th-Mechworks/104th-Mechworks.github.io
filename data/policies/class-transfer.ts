@@ -12,22 +12,20 @@ const classTransferPolicies: Rule[] = [
     sections: [
       {
         id: "transfer-process-1",
-        title: "Eligibility Requirements",
+        title: "Rank-Based Request Procedures",
         content: [
-          "Minimum 30 days in current class before transfer request.",
-          "Good standing with no active disciplinary actions.",
-          "Completion of all basic training for current class.",
-          "Maximum of two class transfers per six-month period.",
+          "Below the rank of Lieutenant: Direct superior in Platoon, Company or Wing to elevate the request.",
+          "Lieutenant or above: Submit your request in Request and Report bay - Class Transfer Log.",
+          "All transfers must be approved by the appropriate authority before taking effect.",
         ],
       },
       {
         id: "transfer-process-2",
-        title: "Application Procedure",
+        title: "Qualification Requirements",
         content: [
-          "Submit transfer request form to your direct commanding officer.",
-          "Include justification for requested transfer.",
-          "Complete any required assessments for the new class.",
-          "Await official approval before changing equipment or duties.",
+          "Qualifications must be retained for a minimum of 4 months, if this time has not elapsed the transfer request is automatically rejected.",
+          "If transferring to a base class incompatible with current qualifications, you must notify the relevant sector cadres for the affected qualifications.",
+          "Failure to notify relevant cadres may result in disciplinary action.",
         ],
       },
     ],
@@ -42,22 +40,12 @@ const classTransferPolicies: Rule[] = [
     sections: [
       {
         id: "transfer-restrictions-1",
-        title: "Restricted Transfers",
+        title: "Time and Effect Restrictions",
         content: [
-          "Specialized classes may have additional requirements or waiting periods.",
-          "Some classes require commander recommendation for transfer.",
-          "Transfers may be temporarily suspended during major operations.",
-          "Failed transfer assessments require 14-day waiting period before reapplication.",
-        ],
-      },
-      {
-        id: "transfer-restrictions-2",
-        title: "Rank Considerations",
-        content: [
-          "Officers above certain ranks may have limited transfer options.",
-          "Rank may be affected by transfers to certain specialized classes.",
-          "Some transfers may require temporary rank reduction during transition period.",
-          "Leadership positions may need reassignment after class transfers.",
+          "You may only change class once every 6 months.",
+          "Effects are immediate once processed and irreversible.",
+          "Qualifications lost by transfer will have to be re-earned.",
+          "Transfers to specialized classes may have additional requirements or waiting periods.",
         ],
       },
     ],

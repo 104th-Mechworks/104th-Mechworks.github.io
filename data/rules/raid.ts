@@ -132,7 +132,7 @@ const raidRules: Rule[] = [
         id: "raid-appearances-2",
         title: "Officer Skins",
         content: [
-
+          
           "Shiny Officer Skin: Medics.",
           "P2 104th Officer Skin: SGT+",
           "P1 104th Officer Skin: SGT+, who are ARFs.",

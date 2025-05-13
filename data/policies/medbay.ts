@@ -1,67 +1,47 @@
-import type { Rule } from "../rules"
+import type { Rule } from "../rules";
 
 // Medbay Policy
 const medbayPolicies: Rule[] = [
   {
     id: "medical-services",
-    title: "Medical Services Access",
-    description: "Procedures for accessing battalion medical services.",
+    title: "Leave Types and Requirements",
+    description: "Procedures for requesting and managing leave from battalion duties.",
     importance: "standard",
     category: "medbay",
     type: "policy",
     sections: [
       {
-        id: "medical-services-1",
-        title: "Routine Services",
+        id: "leave-types",
+        title: "Types of Leave",
         content: [
-          "Schedule routine check-ups through the medical portal.",
-          "Present identification at all medical appointments.",
-          "Follow all pre-appointment instructions precisely.",
-          "Arrive 15 minutes before scheduled appointment time.",
+          "Only necessary for staff and active CTs (in a Platoon, Company or Wing).",
+          "Not Fit For Combat (NFFC): Raid requirements are not enforced, all discord responsibilities are still expected to be met.",
+          "Leave of Absence (LOA): All raid requirements and discord responsibilities are suspended.",
+          "Missing In Action (MIA): Become inactive whilst in an active Platoon, Company or Wing.",
         ],
       },
       {
-        id: "medical-services-2",
-        title: "Emergency Services",
+        id: "leave-duration",
+        title: "Leave Duration Guidelines",
         content: [
-          "Use emergency channel for immediate medical assistance.",
-          "Report all injuries sustained during operations, even minor ones.",
-          "Follow triage protocols during mass casualty situations.",
-          "Provide accurate information to medical personnel.",
+          "0-5 days: Request not needed.",
+          "5-9 days: Automatic approval.",
+          "10-30 days: Require review and approval by Chain of Command.",
+          "30-90 days: Require approval by console Commander.",
+          "90+ days: Not allowed. SGM+ may transfer to Naval Auxiliary.",
+        ],
+      },
+      {
+        id: "staff-additions",
+        title: "Process",
+        content: [
+          "Staff and active CTs (in a Platoon, Company or Wing) must fill out the medbay log in the relevant area.",
+          "Staff must also log their LOA/NFFC in the main server vacation base.",
+          "KSF must also log their LOA/NFFC in hangar bay in the KMC.",
         ],
       },
     ],
   },
-  {
-    id: "medical-clearance",
-    title: "Medical Clearance Policy",
-    description: "Requirements for medical clearance for duties and operations.",
-    importance: "high",
-    category: "medbay",
-    type: "policy",
-    sections: [
-      {
-        id: "medical-clearance-1",
-        title: "Operational Clearance",
-        content: [
-          "Complete medical evaluation before returning to duty after injury.",
-          "Obtain clearance for specialized operations with unique physical demands.",
-          "Update medical records after any significant health changes.",
-          "Disclose all relevant medical conditions that may affect performance.",
-        ],
-      },
-      {
-        id: "medical-clearance-2",
-        title: "Fitness Standards",
-        content: [
-          "Maintain minimum fitness standards for your role and unit.",
-          "Complete fitness assessments as scheduled by medical department.",
-          "Follow prescribed rehabilitation programs completely.",
-          "Request modified duty assignment for temporary medical limitations.",
-        ],
-      },
-    ],
-  },
-]
+];
 
-export default medbayPolicies
+export default medbayPolicies;

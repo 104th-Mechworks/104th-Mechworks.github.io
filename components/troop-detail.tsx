@@ -1,161 +1,149 @@
-"use client"
-
-import { motion } from "framer-motion"
-import { ArrowLeft } from "lucide-react"
 import Image from "next/image"
 import type { Troop } from "@/data/types"
 
 export default function TroopDetail({
   troop,
   departmentColor,
-  onBackAction,
 }: {
   troop: Troop
   departmentColor: string
-  onBackAction: () => void
 }) {
-  // Determine if this is an ARC troop or RC squad based on the department color
-  const isARC = departmentColor === "#f009c9"
-
-  // Get the appropriate class icon based on department type
-  const classIcon = isARC ? "/images/icons/arcClass.png" : "/images/icons/commandoClass.png"
-  const classAlt = isARC ? "ARC Class" : "Commando Class"
-
-  // Helper function to get platform badge color
-  const getPlatformBadgeColor = (platform: string) => {
-    switch (platform.toLowerCase()) {
+  // Function to determine badge style based on platform
+  const getPlatformBadgeStyle = (platform: string) => {
+    switch (platform?.toLowerCase()) {
       case "xbox":
-        return "bg-green-500"
+        return "bg-green-900/20 text-green-400/70"
       case "playstation":
-        return "bg-blue-500"
-      case "pc":
-        return "bg-red-500"
+        return "bg-blue-900/20 text-blue-400/70"
       default:
-        return "bg-gray-500"
+        return "bg-red-900/20 text-red-400/70"
     }
   }
 
+  // Ensure platform has a default value
+  const platform = troop.platform || "Unknown"
+
+  // Determine which class icon to use and if this is an ARC or RC troop
+  const isArc = departmentColor === "#f009c9"
+  const classIcon = isArc ? "/images/icons/ArcClass.png" : "/images/icons/CommandoClass.png"
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      className="bg-zinc-900 border rounded-sm overflow-hidden"
-      style={{ borderColor: departmentColor }}
-    >
-      <div className="p-6 space-y-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <button onClick={onBackAction} className="p-1 rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors">
-              <ArrowLeft size={16} className="text-zinc-400" />
-            </button>
-            <h3 className="text-xl font-bold font-mono text-zinc-200">{troop.name}</h3>
-          </div>
-
-          {/* Class icon in top right */}
-          <div className="relative h-10 w-10">
-            <Image
-              src={classIcon || "/placeholder.svg"}
-              alt={classAlt}
-              width={40}
-              height={40}
-              className="object-contain"
-            />
-          </div>
+    <div className={`bg-zinc-900 border rounded-sm p-6 relative`} style={{ borderColor: departmentColor }}>
+      <div className="flex justify-between items-center mb-6">
+        <div className="flex items-center gap-3">
+          <h2 className="text-xl font-bold font-mono text-zinc-200">{troop.name}</h2>
+          <div className={`px-2 py-1 rounded-md text-xs font-bold ${getPlatformBadgeStyle(platform)}`}>{platform}</div>
         </div>
 
-        <div className="space-y-4">
-          <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2 text-sm">
-            <span className="text-zinc-400 font-mono">Commanding Officer:</span>
-            <span className="text-zinc-200 font-mono">{troop.commandingOfficer || troop.leadership?.tco || "N/A"}</span>
-          </div>
-
-          {/* Specialization if available */}
-          {troop.specialization && (
-            <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2 text-sm">
-              <span className="text-zinc-400 font-mono">Specialization:</span>
-              <span className="text-zinc-200 font-mono">{troop.specialization}</span>
-            </div>
-          )}
+        {/* Class icon in top right */}
+        <div className="relative h-10 w-10">
+          <Image
+            src={classIcon || "/placeholder.svg"}
+            alt={isArc ? "ARC Class" : "Commando Class"}
+            width={40}
+            height={40}
+            className="object-contain"
+          />
         </div>
+      </div>
 
-        {/* ARC Troop Personnel */}
-        {isARC && (
-          <div className="pt-4 border-t border-zinc-800">
-            <div className="text-sm text-zinc-400 font-mono mb-4">LIEUTENANTS:</div>
-            <div className="space-y-2">
-              {/* Check both possible locations for lieutenants data */}
-              {(troop.lieutenants || troop.personnel?.lieutenants || []).map((lieutenant: any, index: number) => (
-                <div key={index} className="flex items-center justify-between bg-zinc-800 p-3 rounded-sm">
-                  <div className="font-mono text-zinc-200">{lieutenant.name}</div>
-                  {lieutenant.platform && (
-                    <div
-                      className={`text-xs font-mono text-white px-2 py-1 rounded-sm ${getPlatformBadgeColor(lieutenant.platform)}`}
-                    >
-                      {lieutenant.platform.toUpperCase()}
-                    </div>
+      <div className="space-y-6">
+        {/* ARC Structure */}
+        {isArc && (
+          <>
+            {/* Check for different possible property paths */}
+            {(troop.commandingOfficer || (troop.leadership && troop.leadership.tco)) && (
+              <div className="flex flex-col gap-1">
+                <span className="text-zinc-400 font-mono text-sm">Troop Commanding Officer:</span>
+                <span className="text-zinc-200 font-mono">
+                  {troop.commandingOfficer || (troop.leadership && troop.leadership.tco)}
+                </span>
+              </div>
+            )}
+
+            {/* Check for lieutenants in different possible locations */}
+            {((troop.lieutenants && troop.lieutenants.length > 0) ||
+              (troop.personnel && troop.personnel.lieutenants && troop.personnel.lieutenants.length > 0)) && (
+              <div className="space-y-2">
+                <h3 className="text-base font-bold font-mono" style={{ color: departmentColor }}>
+                  ARC Lieutenant
+                  {(troop.lieutenants && troop.lieutenants.length > 1) ||
+                  (troop.personnel && troop.personnel.lieutenants && troop.personnel.lieutenants.length > 1)
+                    ? "s"
+                    : ""}
+                  :
+                </h3>
+                <div className="space-y-1">
+                  {(troop.lieutenants || (troop.personnel && troop.personnel.lieutenants) || []).map(
+                    (lieutenant, index) => (
+                      <div key={index} className="text-zinc-200 font-mono">
+                        {lieutenant}
+                      </div>
+                    ),
                   )}
                 </div>
-              ))}
-            </div>
+              </div>
+            )}
 
-            <div className="text-sm text-zinc-400 font-mono mt-6 mb-4">SERGEANTS:</div>
-            <div className="space-y-2">
-              {/* Check both possible locations for sergeants data */}
-              {(troop.sergeants || troop.personnel?.sergeants || []).map((sergeant: any, index: number) => (
-                <div key={index} className="flex items-center justify-between bg-zinc-800 p-3 rounded-sm">
-                  <div className="font-mono text-zinc-200">{sergeant.name}</div>
-                  {sergeant.platform && (
-                    <div
-                      className={`text-xs font-mono text-white px-2 py-1 rounded-sm ${getPlatformBadgeColor(sergeant.platform)}`}
-                    >
-                      {sergeant.platform.toUpperCase()}
+            {/* Check for sergeants in different possible locations */}
+            {((troop.sergeants && troop.sergeants.length > 0) ||
+              (troop.personnel && troop.personnel.sergeants && troop.personnel.sergeants.length > 0)) && (
+              <div className="space-y-2">
+                <h3 className="text-base font-bold font-mono" style={{ color: departmentColor }}>
+                  ARC Sergeant
+                  {(troop.sergeants && troop.sergeants.length > 1) ||
+                  (troop.personnel && troop.personnel.sergeants && troop.personnel.sergeants.length > 1)
+                    ? "s"
+                    : ""}
+                  :
+                </h3>
+                <div className="space-y-1">
+                  {(troop.sergeants || (troop.personnel && troop.personnel.sergeants) || []).map((sergeant, index) => (
+                    <div key={index} className="text-zinc-200 font-mono">
+                      {sergeant}
                     </div>
-                  )}
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
+            )}
+          </>
         )}
 
-        {/* RC Squad Personnel */}
-        {!isARC && (
-          <div className="pt-4 border-t border-zinc-800">
-            <div className="text-sm text-zinc-400 font-mono mb-4">SQUAD LEADERS:</div>
-            <div className="space-y-2">
-              {(troop.squadLeaders || []).map((leader: any, index: number) => (
-                <div key={index} className="flex items-center justify-between bg-zinc-800 p-3 rounded-sm">
-                  <div className="font-mono text-zinc-200">{leader.name}</div>
-                  {leader.platform && (
-                    <div
-                      className={`text-xs font-mono text-white px-2 py-1 rounded-sm ${getPlatformBadgeColor(leader.platform)}`}
-                    >
-                      {leader.platform.toUpperCase()}
+        {/* RC Structure */}
+        {!isArc && (
+          <>
+            {troop.squadLeaders && troop.squadLeaders.length > 0 && (
+              <div className="space-y-2">
+                <h3 className="text-base font-bold font-mono" style={{ color: departmentColor }}>
+                  Squad Leader{troop.squadLeaders.length > 1 ? "s" : ""}:
+                </h3>
+                <div className="space-y-1">
+                  {troop.squadLeaders.map((leader, index) => (
+                    <div key={index} className="text-zinc-200 font-mono">
+                      {leader}
                     </div>
-                  )}
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            )}
 
-            <div className="text-sm text-zinc-400 font-mono mt-6 mb-4">SQUAD MEMBERS:</div>
-            <div className="space-y-2">
-              {(troop.members || []).map((member: any, index: number) => (
-                <div key={index} className="flex items-center justify-between bg-zinc-800 p-3 rounded-sm">
-                  <div className="font-mono text-zinc-200">{member.name}</div>
-                  {member.platform && (
-                    <div
-                      className={`text-xs font-mono text-white px-2 py-1 rounded-sm ${getPlatformBadgeColor(member.platform)}`}
-                    >
-                      {member.platform.toUpperCase()}
+            {troop.members && troop.members.length > 0 && (
+              <div className="space-y-2">
+                <h3 className="text-base font-bold font-mono" style={{ color: departmentColor }}>
+                  Squad Members:
+                </h3>
+                <div className="space-y-1">
+                  {troop.members.map((member, index) => (
+                    <div key={index} className="text-zinc-200 font-mono">
+                      {member}
                     </div>
-                  )}
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
+            )}
+          </>
         )}
       </div>
-    </motion.div>
+    </div>
   )
 }

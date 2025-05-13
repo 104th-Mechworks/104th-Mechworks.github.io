@@ -2,29 +2,9 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import {
-  ChevronDown,
-  AlertTriangle,
-  Shield,
-  BookOpen,
-  Users,
-  FileText,
-  MessageSquare,
-  UserCheck,
-  Award,
-  Briefcase,
-  HardHatIcon as Helmet,
-  FileWarning,
-  Clock,
-  Heart,
-  Ban,
-  Flag,
-  Info,
-  CheckCircle,
-  AlertCircle,
-  Lock,
-} from "lucide-react"
+import { ChevronDown, AlertTriangle, Shield, Users, CheckCircle, AlertCircle, Lock } from "lucide-react"
 import { rulesPoliciesByCategory, rulesByType, categoryNames } from "@/data/rules-and-policies"
+import MobileTabSelect from "@/components/mobile-tab-select"
 
 export default function RulesSection() {
   const [activeType, setActiveType] = useState<"rule" | "policy">("rule")
@@ -51,50 +31,6 @@ export default function RulesSection() {
     setExpandedRule(expandedRule === ruleId ? null : ruleId)
   }
 
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      // Rules
-      case "raid":
-        return <Shield className="h-5 w-5" />
-      case "discord":
-        return <MessageSquare className="h-5 w-5" />
-      case "discord-content":
-        return <FileText className="h-5 w-5" />
-      case "maturity":
-        return <UserCheck className="h-5 w-5" />
-      case "staff-rules":
-        return <Users className="h-5 w-5" />
-      case "qualifications":
-        return <Award className="h-5 w-5" />
-      case "kmc":
-        return <Briefcase className="h-5 w-5" />
-      case "staff":
-        return <Users className="h-5 w-5" />
-      case "milsim":
-        return <Shield className="h-5 w-5" />
-
-      // Policies
-      case "class-transfer":
-        return <Users className="h-5 w-5" />
-      case "qual-dropping":
-        return <Award className="h-5 w-5" />
-      case "helmets":
-        return <Helmet className="h-5 w-5" />
-      case "reporting":
-        return <FileWarning className="h-5 w-5" />
-      case "activity":
-        return <Clock className="h-5 w-5" />
-      case "medbay":
-        return <Heart className="h-5 w-5" />
-      case "ban-appeals":
-        return <Ban className="h-5 w-5" />
-      case "strikes":
-        return <Flag className="h-5 w-5" />
-      default:
-        return <BookOpen className="h-5 w-5" />
-    }
-  }
-
   const getImportanceColor = (importance: string) => {
     switch (importance) {
       case "critical":
@@ -118,18 +54,14 @@ export default function RulesSection() {
           return (
             <div className="flex items-center space-x-2 mb-4 p-2 bg-red-950/20 border border-red-900/30 rounded">
               <AlertTriangle className="h-4 w-4 text-red-500" />
-              <span className="text-red-400 text-sm">
-                Critical rule - violations may result in severe disciplinary action
-              </span>
+              <span className="text-red-400 text-sm">Violations may result in severe disciplinary action</span>
             </div>
           )
         case "high":
           return (
             <div className="flex items-center space-x-2 mb-4 p-2 bg-amber-950/20 border border-amber-900/30 rounded">
               <AlertTriangle className="h-4 w-4 text-amber-500" />
-              <span className="text-amber-400 text-sm">
-                High priority rule - violations will result in disciplinary action
-              </span>
+              <span className="text-amber-400 text-sm">Violations will result in disciplinary action</span>
             </div>
           )
         case "standard":
@@ -146,7 +78,7 @@ export default function RulesSection() {
             <div className="flex items-center space-x-2 mb-4 p-2 bg-purple-950/20 border border-purple-900/30 rounded">
               <Users className="h-4 w-4 text-purple-500" />
               <span className="text-purple-400 text-sm">
-                Staff only - these rules apply exclusively to battalion staff members
+                Staff only - these rules apply exclusively to staff members
               </span>
             </div>
           )
@@ -160,17 +92,15 @@ export default function RulesSection() {
           return (
             <div className="flex items-center space-x-2 mb-4 p-2 bg-red-950/20 border border-red-900/30 rounded">
               <AlertCircle className="h-4 w-4 text-red-500" />
-              <span className="text-red-400 text-sm">
-                Mandatory policy - strict adherence required for all battalion operations
-              </span>
+              <span className="text-red-400 text-sm">Mandatory policy - strict adherence required</span>
             </div>
           )
         case "high":
           return (
             <div className="flex items-center space-x-2 mb-4 p-2 bg-amber-950/20 border border-amber-900/30 rounded">
-              <Info className="h-4 w-4 text-amber-500" />
+              <AlertCircle className="h-4 w-4 text-amber-500" />
               <span className="text-amber-400 text-sm">
-                Important policy - failure to follow may impact battalion effectiveness
+                Important policy - failure to follow may result in disciplinary action
               </span>
             </div>
           )
@@ -178,18 +108,14 @@ export default function RulesSection() {
           return (
             <div className="flex items-center space-x-2 mb-4 p-2 bg-blue-950/20 border border-blue-900/30 rounded">
               <CheckCircle className="h-4 w-4 text-blue-500" />
-              <span className="text-blue-400 text-sm">
-                Standard procedure - established for consistent battalion operations
-              </span>
+              <span className="text-blue-400 text-sm">Standard procedure</span>
             </div>
           )
         case "staff-only":
           return (
             <div className="flex items-center space-x-2 mb-4 p-2 bg-purple-950/20 border border-purple-900/30 rounded">
               <Lock className="h-4 w-4 text-purple-500" />
-              <span className="text-purple-400 text-sm">
-                Staff procedure - administrative policy for battalion leadership
-              </span>
+              <span className="text-purple-400 text-sm">Staff procedure - administrative policy for staff</span>
             </div>
           )
         default:
@@ -209,6 +135,12 @@ export default function RulesSection() {
   const categoriesForType = Object.keys(rulesPoliciesByCategory).filter((category) =>
     rulesPoliciesByCategory[category as keyof typeof rulesPoliciesByCategory].some((rule) => rule.type === activeType),
   )
+
+  // Create options for dropdown
+  const categoryOptions = categoriesForType.map((category) => ({
+    value: category,
+    label: categoryNames[category as keyof typeof categoryNames],
+  }))
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-6">
@@ -241,30 +173,18 @@ export default function RulesSection() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-        {/* Category sidebar */}
-        <div className="md:col-span-1 bg-zinc-900 rounded-md p-4 h-fit">
-          <h3 className="text-zinc-300 font-mono text-sm mb-3 border-b border-zinc-800 pb-2">CATEGORIES</h3>
-          <div className="space-y-1">
-            {categoriesForType.map((category) => (
-              <button
-                key={category}
-                onClick={() => handleCategoryChange(category)}
-                className={`w-full text-left px-3 py-2 rounded flex items-center space-x-2 transition-colors ${
-                  activeCategory === category
-                    ? "bg-zinc-800 text-blue-400"
-                    : "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-300"
-                }`}
-              >
-                <span>{getCategoryIcon(category)}</span>
-                <span className="text-sm font-mono">{categoryNames[category as keyof typeof categoryNames]}</span>
-              </button>
-            ))}
-          </div>
+      <div className="space-y-4">
+        {/* Category dropdown */}
+        <div className="w-full mb-4">
+          <MobileTabSelect
+            options={categoryOptions}
+            value={activeCategory || ""}
+            onChange={(value) => handleCategoryChange(value)}
+          />
         </div>
 
         {/* Rules list */}
-        <div className="md:col-span-4 bg-zinc-900 rounded-md p-4">
+        <div className="bg-zinc-900 rounded-md p-4">
           <h3 className="text-zinc-300 font-mono text-sm mb-3 border-b border-zinc-800 pb-2">
             {activeCategory
               ? categoryNames[activeCategory as keyof typeof categoryNames]

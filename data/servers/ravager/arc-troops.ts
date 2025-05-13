@@ -18,11 +18,11 @@ export const arcTroops = [
     description: "Specialized in infiltration and intelligence gathering",
     platform: "PlayStation",
     leadership: {
-      tco: "ACPT Razor",
+      tco: "ACPT Miloz",
     },
     personnel: {
-      lieutenants: ["ALT Stealth", "ALT Hunter"],
-      sergeants: ["ASGT Ghost", "ASGT Wraith", "ASGT Specter"],
+      lieutenants: ["ALT Garmr", "ALT Narox"],
+      sergeants: ["ASGT Simuna "],
     },
   },
   {
@@ -31,11 +31,11 @@ export const arcTroops = [
     description: "Specialized in heavy assault and demolition operations",
     platform: "PC",
     leadership: {
-      tco: "ACPT Thunder",
+      tco: "ACPT Axie",
     },
     personnel: {
-      lieutenants: ["ALT Storm", "ALT Bolt"],
-      sergeants: ["ASGT Hammer", "ASGT Anvil", "ASGT Forge"],
+      lieutenants: ["ALT Pvp", "ALT Sirve"],
+      sergeants: ["ASGT Krei", "ASGT Dalen"],
     },
   },
 ]
