@@ -232,3 +232,18 @@ export type ClassCategory = {
   name: string
   classes: TrooperClass[]
 }
+
+// New types for Medals
+export type Medal = {
+  id: string
+  name: string
+  description: string
+  imageSrc: string
+  requirements: string[]
+  category: MedalCategory
+  rarity: "common" | "uncommon" | "rare" | "legendary" | "mythic"
+  issuedBy?: string
+  dateIntroduced?: string
+}
+
+export type MedalCategory = "service" | "achievement" | "operation" | "longevity" | "class"

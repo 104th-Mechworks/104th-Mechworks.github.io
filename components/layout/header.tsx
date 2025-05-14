@@ -73,6 +73,14 @@ export default function Header({ activeSection, onNavigate, onLogoClick }: Heade
               CLASSES
             </button>
             <button
+              onClick={() => handleMobileNavigation("medals")}
+              className={`text-sm font-mono transition-colors ${
+                activeSection === "medals" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
+              }`}
+            >
+              MEDALS
+            </button>
+            <button
               onClick={() => handleMobileNavigation("servers")}
               className={`text-sm font-mono transition-colors ${
                 activeSection === "servers" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
@@ -165,6 +173,16 @@ export default function Header({ activeSection, onNavigate, onLogoClick }: Heade
                 }`}
               >
                 CLASSES
+              </button>
+              <button
+                onClick={() => handleMobileNavigation("medals")}
+                className={`text-sm font-mono py-2 px-4 rounded-sm transition-colors ${
+                  activeSection === "medals"
+                    ? "bg-zinc-800 text-blue-400"
+                    : "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200"
+                }`}
+              >
+                MEDALS
               </button>
               <button
                 onClick={() => handleMobileNavigation("servers")}

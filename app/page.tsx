@@ -13,6 +13,7 @@ import ClassesSection from "@/components/sections/classes/classes-section"
 import ServersSection from "@/components/sections/servers/servers-section"
 import CommandStaffSectionComponent from "@/components/sections/command-staff/command-staff-section"
 import RulesSection from "@/components/sections/rules/rules-section"
+import MedalsSection from "@/components/sections/medals/medals-section"
 import { getIconComponent } from "@/components/utils/icon-helper"
 
 export default function Home() {
@@ -71,6 +72,8 @@ export default function Home() {
           {activeSection === "positions" && <PositionsSection />}
 
           {activeSection === "classes" && <ClassesSection />}
+
+          {activeSection === "medals" && <MedalsSection />}
 
           {activeSection === "servers" && <ServersSection getBreadcrumbItems={getBreadcrumbItems} />}
 

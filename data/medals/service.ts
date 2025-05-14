@@ -1,0 +1,52 @@
+import type { Medal } from "../types"
+
+export const serviceMedals: Medal[] = [
+  {
+    id: "chancellors-service",
+    name: "Chancellor's Service Medal",
+    description: "Awarded to members who have been on the staff team or in a platoon since May 3, 2020.",
+    imageSrc: "/images/medals/Chancelor.webp",
+    requirements: ["Must be on the staff team or in a platoon from the roster released on May 3, 2020."],
+    category: "service",
+    rarity: "legendary",
+    dateIntroduced: "2020-05-03",
+  },
+  {
+    id: "104th-honorary",
+    name: "104th Honorary Medal",
+    description: "Awarded to members who were on the staff team or in a platoon between 2019-2022.",
+    imageSrc: "/images/medals/Honor.webp",
+    requirements: ["Must have been on the staff team or in a platoon between 2019-2022."],
+    category: "service",
+    rarity: "rare",
+    dateIntroduced: "2022-01-01",
+  },
+  {
+    id: "medal-of-leadership",
+    name: "Medal of Leadership",
+    description: "Awarded for exceptional leadership qualities and abilities.",
+    imageSrc: "/images/medals/Leadership.webp",
+    requirements: ["Given out by the MCDR for recognition in leadership."],
+    category: "service",
+    rarity: "rare",
+    issuedBy: "Marshal Commander",
+  },
+  {
+    id: "loyalty-medal",
+    name: "Loyalty Medal",
+    description: "Awarded to members who have changed their Gamertag following the correct regulations.",
+    imageSrc: "/images/medals/loyalty.webp",
+    requirements: ["Has a Gamertag change that follows the correct regulations."],
+    category: "service",
+    rarity: "uncommon",
+  },
+  {
+    id: "104th-veteran",
+    name: "104th Veteran Medal",
+    description: "Awarded to former members who served with distinction for at least a year.",
+    imageSrc: "/images/medals/Verteran.webp",
+    requirements: ["Must have served for a year as staff", "No longer serving in a platoon"],
+    category: "service",
+    rarity: "rare",
+  },
+]
