@@ -5,6 +5,7 @@ const classTransferPolicies: Rule[] = [
   {
     id: "transfer-process",
     title: "Class Transfer Process",
+    code: "§203",
     description: "Procedures for requesting and processing class transfers.",
     importance: "standard",
     category: "class-transfer",
@@ -12,6 +13,7 @@ const classTransferPolicies: Rule[] = [
     sections: [
       {
         id: "transfer-process-1",
+        code: "§203.1",
         title: "Rank-Based Request Procedures",
         content: [
           "Below the rank of Lieutenant: Direct superior in Platoon, Company or Wing to elevate the request.",
@@ -21,6 +23,7 @@ const classTransferPolicies: Rule[] = [
       },
       {
         id: "transfer-process-2",
+        code: "§203.2",
         title: "Qualification Requirements",
         content: [
           "Qualifications must be retained for a minimum of 4 months, if this time has not elapsed the transfer request is automatically rejected.",
@@ -32,6 +35,7 @@ const classTransferPolicies: Rule[] = [
   },
   {
     id: "transfer-restrictions",
+    code: "§204",
     title: "Transfer Restrictions",
     description: "Limitations and special considerations for class transfers.",
     importance: "high",
@@ -40,6 +44,7 @@ const classTransferPolicies: Rule[] = [
     sections: [
       {
         id: "transfer-restrictions-1",
+        code: "§204.1",
         title: "Time and Effect Restrictions",
         content: [
           "You may only change class once every 6 months.",

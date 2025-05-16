@@ -42,7 +42,7 @@ export default function MobileTabSelect({ options, value, onChange }: MobileTabS
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.15 }}
-            className="absolute z-10 w-full mt-1 bg-zinc-900 border border-zinc-800 rounded-sm shadow-lg"
+            className="absolute z-10 w-full mt-1 bg-zinc-900 border border-zinc-800 rounded-sm shadow-lg max-h-60 overflow-y-auto"
           >
             {options.map((option) => (
               <button

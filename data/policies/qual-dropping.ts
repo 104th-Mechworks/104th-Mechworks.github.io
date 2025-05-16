@@ -4,6 +4,7 @@ import type { Rule } from "../rules"
 const qualDroppingPolicies: Rule[] = [
   {
     id: "qual-removal",
+    code: "§214",
     title: "Qualification Removal Procedures",
     description: "Process for voluntarily or involuntarily dropping qualifications.",
     importance: "standard",
@@ -12,6 +13,7 @@ const qualDroppingPolicies: Rule[] = [
     sections: [
       {
         id: "qual-removal-1",
+        code: "§214.1",
         title: "Removal Conditions",
         content: [
           "Qualifications must be retained for a minimum of 4 months.",
@@ -21,6 +23,7 @@ const qualDroppingPolicies: Rule[] = [
       },
       {
         id: "qual-disciplinary-1",
+        code: "§214.2",
         title: "Disciplinary Actions",
         content: [
           "Disciplinary actions may be taken for: repeated bot farming, poor behavior, harassment of instructor teams, or repeated minor issues.",
@@ -34,6 +37,7 @@ const qualDroppingPolicies: Rule[] = [
   },
   {
     id: "qual-appeals",
+    code: "§215",
     title: "Qualification Appeals Process",
     description: "Procedures for appealing qualification disciplinary actions.",
     importance: "standard",
@@ -42,6 +46,7 @@ const qualDroppingPolicies: Rule[] = [
     sections: [
       {
         id: "qual-appeals-1",
+        code: "§215.1",
         title: "Appeal Process",
         content: [
           "Members are entitled to appeal permanent, non-special forces NTRs after 1 month.",

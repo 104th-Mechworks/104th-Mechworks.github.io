@@ -4,6 +4,7 @@ import type { Rule } from "."
 const staffRules: Rule[] = [
   {
     id: "staff-basics",
+    code: "§110",
     title: "Staff Basics",
     description: "Basic rules and expectations for battalion staff members.",
     importance: "staff-only",
@@ -12,6 +13,7 @@ const staffRules: Rule[] = [
     sections: [
       {
         id: "staff-basics-1",
+        code: "§110.1",
         title: "General Staff Rules",
         content: [
           "Staff must follow ⁠all other 104th Rules",
@@ -24,6 +26,7 @@ const staffRules: Rule[] = [
       },
       {
         id: "staff-basics-2",
+        code: "§110.2",
         title: "Staff Conduct",
         content: [
           "Keep staff business between staff, in the correct chats.",
@@ -38,6 +41,7 @@ const staffRules: Rule[] = [
   },
   {
     id: "staff-maturity",
+    code: "§118",
     title: "Staff Maturity",
     description: "Maturity expectations for staff members.",
     importance: "staff-only",
@@ -46,6 +50,7 @@ const staffRules: Rule[] = [
     sections: [
       {
         id: "staff-maturity-1",
+        code: "§118.1",
         title: "Age and Maturity",
         content: [
           "The Staff minimum age is of 16 year old maturity. However this is an ADULT milsim, with the majority of staff being adults.",
@@ -56,6 +61,7 @@ const staffRules: Rule[] = [
       },
       {
         id: "staff-maturity-2",
+        code: "§118.2",
         title: "Professional Conduct",
         content: [
           "If arguments occur, they are to be handled through open and respectful discussion. Not a spatting contest.",
@@ -70,6 +76,7 @@ const staffRules: Rule[] = [
   },
   {
     id: "staff-consequences",
+    code: "§119",
     title: "Staff Consequences",
     description: "Consequences for staff misconduct.",
     importance: "staff-only",
@@ -78,6 +85,7 @@ const staffRules: Rule[] = [
     sections: [
       {
         id: "staff-consequences-1",
+        code: "§119.1",
         title: "Disciplinary Actions",
         content: [
           "This unit operates as a close group. We do not have time for unnecessary internal conflict, toxic behaviour or drama.",

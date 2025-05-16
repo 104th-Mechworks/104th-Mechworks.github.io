@@ -22,14 +22,17 @@ export interface Rule {
     | "ban-appeals"
     | "disciplinary"
     | "milsim"
+    | "promotion"
   type: "rule" | "policy"
   importance: "critical" | "high" | "standard" | "staff-only"
+  code: string
 }
 
 export interface RuleSection {
   id: string
   title: string
   content: string[]
+  code?: string // Added code property for subsections
 }
 
 // Category names for display
@@ -54,6 +57,7 @@ export const categoryNames = {
   medbay: "Medbay",
   "ban-appeals": "Ban Appeals",
   disciplinary: "Disciplinary",
+  promotion: "Promotion",
 }
 
 import discordRules from "./discord"

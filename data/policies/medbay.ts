@@ -4,6 +4,7 @@ import type { Rule } from "../rules";
 const medbayPolicies: Rule[] = [
   {
     id: "medical-services",
+    code: "§213",
     title: "Leave Types and Requirements",
     description: "Procedures for requesting and managing leave from battalion duties.",
     importance: "standard",
@@ -12,6 +13,7 @@ const medbayPolicies: Rule[] = [
     sections: [
       {
         id: "leave-types",
+        code: "§213.1",
         title: "Types of Leave",
         content: [
           "Only necessary for staff and active CTs (in a Platoon, Company or Wing).",
@@ -22,6 +24,7 @@ const medbayPolicies: Rule[] = [
       },
       {
         id: "leave-duration",
+        code: "§213.2",
         title: "Leave Duration Guidelines",
         content: [
           "0-5 days: Request not needed.",
@@ -33,6 +36,7 @@ const medbayPolicies: Rule[] = [
       },
       {
         id: "staff-additions",
+        code: "§213.3",
         title: "Process",
         content: [
           "Staff and active CTs (in a Platoon, Company or Wing) must fill out the medbay log in the relevant area.",

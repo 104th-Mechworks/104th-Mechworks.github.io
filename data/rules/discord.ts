@@ -5,6 +5,7 @@ const discordRules: Rule[] = [
   {
     id: "discord-behavior",
     title: "Discord Behavior",
+    code: "§101",
     description: "Expected conduct in all battalion Discord channels.",
     importance: "critical",
     category: "discord",
@@ -12,6 +13,7 @@ const discordRules: Rule[] = [
     sections: [
       {
         id: "discord-behavior-1",
+        code: "§101.1",
         title: "General Conduct",
         content: [
           "No Abuse to anyone.",
@@ -24,6 +26,7 @@ const discordRules: Rule[] = [
       },
       {
         id: "discord-behavior-2",
+        code: "§101.2",
         title: "Prohibited Behavior",
         content: [
           "Pinging a console or spam pinging a console in any chat despite the raid chats will grant a suspension.",

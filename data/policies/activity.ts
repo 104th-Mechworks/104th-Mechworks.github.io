@@ -4,6 +4,7 @@ import type { Rule } from "../rules"
 const activityPolicies: Rule[] = [
   {
     id: "activity-requirements",
+    code: "§201",
     title: "Activity Requirements",
     description: "Minimum participation standards for battalion members.",
     importance: "high",
@@ -12,6 +13,7 @@ const activityPolicies: Rule[] = [
     sections: [
       {
         id: "activity-requirements-1",
+        code: "§201.1",
         title: "Attendance Intervals",
         content: [
           "1st-15th each month: First attendance interval.",
@@ -20,6 +22,7 @@ const activityPolicies: Rule[] = [
       },
       {
         id: "activity-reqs",
+        code: "§201.2",
         title: "Attendance Requirements",
         content: [
           "Attendance Requirememnts per Interval",
@@ -30,6 +33,7 @@ const activityPolicies: Rule[] = [
       },
       {
         id: "activity-absence",
+        code: "§201.3",
         title: "Absence Allowances",
         content: [
           "If LOA/NFFC for 5-9 days, half requirements required.",
@@ -41,6 +45,7 @@ const activityPolicies: Rule[] = [
   },
   {
     id: "inactivity-procedures",
+    code: "§202",
     title: "Inactivity Strike System",
     description: "Processes for handling member inactivity and consequences.",
     importance: "standard",
@@ -49,6 +54,7 @@ const activityPolicies: Rule[] = [
     sections: [
       {
         id: "inactivity-strikes",
+        code: "§202.1",
         title: "Strike System",
         content: [
           "STRIKE 1: Pinged Warning/Inquiry.",

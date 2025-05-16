@@ -4,6 +4,7 @@ import type { Rule } from "."
 const discordContentRules: Rule[] = [
   {
     id: "content-restrictions",
+    code: "§102",
     title: "Prohibited Content",
     description: "Content that is not permitted in any battalion channels.",
     importance: "critical",
@@ -12,6 +13,7 @@ const discordContentRules: Rule[] = [
     sections: [
       {
         id: "content-restrictions-1",
+        code: "§102.1",
         title: "Content Guidelines",
         content: [
           "NSFW must be applied to channels if it has adult content.",
@@ -24,6 +26,7 @@ const discordContentRules: Rule[] = [
       },
       {
         id: "content-restrictions-2",
+        code: "§102.2",
         title: "Prohibited Activities",
         content: [
           "You may not operate a server that sells prohibted goods or dangerous goods.",

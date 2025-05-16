@@ -4,6 +4,7 @@ import type { Rule } from "../rules"
 const helmetPolicies: Rule[] = [
   {
     id: "helmet-standards",
+    code: "§211",
     title: "Helmet Regulations",
     description: "Requirements and restrictions for battalion helmet customization.",
     importance: "standard",
@@ -12,6 +13,7 @@ const helmetPolicies: Rule[] = [
     sections: [
       {
         id: "helmet-standards-1",
+        code: "§211.1",
         title: "Helmet Usage Regulations",
         content: [
           "Community Members: Profile pictures which do not look similar to the uniform of the 104th. Any form of helmet pfp is not allowed.",
@@ -25,6 +27,7 @@ const helmetPolicies: Rule[] = [
       },
       {
         id: "helmet-security",
+        code: "§211.2",
         title: "Helmet Security Rules",
         content: [
           "Only Art Team members can create and issue 104th helmets.",
@@ -36,6 +39,7 @@ const helmetPolicies: Rule[] = [
   },
   {
     id: "helmet-approval",
+    code: "§212",
     title: "Helmet Request Process",
     description: "Procedures for submitting and approving helmet designs.",
     importance: "standard",
@@ -44,6 +48,7 @@ const helmetPolicies: Rule[] = [
     sections: [
       {
         id: "helmet-approval-1",
+        code: "§212.1",
         title: "Request Requirements",
         content: [
           "Requests must be submitted by a LCPL+.",

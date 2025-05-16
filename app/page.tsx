@@ -115,6 +115,8 @@ export default function Home() {
           )}
 
           {activeSection === "rules" && <RulesSection />}
+
+
         </AnimatePresence>
       </main>
 

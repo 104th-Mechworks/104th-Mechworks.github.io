@@ -5,6 +5,7 @@ const banAppealsPolicies: Rule[] = [
   {
     id: "ban-process",
     title: "Ban Appeal Process",
+    code: "§202",
     description: "Procedures for appealing disciplinary bans.",
     importance: "staff-only",
     category: "ban-appeals",
@@ -12,6 +13,7 @@ const banAppealsPolicies: Rule[] = [
     sections: [
       {
         id: "appeal-process",
+        code: "§202.1",
         title: "Appeal Procedure",
         content: [
           "3 month waiting period before a member can appeal a ban.",
@@ -23,6 +25,7 @@ const banAppealsPolicies: Rule[] = [
       },
       {
         id: "appeal-outcomes",
+        code: "§202.2",
         title: "Possible Outcomes",
         content: [
           "Denied: Member will stay banned with no more chances of appeal.",
@@ -34,6 +37,7 @@ const banAppealsPolicies: Rule[] = [
       },
       {
         id: "case-officers",
+        code: "§202.3",
         title: "Case Officer Responsibilities",
         content: [
           "Once a ticket is claimed by an officer they are the only one authorized to interact with the member appealing the ban, unless the ticket is passed to another officer.",

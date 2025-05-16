@@ -4,6 +4,7 @@ import type { Rule } from "."
 const raidRules: Rule[] = [
   {
     id: "raid-general",
+    code: "§104",
     title: "General Raid Rules",
     description: "Primary rules for all battalion raids.",
     importance: "critical",
@@ -12,11 +13,13 @@ const raidRules: Rule[] = [
     sections: [
       {
         id: "raid-general-1",
+        code: "§104.1",
         title: "Core Rule",
         content: ["HAVE FUN."],
       },
       {
         id: "raid-general-2",
+        code: "§104.2",
         title: "Standards and Behavior",
         content: [
           "No Shouting down the mic, Communication is key.",
@@ -33,6 +36,7 @@ const raidRules: Rule[] = [
   },
   {
     id: "raid-class",
+    code: "§105",
     title: "Class Rules",
     description: "Rules regarding class selection during raids.",
     importance: "high",
@@ -41,6 +45,7 @@ const raidRules: Rule[] = [
     sections: [
       {
         id: "raid-class-1",
+        code: "§105.1",
         title: "Class Selection",
         content: [
           "Play only your selected base Class. (Assault, Heavy, Specialist)",
@@ -54,6 +59,7 @@ const raidRules: Rule[] = [
   },
   {
     id: "raid-weapons",
+    code: "§106",
     title: "Weapon Rules",
     description: "Rules regarding weapon selection during raids.",
     importance: "standard",
@@ -62,6 +68,7 @@ const raidRules: Rule[] = [
     sections: [
       {
         id: "raid-weapons-1",
+        code: "§106.1",
         title: "Weapon Selection",
         content: [
           "Play only default clone weapons. (includes DC-15LE)",
@@ -73,6 +80,7 @@ const raidRules: Rule[] = [
   },
   {
     id: "raid-vehicles",
+    code: "§107",
     title: "Vehicle Rules",
     description: "Rules regarding vehicle usage during raids.",
     importance: "standard",
@@ -81,6 +89,7 @@ const raidRules: Rule[] = [
     sections: [
       {
         id: "raid-vehicles-1",
+        code: "§107.1",
         title: "Vehicle Usage",
         content: [
           "TX-130 / AT-RT are only for those who have earned that qualification.",
@@ -93,6 +102,7 @@ const raidRules: Rule[] = [
   },
   {
     id: "raid-starfighters",
+    code: "§108",
     title: "Starfighter Rules",
     description: "Rules regarding starfighter usage during raids.",
     importance: "standard",
@@ -101,6 +111,7 @@ const raidRules: Rule[] = [
     sections: [
       {
         id: "raid-starfighters-1",
+        code: "§108.1",
         title: "Starfighter Usage",
         content: [
           "Army Members can play their selected Starfighter Class in SFA + GA.",
@@ -113,6 +124,7 @@ const raidRules: Rule[] = [
   },
   {
     id: "raid-appearances",
+    code: "§109",
     title: "Appearance Rules",
     description: "Rules regarding clone appearances during raids.",
     importance: "standard",
@@ -121,6 +133,7 @@ const raidRules: Rule[] = [
     sections: [
       {
         id: "raid-appearances-1",
+        code: "§109.1",
         title: "Clone Appearances",
         content: [
           "Phase 2 104th for all troopers.",
@@ -130,6 +143,7 @@ const raidRules: Rule[] = [
       },
       {
         id: "raid-appearances-2",
+        code: "§109.2",
         title: "Officer Skins",
         content: [
           

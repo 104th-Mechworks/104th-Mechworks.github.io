@@ -4,6 +4,7 @@ import type { Rule } from "."
 const maturityRules: Rule[] = [
   {
     id: "maturity-standards",
+    code: "§103",
     title: "Maturity Standards",
     description: "Expected maturity levels for battalion members.",
     importance: "high",
@@ -12,6 +13,7 @@ const maturityRules: Rule[] = [
     sections: [
       {
         id: "maturity-standards-1",
+        code: "§103.1",
         title: "Age and Maturity Requirements",
         content: [
           "BFII is rated a 16+, we expect all members of the community to act accordingly.",
@@ -21,6 +23,7 @@ const maturityRules: Rule[] = [
       },
       {
         id: "maturity-standards-2",
+        code: "§103.2",
         title: "Conflict Management",
         content: [
           "This unit operates as a close group. We do not have time for internal conflict, toxic behaviour or drama.",

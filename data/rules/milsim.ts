@@ -4,6 +4,7 @@ import type { Rule } from "."
 const milsimRules: Rule[] = [
   {
     id: "milsim-general",
+    code: "§111",
     title: "Milsim Rules",
     description: "General rules for milsim participation.",
     importance: "critical",
@@ -12,6 +13,7 @@ const milsimRules: Rule[] = [
     sections: [
       {
         id: "milsim-general-1",
+        code: "§111.1",
         title: "One Milsim Rule",
         content: [
           "Whilst in the 104th and apart of the Army / Starfighter Corps (In a 104th Platoon / Flight) Then we have a 1 milsim only rule.",

@@ -4,6 +4,7 @@ import type { Rule } from "."
 const staffGeneralRules: Rule[] = [
   {
     id: "staff-authority",
+    code: "§113",
     title: "Staff Authority and Limits",
     description: "Scope and limitations of staff authority within the battalion.",
     importance: "staff-only",
@@ -12,6 +13,7 @@ const staffGeneralRules: Rule[] = [
     sections: [
       {
         id: "staff-authority-1",
+        code: "§113.1",
         title: "Command Structure",
         content: [
           "Exercise authority only within your assigned area of responsibility.",
@@ -22,6 +24,7 @@ const staffGeneralRules: Rule[] = [
       },
       {
         id: "staff-authority-2",
+        code: "§113.2",
         title: "Disciplinary Actions",
         content: [
           "Follow the disciplinary action matrix for consistent enforcement.",
@@ -34,6 +37,7 @@ const staffGeneralRules: Rule[] = [
   },
   {
     id: "staff-meetings",
+    code: "§114",
     title: "Staff Meeting Protocols",
     description: "Procedures and expectations for battalion staff meetings.",
     importance: "staff-only",
@@ -42,6 +46,7 @@ const staffGeneralRules: Rule[] = [
     sections: [
       {
         id: "staff-meetings-1",
+        code: "§114.1",
         title: "Attendance Requirements",
         content: [
           "Attend all mandatory staff meetings for your rank and position.",
@@ -52,6 +57,7 @@ const staffGeneralRules: Rule[] = [
       },
       {
         id: "staff-meetings-2",
+        code: "§114.2",
         title: "Meeting Conduct",
         content: [
           "Arrive promptly at the scheduled start time.",

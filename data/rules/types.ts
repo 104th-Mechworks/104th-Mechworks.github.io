@@ -1,35 +1,20 @@
 // Define types for rules and policies
-export interface Rule {
-  id: string
-  title: string
-  description: string
-  sections?: RuleSection[]
-  category:
-    | "raid"
-    | "discord"
-    | "discord-content"
-    | "maturity"
-    | "staff-rules"
-    | "qualifications"
-    | "kmc"
-    | "staff"
-    | "class-transfer"
-    | "qual-dropping"
-    | "helmets"
-    | "reporting"
-    | "activity"
-    | "medbay"
-    | "ban-appeals"
-    | "strikes"
-    | "milsim"
-  type: "rule" | "policy"
-  importance: "critical" | "high" | "standard" | "staff-only"
-}
-
 export interface RuleSection {
   id: string
+  code?: string
   title: string
   content: string[]
+}
+
+export interface Rule {
+  id: string
+  code?: string // Added code property
+  title: string
+  description: string
+  importance: "critical" | "high" | "standard" | "staff-only"
+  category: string
+  type: "rule" | "policy"
+  sections: RuleSection[]
 }
 
 // Category names for display

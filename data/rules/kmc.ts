@@ -4,6 +4,7 @@ import type { Rule } from "."
 const kmcRules: Rule[] = [
   {
     id: "kmc-operations",
+    code: "§116",
     title: "KMC Operational Guidelines",
     description: "Rules specific to Kamino Military Complex operations.",
     importance: "high",
@@ -12,6 +13,7 @@ const kmcRules: Rule[] = [
     sections: [
       {
         id: "kmc-operations-1",
+        code: "§116.1",
         title: "Facility Protocols",
         content: [
           "Follow all posted security clearance restrictions.",
@@ -22,6 +24,7 @@ const kmcRules: Rule[] = [
       },
       {
         id: "kmc-operations-2",
+        code: "§116.2",
         title: "Training Areas",
         content: [
           "Use training facilities only with proper authorization.",
@@ -34,6 +37,7 @@ const kmcRules: Rule[] = [
   },
   {
     id: "kmc-security",
+    code: "§117",
     title: "KMC Security Measures",
     description: "Security protocols for the Kamino Military Complex.",
     importance: "critical",
@@ -42,6 +46,7 @@ const kmcRules: Rule[] = [
     sections: [
       {
         id: "kmc-security-1",
+        code: "§117.1",
         title: "Access Control",
         content: [
           "Present identification at all checkpoints without exception.",
@@ -52,6 +57,7 @@ const kmcRules: Rule[] = [
       },
       {
         id: "kmc-security-2",
+        code: "§117.2",
         title: "Information Security",
         content: [
           "Classify all documents according to security protocols.",

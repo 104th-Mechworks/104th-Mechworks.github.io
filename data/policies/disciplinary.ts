@@ -4,6 +4,7 @@ import type { Rule } from "../rules"
 const disciplinaryPolicies: Rule[] = [
   {
     id: "disciplinary-general",
+    code: "§205",
     title: "General Disciplinary Guidelines",
     description: "Overview of disciplinary procedures and documentation requirements.",
     importance: "high",
@@ -12,6 +13,7 @@ const disciplinaryPolicies: Rule[] = [
     sections: [
       {
         id: "disciplinary-logging",
+        code: "§205.1",
         title: "Documentation Requirements",
         content: [
           "All disciplinary action must be logged in main server.",
@@ -21,6 +23,7 @@ const disciplinaryPolicies: Rule[] = [
       },
       {
         id: "disciplinary-actions",
+        code: "§205.2",
         title: "Types of Disciplinary Actions",
         content: [
           "Timeout - Temporary restriction from server interaction",
@@ -34,6 +37,7 @@ const disciplinaryPolicies: Rule[] = [
   },
   {
     id: "disciplinary-timeout",
+    code: "§206",
     title: "Timeout Procedures",
     description: "Guidelines for implementing timeouts.",
     importance: "standard",
@@ -42,6 +46,7 @@ const disciplinaryPolicies: Rule[] = [
     sections: [
       {
         id: "timeout-authority",
+        code: "§206.1",
         title: "Authority and Requirements",
         content: [
           "Staff may time out members but must be logged in the disciplinary channel with a reason.",
@@ -54,6 +59,7 @@ const disciplinaryPolicies: Rule[] = [
   },
   {
     id: "disciplinary-strikes",
+    code: "§207",
     title: "Strike System",
     description: "Progressive strike system for violations.",
     importance: "standard",
@@ -62,6 +68,7 @@ const disciplinaryPolicies: Rule[] = [
     sections: [
       {
         id: "strike-system-1",
+        code: "§207.1",
         title: "Strike Stages",
         content: [
           "STRIKE 1: Pinged Warning/Inquiry.",
@@ -72,6 +79,7 @@ const disciplinaryPolicies: Rule[] = [
       },
       {
         id: "strike-removal",
+        code: "§207.2",
         title: "Strike Removal",
         content: [
           "Hit requirements 2 intervals in a row to remove 1 strike.",
@@ -83,6 +91,7 @@ const disciplinaryPolicies: Rule[] = [
   },
   {
     id: "disciplinary-suspend",
+    code: "§208",
     title: "Suspension Procedures",
     description: "Guidelines for member suspension.",
     importance: "high",
@@ -91,6 +100,7 @@ const disciplinaryPolicies: Rule[] = [
     sections: [
       {
         id: "suspend-authority",
+        code: "§208.1",
         title: "Authority and Requirements",
         content: [
           "Officers may suspend members.",
@@ -100,6 +110,7 @@ const disciplinaryPolicies: Rule[] = [
       },
       {
         id: "suspend-implementation",
+        code: "§208.2",
         title: "Implementation",
         content: [
           "The member's roles are to be removed and given one of the suspended roles:",
@@ -112,6 +123,7 @@ const disciplinaryPolicies: Rule[] = [
   },
   {
     id: "disciplinary-kick",
+    code: "§209",
     title: "Kick Procedures",
     description: "Guidelines for kicking members from the server.",
     importance: "high",
@@ -120,6 +132,7 @@ const disciplinaryPolicies: Rule[] = [
     sections: [
       {
         id: "kick-requirements",
+        code: "§209.1",
         title: "Documentation Requirements",
         content: [
           "If a member is kicked from the server, it must be logged in main server with evidence.",
@@ -131,6 +144,7 @@ const disciplinaryPolicies: Rule[] = [
   },
   {
     id: "disciplinary-ban",
+    code: "§210",
     title: "Ban Procedures",
     description: "Guidelines for permanent removal from the server.",
     importance: "critical",
@@ -139,6 +153,7 @@ const disciplinaryPolicies: Rule[] = [
     sections: [
       {
         id: "ban-requirements",
+        code: "§210.1",
         title: "Documentation Requirements",
         content: [
           "High Officers may ban members.",
@@ -149,6 +164,7 @@ const disciplinaryPolicies: Rule[] = [
       },
       {
         id: "ban-procedures",
+        code: "§210.2",
         title: "Additional Ban Procedure Requirements",
         content: [
           "If applicable, the banned member's CO must be notified.",

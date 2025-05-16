@@ -4,6 +4,7 @@ import type { Rule } from "../rules"
 const reportingPolicies: Rule[] = [
   {
     id: "incident-reporting",
+    code: "§216",
     title: "Incident Reporting Procedures",
     description: "Guidelines for reporting incidents and issues within the battalion.",
     importance: "high",
@@ -12,6 +13,7 @@ const reportingPolicies: Rule[] = [
     sections: [
       {
         id: "incident-reporting-1",
+        code: "§216.1",
         title: "Reporting Channels",
         content: [
           "Internal issues should be raised through your Chain of Command.",
