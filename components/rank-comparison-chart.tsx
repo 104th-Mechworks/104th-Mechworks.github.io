@@ -17,32 +17,32 @@ const branchColors: Record<string, BranchColor> = {
   naval: {
     bg: "bg-zinc-800",
     border: "border-zinc-700",
-    text: "text-zinc-200",
+    text: "text-neutral-200",
   },
   starfighter: {
     bg: "bg-blue-950",
     border: "border-blue-900",
-    text: "text-blue-100",
+    text: "text-neutral-200",
   },
   army: {
     bg: "bg-green-950",
     border: "border-green-900",
-    text: "text-green-100",
+    text: "text-neutral-200",
   },
   arc: {
-    bg: "bg-purple-950",
-    border: "border-purple-900",
-    text: "text-purple-100",
+    bg: "bg-[#f009c9]/20",
+    border: "border-[#f009c9]/40",
+    text: "text-neutral-200",
   },
   rc: {
-    bg: "bg-teal-950",
-    border: "border-teal-900",
-    text: "text-teal-100",
+    bg: "bg-[#00dfff]/20",
+    border: "border-[#00dfff]/40",
+    text: "text-neutral-200",
   },
   command: {
     bg: "bg-amber-950",
     border: "border-amber-900",
-    text: "text-amber-100",
+    text: "text-neutral-200",
   },
 }
 
@@ -86,7 +86,7 @@ const categories = [
     name: "NCOs",
     color: "text-green-600",
     bgColor: "bg-green-800",
-    levels: ["NCO-1", "NCO-2", "NCO-3"],
+    levels: ["NCO-1", "NCO-2", "NCO-3", "NCO-4"],
   },
 ]
 
@@ -228,8 +228,8 @@ export default function RankComparisonChart() {
                   const levelRanks = organizedRanks[category.id][level]
                   return (
                     <div key={`${category.id}-${level}`} className="grid grid-cols-12 gap-2 mb-2">
-                      <div className="col-span-1 flex items-center justify-start">
-                        <span className="text-xs text-zinc-500 font-mono w-14 text-right">{level}</span>
+                      <div className="col-span-1 flex items-center justify-center">
+                        <span className="text-xs text-zinc-500 font-mono w-14 text-center">{level}</span>
                       </div>
                       <div className="col-span-2 px-1">{renderRankBox("naval", levelRanks.naval)}</div>
                       <div className="col-span-2 px-1">{renderRankBox("starfighter", levelRanks.starfighter)}</div>
