@@ -4,7 +4,7 @@ import type { Rule } from "../rules"
 const helmetPolicies: Rule[] = [
   {
     id: "helmet-standards",
-    title: "Helmet Standards and Regulations",
+    title: "Helmet Regulations",
     description: "Requirements and restrictions for battalion helmet customization.",
     importance: "standard",
     category: "helmets",

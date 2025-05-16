@@ -7,6 +7,7 @@ export const commandRanks: Rank[] = [
     description: "Commander of the 104th Fleet",
     insigniaPath: "/images/ranks/MCDR.webp",
     category: "fleet-command",
+    level: "FC-1",
     additionalInfo: {
       responsibilities: [
         "Overall command of the 104th Battalion",
@@ -19,8 +20,7 @@ export const commandRanks: Rank[] = [
         "Exceptional leadership record",
         "Advanced tactical training certification",
       ],
-      notableMembers: ["Wolffe", "Cody", "Bly"],
-      reportingTo: "Jedi General",
+      reportsTo: "Jedi General",
     },
   },
   {
@@ -29,6 +29,7 @@ export const commandRanks: Rank[] = [
     description: "Advisor to the Marshal Commander",
     insigniaPath: "/images/ranks/SCDR.webp",
     category: "fleet-command",
+    level: "FC-2",
     additionalInfo: {
       responsibilities: [
         "Direct support to the Marshal Commander",
@@ -41,8 +42,7 @@ export const commandRanks: Rank[] = [
         "Advanced command training",
         "Strategic operations certification",
       ],
-      notableMembers: ["Fox", "Gree", "Bacara"],
-      reportingTo: "Marshal Commander",
+      reportsTo: "Marshal Commander",
     },
   },
   {
@@ -51,6 +51,7 @@ export const commandRanks: Rank[] = [
     description: "Advisor to the Marshal Commander",
     insigniaPath: "/images/ranks/marshal.png",
     category: "fleet-command",
+    level: "FC-2",
     additionalInfo: {
       responsibilities: [
         "Command of all air and space operations",
@@ -59,8 +60,7 @@ export const commandRanks: Rank[] = [
         "Fleet deployment and management",
       ],
       qualifications: ["Previous service as Commodore", "Advanced flight certification", "Fleet command training"],
-      notableMembers: ["Hawk", "Oddball", "Matchstick"],
-      reportingTo: "Marshal Commander",
+      reportsTo: "Marshal Commander",
     },
   },
 ]

@@ -26,7 +26,7 @@ export default function MobileTabSelect({ options, value, onChange }: MobileTabS
   }
 
   return (
-    <div className="relative">
+    <div className="relative w-full md:w-64 lg:w-80">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between bg-zinc-900 border border-zinc-800 p-3 rounded-sm text-zinc-200 font-mono text-sm"

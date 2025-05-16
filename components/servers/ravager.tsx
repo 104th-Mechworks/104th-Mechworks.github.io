@@ -169,9 +169,7 @@ export default function RavagerServer({
                 <div className="space-y-1">
                   {selectedDepartment.executiveOfficers.map((officer, index) => (
                     <div key={index} className="flex gap-2">
-                      {officer.position && (
                       <span className="text-zinc-400 font-mono">{officer.position}:</span>
-                      )}
                       <span className="text-zinc-200 font-mono">{officer.name}</span>
                     </div>
                   ))}

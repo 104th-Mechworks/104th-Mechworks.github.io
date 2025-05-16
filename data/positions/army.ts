@@ -4,41 +4,40 @@ export const armyPositions: Position[] = [
   {
     title: "Army Commanding Officer",
     code: "ACO",
-    description: "Oversees the army branch",
-    requirements: ["Basic Combat Training", "Marksmanship Qualification", "Physical Fitness Standard"],
+    description:
+      "The Army Commanding Officer is the highest-ranking officer in the army branch, responsible for army standards and personnel management. They report directly to Fleet Command and coordinate with other branch leaders to ensure cohesive operation.",
+    requirements: ["Rank: BDCR"],
     responsibilities: [
-      "Execute ground combat operations",
-      "Secure and defend strategic positions",
-      "Conduct patrols and reconnaissance",
-      "Engage enemy forces in direct combat",
+      "Oversee the army branch",
+      "Work with Console Commanders to ensure smooth operation",
+      "Manage and authorise personnel movements ",
+      "Ensure all army members are trained and qualified for their positions",
     ],
-    equipment: ["DC-15A Blaster Rifle", "Thermal Detonators", "Combat Armor", "Utility Belt"],
   },
   {
     title: "Army Executive Officer",
     code: "AXO",
     description: "2nd in command of army branch",
-    requirements: ["Advanced Combat Training", "Heavy Weapons Certification", "Strength Assessment"],
+    requirements: ["Rank: CDR"],
     responsibilities: [
-      "Operate rotary blaster cannons",
-      "Deploy and maintain missile launchers",
-      "Provide suppressive fire",
-      "Eliminate armored targets",
+      "Assist the ACO in managing the army branch",
+      "Coordinate with Console Commanders",
+      "Oversee training and qualification of army members",
+      "Work with Console Commanders and Captains to improve army operations",
     ],
-    equipment: ["Z-6 Rotary Blaster Cannon", "PLX-1 Missile Launcher", "Reinforced Combat Armor", "Ammunition Pack"],
   },
   {
     title: "Console Commander",
     code: "CC",
     description: "oversees a specific console with in the army branch (Xbox, PS, PC)",
-    requirements: ["Engineering Certification", "Combat Training", "Technical Aptitude Test"],
+    requirements: ["Rank: CDR"],
     responsibilities: [
-      "Construct defensive fortifications",
-      "Repair damaged equipment in the field",
-      "Deploy tactical barriers and shields",
-      "Maintain battlefield infrastructure",
+      "Manage the console operations",
+      "Approve or devy promotions and demotions",
+      "Evaluate standards of staff",
+      "Ensure all console members are trained and qualified for their positions",
+      "Handle any reorganization of the console's structure",
     ],
-    equipment: ["Engineering Kit", "Portable Shield Generator", "Fusion Cutter", "Diagnostic Scanner"],
   },
   {
     title: "Company Commanding Officer",
@@ -51,7 +50,6 @@ export const armyPositions: Position[] = [
       "Perform field surgeries when necessary",
       "Maintain medical supplies for the squad",
     ],
-    equipment: ["Medical Kit", "Bacta Injectors", "Field Surgery Tools", "Diagnostic Scanner"],
   },
   {
     title: "Company Executive Officer",
@@ -63,12 +61,6 @@ export const armyPositions: Position[] = [
       "Provide mobile fire support",
       "Transport troops through hostile territory",
       "Maintain vehicle combat readiness",
-    ],
-    equipment: [
-      "TX-130 Saber-class Fighter Tank",
-      "Vehicle Maintenance Kit",
-      "Combat Navigation System",
-      "Vehicle Weapons Systems",
     ],
   },
   {
@@ -82,12 +74,6 @@ export const armyPositions: Position[] = [
       "Transport troops through hostile territory",
       "Maintain vehicle combat readiness",
     ],
-    equipment: [
-      "TX-130 Saber-class Fighter Tank",
-      "Vehicle Maintenance Kit",
-      "Combat Navigation System",
-      "Vehicle Weapons Systems",
-    ],
   },
   {
     title: "Platoon Commanding Officer",
@@ -99,12 +85,6 @@ export const armyPositions: Position[] = [
       "Provide mobile fire support",
       "Transport troops through hostile territory",
       "Maintain vehicle combat readiness",
-    ],
-    equipment: [
-      "TX-130 Saber-class Fighter Tank",
-      "Vehicle Maintenance Kit",
-      "Combat Navigation System",
-      "Vehicle Weapons Systems",
     ],
   },
   {
@@ -118,12 +98,6 @@ export const armyPositions: Position[] = [
       "Transport troops through hostile territory",
       "Maintain vehicle combat readiness",
     ],
-    equipment: [
-      "TX-130 Saber-class Fighter Tank",
-      "Vehicle Maintenance Kit",
-      "Combat Navigation System",
-      "Vehicle Weapons Systems",
-    ],
   },
   {
     title: "Platoon Non-Commissioned Officer",
@@ -135,12 +109,6 @@ export const armyPositions: Position[] = [
       "Provide mobile fire support",
       "Transport troops through hostile territory",
       "Maintain vehicle combat readiness",
-    ],
-    equipment: [
-      "TX-130 Saber-class Fighter Tank",
-      "Vehicle Maintenance Kit",
-      "Combat Navigation System",
-      "Vehicle Weapons Systems",
     ],
   },
   {
@@ -154,12 +122,6 @@ export const armyPositions: Position[] = [
       "Transport troops through hostile territory",
       "Maintain vehicle combat readiness",
     ],
-    equipment: [
-      "TX-130 Saber-class Fighter Tank",
-      "Vehicle Maintenance Kit",
-      "Combat Navigation System",
-      "Vehicle Weapons Systems",
-    ],
   },
   {
     title: "Squad Non-Commissioned Officer",
@@ -172,12 +134,6 @@ export const armyPositions: Position[] = [
       "Transport troops through hostile territory",
       "Maintain vehicle combat readiness",
     ],
-    equipment: [
-      "TX-130 Saber-class Fighter Tank",
-      "Vehicle Maintenance Kit",
-      "Combat Navigation System",
-      "Vehicle Weapons Systems",
-    ],
   },
   {
     title: "Fireteam Leader",
@@ -189,12 +145,6 @@ export const armyPositions: Position[] = [
       "Provide mobile fire support",
       "Transport troops through hostile territory",
       "Maintain vehicle combat readiness",
-    ],
-    equipment: [
-      "TX-130 Saber-class Fighter Tank",
-      "Vehicle Maintenance Kit",
-      "Combat Navigation System",
-      "Vehicle Weapons Systems",
     ],
   },
 ]

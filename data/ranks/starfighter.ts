@@ -7,6 +7,7 @@ export const starfighterRanks: Rank[] = [
     description: "Head of the Starfighter Corps",
     insigniaPath: "/images/ranks/COM.webp",
     category: "fleet-command",
+    level: "FC-3",
     additionalInfo: {
       responsibilities: [
         "Command of all starfighter operations",
@@ -19,8 +20,7 @@ export const starfighterRanks: Rank[] = [
         "Advanced flight command certification",
         "Strategic air combat planning",
       ],
-      notableMembers: ["Hawk", "Broadside"],
-      reportingTo: "Air Marshal",
+      reportsTo: "Air Marshal",
     },
   },
   {
@@ -29,6 +29,7 @@ export const starfighterRanks: Rank[] = [
     description: "2IC of the Starfighter Corps",
     insigniaPath: "/images/ranks/Air_CPT.webp",
     category: "command-staff",
+    level: "CS-1",
     additionalInfo: {
       responsibilities: [
         "Second-in-command of starfighter corps",
@@ -41,8 +42,7 @@ export const starfighterRanks: Rank[] = [
         "Advanced flight instructor certification",
         "Command staff training",
       ],
-      notableMembers: ["Axe", "Contrail"],
-      reportingTo: "Commodore",
+      reportsTo: "Commodore",
     },
   },
   {
@@ -51,6 +51,7 @@ export const starfighterRanks: Rank[] = [
     description: "Head of Starfighter Wing",
     insigniaPath: "/images/ranks/WCDR.webp",
     category: "high-officer",
+    level: "HO-1",
     additionalInfo: {
       responsibilities: [
         "Command of starfighter wing",
@@ -63,8 +64,7 @@ export const starfighterRanks: Rank[] = [
         "Wing tactical certification",
         "Advanced flight leadership",
       ],
-      notableMembers: ["Odd Ball", "Matchstick"],
-      reportingTo: "Air Captain",
+      reportsTo: "Air Captain",
     },
   },
   {
@@ -73,6 +73,7 @@ export const starfighterRanks: Rank[] = [
     description: "2IC of Starfighter Wing",
     insigniaPath: "/images/ranks/GCPT.webp",
     category: "high-officer",
+    level: "HO-2",
     additionalInfo: {
       responsibilities: [
         "Second-in-command of wing",
@@ -81,8 +82,7 @@ export const starfighterRanks: Rank[] = [
         "Administrative duties",
       ],
       qualifications: ["Previous service as Squadron Leader", "Advanced flight training", "Leadership assessment"],
-      notableMembers: ["Tucker", "Swoop"],
-      reportingTo: "Wing Commander",
+      reportsTo: "Wing Commander",
     },
   },
   {
@@ -91,6 +91,7 @@ export const starfighterRanks: Rank[] = [
     description: "Senior Staff - Head of Squadron",
     insigniaPath: "/images/ranks/SL.webp",
     category: "officer",
+    level: "O-2",
     additionalInfo: {
       responsibilities: ["Squadron command", "Mission execution", "Pilot training", "Combat operations"],
       qualifications: [
@@ -98,8 +99,7 @@ export const starfighterRanks: Rank[] = [
         "Squadron tactics certification",
         "Combat flight experience",
       ],
-      notableMembers: ["Warthog", "Kickback"],
-      reportingTo: "Group Captain",
+      reportsTo: "Group Captain",
     },
   },
   {
@@ -108,6 +108,7 @@ export const starfighterRanks: Rank[] = [
     description: "Key staff - Raid Hosts",
     insigniaPath: "/images/ranks/FCPT.webp",
     category: "nco",
+    level: "NCO-1",
     additionalInfo: {
       responsibilities: ["Flight leadership", "Raid hosting", "Training implementation", "Combat operations"],
       qualifications: [
@@ -115,8 +116,7 @@ export const starfighterRanks: Rank[] = [
         "Advanced flight certification",
         "Raid planning training",
       ],
-      notableMembers: ["Slammer", "Killer"],
-      reportingTo: "Squadron Leader",
+      reportsTo: "Squadron Leader",
     },
   },
   {
@@ -125,11 +125,11 @@ export const starfighterRanks: Rank[] = [
     description: "Staff - Raid Hosts",
     insigniaPath: "/images/ranks/FLT.webp",
     category: "nco",
+    level: "NCO-2",
     additionalInfo: {
       responsibilities: ["Element leadership", "Raid hosting", "Training assistance", "Combat operations"],
       qualifications: ["Previous service as Flight Officer", "Flight leadership training", "Combat mission experience"],
-      notableMembers: ["Hez", "Sear"],
-      reportingTo: "Flight Captain",
+      reportsTo: "Flight Captain",
     },
   },
   {
@@ -138,23 +138,23 @@ export const starfighterRanks: Rank[] = [
     description: "Senior Pilot - Staff in Training",
     insigniaPath: "/images/ranks/FO.webp",
     category: "nco",
+    level: "NCO-3",
     additionalInfo: {
       responsibilities: ["Senior pilot duties", "Staff training", "Support operations", "Mentoring pilot officers"],
       qualifications: ["Previous service as Pilot Officer", "Exceptional flight record", "Staff training initiation"],
-      notableMembers: ["Tracker", "Kickstart"],
-      reportingTo: "Flight Lieutenant",
+      reportsTo: "Flight Lieutenant",
     },
   },
   {
     rank: "Pilot Officer",
     code: "PO",
     description: "Standard Pilot",
-    category: "nco",
+    insigniaPath: "/images/ranks/CT.webp",
+    // category: "nco",
     additionalInfo: {
       responsibilities: ["Basic flight operations", "Mission execution", "Starfighter maintenance", "Flight formation"],
       qualifications: ["Flight training completion", "Combat readiness certification", "Starfighter proficiency"],
-      notableMembers: ["Afterburn", "Boost"],
-      reportingTo: "Flight Officer",
+      reportsTo: "Flight Officer",
     },
   },
 ]

@@ -20,16 +20,31 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState("home")
   const [isLoading, setIsLoading] = useState(true)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [navigationParams, setNavigationParams] = useState<any>(null)
 
   useEffect(() => {
-    // Only handle authentication timing
-    // Loading will be controlled by the LoadingScreen component
-    const authTimer = setTimeout(() => {
-      setIsAuthenticated(true)
-    }, 4000)
+    // Check if we should skip the loading animation
+    // This happens when coming from the 404 page
+    const urlParams = new URLSearchParams(window.location.search)
+    const skipLoading = urlParams.get("skipLoading") === "true"
 
-    return () => {
-      clearTimeout(authTimer)
+    if (skipLoading) {
+      // Skip loading animation
+      setIsLoading(false)
+      setIsAuthenticated(true)
+
+      // Clean up the URL by removing the skipLoading parameter
+      const newUrl = window.location.pathname + window.location.hash
+      window.history.replaceState({}, document.title, newUrl)
+    } else {
+      // Normal loading behavior
+      const authTimer = setTimeout(() => {
+        setIsAuthenticated(true)
+      }, 4000)
+
+      return () => {
+        clearTimeout(authTimer)
+      }
     }
   }, [])
 
@@ -38,20 +53,30 @@ export default function Home() {
     setIsLoading(false)
   }
 
-  // Function to handle navigation between sections
-  const handleNavigation = (section: string) => {
+  // Function to handle navigation between sections with optional parameters
+  const handleNavigation = (section: string, params?: any) => {
     setActiveSection(section)
+    setNavigationParams(params || null)
   }
 
   // Function to handle logo click
   const handleLogoClick = () => {
     setActiveSection("home")
+    setNavigationParams(null)
   }
 
   // Generate breadcrumb items based on current navigation state
   const getBreadcrumbItems = (items: any[]) => {
     return items
   }
+
+  // Check for hash in URL to set initial active section
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "")
+    if (hash) {
+      setActiveSection(hash)
+    }
+  }, [])
 
   if (isLoading) {
     return <LoadingScreen isAuthenticated={isAuthenticated} onComplete={handleLoadingComplete} />
@@ -65,7 +90,9 @@ export default function Home() {
         <AnimatePresence mode="wait">
           {activeSection === "home" && <HomeSection onNavigate={handleNavigation} />}
 
-          {activeSection === "branches" && <BranchesSection getIconComponent={getIconComponent} />}
+          {activeSection === "branches" && (
+            <BranchesSection getIconComponent={getIconComponent} onNavigate={handleNavigation} />
+          )}
 
           {activeSection === "ranks" && <RanksSection />}
 
@@ -75,7 +102,13 @@ export default function Home() {
 
           {activeSection === "medals" && <MedalsSection />}
 
-          {activeSection === "servers" && <ServersSection getBreadcrumbItems={getBreadcrumbItems} />}
+          {activeSection === "servers" && (
+            <ServersSection
+              getBreadcrumbItems={getBreadcrumbItems}
+              initialServerId={navigationParams?.serverId}
+              initialSpecialDepartment={navigationParams?.specialDepartment}
+            />
+          )}
 
           {activeSection === "command-staff" && (
             <CommandStaffSectionComponent getBreadcrumbItems={getBreadcrumbItems} />

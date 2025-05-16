@@ -53,11 +53,12 @@ export type Rank = {
   description: string
   insigniaPath?: string
   category?: "fleet-command" | "command-staff" | "high-officer" | "officer" | "nco"
+  level?: "FC-1" | "FC-2" | "FC-3" | "CS-1" | "CS-2" | "CS-3" | "HO-1" | "HO-2" | "HO-3" | "O-1" | "O-2" | "O-3" | "NCO-1" | "NCO-2" | "NCO-3"
   additionalInfo?: {
     responsibilities?: string[]
+    eligiblePositions?: string[]
+    reportsTo?: string
     qualifications?: string[]
-    notableMembers?: string[]
-    reportingTo?: string
   }
 }
 
@@ -80,7 +81,7 @@ export type Position = {
   description: string
   requirements: string[]
   responsibilities: string[]
-  equipment: string[]
+  equipment?: string[] // Make equipment optional
 }
 
 export type CommandStaffMember = {

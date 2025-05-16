@@ -1,103 +1,113 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { motion } from "framer-motion"
-import type { Medal } from "@/data/types"
-import { medalsByCategory, categoryNames, categoryDescriptions } from "@/data/medals"
+import { Search, Filter } from "lucide-react"
 import MedalItem from "@/components/medal-item"
+import { allMedals, medalsByCategory, categoryNames, categoryDescriptions } from "@/data/medals"
 import MobileTabSelect from "@/components/mobile-tab-select"
-import { Search } from "lucide-react"
 
 export default function MedalsSection() {
-  const [selectedCategory, setSelectedCategory] = useState<keyof typeof medalsByCategory>("service")
+  const [selectedCategory, setSelectedCategory] = useState<string>("all")
   const [searchQuery, setSearchQuery] = useState("")
 
-  // Filter medals based on search query
-  const filteredMedals = searchQuery
-    ? Object.values(medalsByCategory)
-        .flat()
-        .filter(
-          (medal) =>
-            medal.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            medal.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            medal.requirements.some((req) => req.toLowerCase().includes(searchQuery.toLowerCase())),
-        )
-    : medalsByCategory[selectedCategory]
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category)
+  }
 
-  // Get all category keys for the dropdown
-  const categoryOptions = Object.keys(categoryNames).map((key) => ({
-    value: key,
-    label: categoryNames[key as keyof typeof categoryNames],
-  }))
+  const filteredMedals = useMemo(() => {
+    let medals = selectedCategory === "all" ? allMedals : medalsByCategory[selectedCategory]
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase()
+      medals = medals.filter(
+        (medal) => medal.name.toLowerCase().includes(query),
+        // Removed description and requirements searches
+      )
+    }
+
+    return medals
+  }, [selectedCategory, searchQuery])
+
+  const categoryOptions = [
+    { value: "all", label: "All Medals" },
+    { value: "service", label: categoryNames.service },
+    { value: "achievement", label: categoryNames.achievement },
+    { value: "operation", label: categoryNames.operation },
+    { value: "longevity", label: categoryNames.longevity },
+    { value: "class", label: categoryNames.class },
+  ]
+
+  const getCategoryDescription = () => {
+    if (selectedCategory === "all") {
+      return "All medals available in the 104th Battalion. Filter by category or search for specific medals."
+    }
+    return categoryDescriptions[selectedCategory]
   }
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-6">
-      <div className="flex flex-col space-y-2">
-        <h1 className="text-3xl font-bold text-zinc-100">Medals</h1>
-        <p className="text-zinc-400">
-          Explore the various medals and commendations awarded to members of the 104th Battalion.
+    <div className="container mx-auto max-w-7xl py-8 px-4 lg:px-8">
+      <div className="mb-8 text-center">
+        <h1 className="text-4xl font-bold mb-2 text-zinc-100">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-orange-500">
+            104th Battalion Medals
+          </span>
+        </h1>
+        <p className="text-zinc-400 max-w-2xl mx-auto">
+          Medals recognize excellence, dedication, and service within the 104th Battalion. Each medal has specific
+          requirements and represents unique achievements.
         </p>
       </div>
 
-      {/* Search and Filter Controls */}
-      <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-zinc-500" />
-          <input
-            type="text"
-            placeholder="Search medals..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-zinc-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        <div className="w-full md:w-64">
+      <div className="mb-6 flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div className="w-full md:w-auto">
           <MobileTabSelect
             options={categoryOptions}
             value={selectedCategory}
-            onChange={(value) => {
-              setSelectedCategory(value as keyof typeof medalsByCategory)
-              setSearchQuery("")
-            }}
+            onChange={handleCategoryChange}
+            className="w-full"
+          />
+        </div>
+
+        <div className="relative w-full md:w-80">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Search className="h-5 w-5 text-gray-400" />
+          </div>
+          <input
+            type="text"
+            className="block w-full pl-10 pr-3 py-2 border border-zinc-700 rounded-md bg-zinc-800 text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-amber-500"
+            placeholder="Search medals..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
       </div>
 
-      {/* Category Description */}
-      {!searchQuery && (
-        <div className="bg-zinc-800/50 border border-zinc-700 rounded-md p-4">
-          <h2 className="text-xl font-bold text-zinc-100 mb-2">{categoryNames[selectedCategory]}</h2>
-          <p className="text-zinc-300">{categoryDescriptions[selectedCategory as keyof typeof categoryDescriptions]}</p>
+      <div className="mb-6 bg-zinc-800/50 p-4 rounded-lg border border-zinc-700">
+        <h3 className="text-lg font-medium text-zinc-300 mb-1">
+          {selectedCategory === "all" ? "All Medals" : categoryNames[selectedCategory]}
+        </h3>
+        <p className="text-zinc-400 text-sm">{getCategoryDescription()}</p>
+      </div>
+
+      {filteredMedals.length > 0 ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="grid grid-cols-1 gap-4"
+        >
+          {filteredMedals.map((medal) => (
+            <MedalItem key={medal.id} medal={medal} />
+          ))}
+        </motion.div>
+      ) : (
+        <div className="text-center py-12 bg-zinc-800/30 rounded-lg border border-zinc-700">
+          <Filter className="h-12 w-12 text-zinc-500 mx-auto mb-4" />
+          <h3 className="text-xl font-medium text-zinc-300 mb-1">No medals found</h3>
+          <p className="text-zinc-400 text-sm">Try adjusting your search or selecting a different category.</p>
         </div>
       )}
-
-      {/* Search Results Count */}
-      {searchQuery && (
-        <div className="text-zinc-400">
-          Found {filteredMedals.length} medal{filteredMedals.length !== 1 ? "s" : ""} matching "{searchQuery}"
-        </div>
-      )}
-
-      {/* Medals List */}
-      <motion.div variants={containerVariants} initial="hidden" animate="visible" className="grid grid-cols-1 gap-4">
-        {filteredMedals.length > 0 ? (
-          filteredMedals.map((medal: Medal) => <MedalItem key={medal.id} medal={medal} />)
-        ) : (
-          <div className="text-center py-8 text-zinc-500">No medals found matching your search criteria.</div>
-        )}
-      </motion.div>
-    </motion.div>
+    </div>
   )
 }

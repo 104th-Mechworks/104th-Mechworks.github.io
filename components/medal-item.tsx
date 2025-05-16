@@ -31,7 +31,7 @@ export default function MedalItem({ medal }: MedalItemProps) {
   }
 
   const rarityBgColors = {
-    common: "bg-zinc-900",
+    common: "bg-gray-900",
     uncommon: "bg-green-900/20",
     rare: "bg-blue-900/20",
     legendary: "bg-purple-900/20",
