@@ -53,11 +53,13 @@ export default function TroopDetail({
           <>
             {/* Check for different possible property paths */}
             {(troop.commandingOfficer || (troop.leadership && troop.leadership.tco)) && (
-              <div className="flex flex-col gap-1">
-                <span className="text-zinc-400 font-mono text-sm">Troop Commanding Officer:</span>
-                <span className="text-zinc-200 font-mono">
+              <div className="space-y-2"> {/* Changed from flex flex-col gap-1 */}
+                <h3 className="text-base font-bold font-mono" style={{ color: departmentColor }}> {/* Changed from span, added styles */}
+                  Troop Commanding Officer:
+                </h3>
+                <div className="text-zinc-200 font-mono"> {/* Changed from span */}
                   {troop.commandingOfficer || (troop.leadership && troop.leadership.tco)}
-                </span>
+                </div>
               </div>
             )}
 

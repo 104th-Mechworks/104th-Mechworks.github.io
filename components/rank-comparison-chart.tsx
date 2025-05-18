@@ -86,7 +86,7 @@ const categories = [
     name: "NCOs",
     color: "text-green-600",
     bgColor: "bg-green-800",
-    levels: ["NCO-1", "NCO-2", "NCO-3", "NCO-4"],
+    levels: ["NCO-1", "NCO-2", "NCO-3"],
   },
 ]
 
