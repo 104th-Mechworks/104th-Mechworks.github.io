@@ -10,15 +10,9 @@ export const starfighterRanks: Rank[] = [
     level: "FC-3",
     additionalInfo: {
       responsibilities: [
-        "Command of all starfighter operations",
-        "Strategic planning for air and space combat",
-        "Resource allocation for starfighter units",
+        "Command of starfighter operations",
+        "Resource allocation for starfighter wings",
         "Coordination with ground forces",
-      ],
-      qualifications: [
-        "Previous service as Air Captain",
-        "Advanced flight command certification",
-        "Strategic air combat planning",
       ],
       reportsTo: "Air Marshal",
     },
@@ -33,14 +27,8 @@ export const starfighterRanks: Rank[] = [
     additionalInfo: {
       responsibilities: [
         "Second-in-command of starfighter corps",
-        "Tactical planning for air operations",
-        "Training program oversight",
+        "Maintaining training standards",
         "Resource management",
-      ],
-      qualifications: [
-        "Previous service as Wing Commander",
-        "Advanced flight instructor certification",
-        "Command staff training",
       ],
       reportsTo: "Commodore",
     },
@@ -55,14 +43,9 @@ export const starfighterRanks: Rank[] = [
     additionalInfo: {
       responsibilities: [
         "Command of starfighter wing",
-        "Mission planning and execution",
-        "Pilot training oversight",
-        "Combat readiness",
-      ],
-      qualifications: [
-        "Previous service as Group Captain",
-        "Wing tactical certification",
-        "Advanced flight leadership",
+        "Member management",
+        "Training and operations oversight",
+        "Administrative oversight",
       ],
       reportsTo: "Air Captain",
     },
@@ -78,10 +61,8 @@ export const starfighterRanks: Rank[] = [
       responsibilities: [
         "Second-in-command of wing",
         "Squadron coordination",
-        "Training implementation",
         "Administrative duties",
       ],
-      qualifications: ["Previous service as Squadron Leader", "Advanced flight training", "Leadership assessment"],
       reportsTo: "Wing Commander",
     },
   },
@@ -93,12 +74,7 @@ export const starfighterRanks: Rank[] = [
     category: "officer",
     level: "O-2",
     additionalInfo: {
-      responsibilities: ["Squadron command", "Mission execution", "Pilot training", "Combat operations"],
-      qualifications: [
-        "Previous service as Flight Captain",
-        "Squadron tactics certification",
-        "Combat flight experience",
-      ],
+      responsibilities: ["Squadron command", "Liaise with Wing command", "Administrative duties"],
       reportsTo: "Group Captain",
     },
   },
@@ -110,12 +86,7 @@ export const starfighterRanks: Rank[] = [
     category: "nco",
     level: "NCO-1",
     additionalInfo: {
-      responsibilities: ["Flight leadership", "Raid hosting", "Training implementation", "Combat operations"],
-      qualifications: [
-        "Previous service as Flight Lieutenant",
-        "Advanced flight certification",
-        "Raid planning training",
-      ],
+      responsibilities: ["Flight leadership", "Raid hosting", "Training new staff"],
       reportsTo: "Squadron Leader",
     },
   },
@@ -127,8 +98,7 @@ export const starfighterRanks: Rank[] = [
     category: "nco",
     level: "NCO-2",
     additionalInfo: {
-      responsibilities: ["Element leadership", "Raid hosting", "Training assistance", "Combat operations"],
-      qualifications: ["Previous service as Flight Officer", "Flight leadership training", "Combat mission experience"],
+      responsibilities: ["Flight leadership", "Raid hosting", "Training assistance", "Administrative duties"],
       reportsTo: "Flight Captain",
     },
   },
@@ -140,8 +110,7 @@ export const starfighterRanks: Rank[] = [
     category: "nco",
     level: "NCO-3",
     additionalInfo: {
-      responsibilities: ["Senior pilot duties", "Staff training", "Support operations", "Mentoring pilot officers"],
-      qualifications: ["Previous service as Pilot Officer", "Exceptional flight record", "Staff training initiation"],
+      responsibilities: ["Senior pilot duties", "Administrative duties", "Support Squadron staff", "Mentoring pilot officers"],
       reportsTo: "Flight Lieutenant",
     },
   },
@@ -152,8 +121,7 @@ export const starfighterRanks: Rank[] = [
     insigniaPath: "/images/ranks/CT.webp",
     // category: "nco",
     additionalInfo: {
-      responsibilities: ["Basic flight operations", "Mission execution", "Starfighter maintenance", "Flight formation"],
-      qualifications: ["Flight training completion", "Combat readiness certification", "Starfighter proficiency"],
+      responsibilities: ["Maintain attendance"],
       reportsTo: "Flight Officer",
     },
   },

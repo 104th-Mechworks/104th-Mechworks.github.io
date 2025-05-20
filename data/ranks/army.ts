@@ -10,10 +10,10 @@ export const armyRanks: Rank[] = [
     level: "FC-3",
     additionalInfo: {
       responsibilities: [
-        "Overall command of ground forces",
+        "Overall command of infantry and armoured units",
         "Tactical planning for ground operations",
         "Resource allocation for infantry units",
-        "Coordination with other battalion elements",
+        "Coordination with army commanders and captains",
       ],
       eligiblePositions: ["ACO"],
       reportsTo: "Marshal Commander",
@@ -29,9 +29,8 @@ export const armyRanks: Rank[] = [
     additionalInfo: {
       responsibilities: [
         "Command of assigned army sector",
-        "Tactical deployment of troops",
-        "Mission planning and execution",
-        "Direct battlefield command",
+        "Management of army companies",
+        "Coordination with battalion commander",
       ],
       eligiblePositions: ["AXO", "CC"],
       reportsTo: "Battalion Commander",
@@ -46,11 +45,11 @@ export const armyRanks: Rank[] = [
     level: "CS-2",
     additionalInfo: {
       responsibilities: [
-        "Work with their assigned console commander",
+        "Given a specific assignment within the unit",
         "Work with various members towards their assigned task",
       ],
       eligiblePositions: ["N/A"],
-      reportsTo: "Clone Commander",
+      reportsTo: "Command Staff",
     },
   },
   {
@@ -97,7 +96,10 @@ export const armyRanks: Rank[] = [
     insigniaPath: "/images/ranks/WO.webp",
     category: "high-officer",
     additionalInfo: {
-      responsibilities: ["Work with various members across the fleet", "Assist in training and operations"],
+      responsibilities: [
+          "Work with various members across the fleet",
+          "Assist in training and operations"
+      ],
       eligiblePositions: ["CNCO", "PNCO", "SNCO", "FTL"],
       reportsTo: "Fleet Command",
     },
@@ -110,11 +112,10 @@ export const armyRanks: Rank[] = [
     category: "officer",
     level: "O-1",
     additionalInfo: {
-      responsibilities: ["Platoon leadership", "Training implementation", "Mission execution", "Squad coordination"],
-      qualifications: [
-        "Previous service as Warrant Officer",
-        "Officer candidate school",
-        "Field leadership assessment",
+      responsibilities: [
+          "Platoon leadership",
+          "Training of new Officers",
+          "Squad coordination"
       ],
       eligiblePositions: ["PCO", "PXO", "PNCO"],
       reportsTo: "Lieutenant",
@@ -129,7 +130,8 @@ export const armyRanks: Rank[] = [
     level: "O-2",
     additionalInfo: {
       responsibilities: [
-        "Various administrative tasks",
+          "Various administrative tasks",
+          "Advise and assist platoon and company command",
       ],
       eligiblePositions: ["CNCO", "PXO", "PNCO", "SL"],
       reportsTo: "Warrant Officer",
@@ -143,7 +145,12 @@ export const armyRanks: Rank[] = [
     category: "nco",
     level: "NCO-1",
     additionalInfo: {
-      responsibilities: ["Squad leadership", "Training of lower staff", "Raid hosting", "Administrative tasks"],
+      responsibilities: [
+          "Squad leadership",
+          "Training of lower staff",
+          "Raid hosting",
+          "Administrative tasks"
+      ],
       eligiblePositions: ["PNCO", "SL", "SNCO"],
       reportsTo: "Sergeant Major",
     },

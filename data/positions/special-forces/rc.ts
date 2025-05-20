@@ -3,18 +3,19 @@ import type { Position } from "../../types"
 export const rcPositions: Position[] = [
   {
     title: "Admissions Officer",
-    code: "CDR",
+    code: "RCAO",
     description: "Oversee and maintain standards of the RC program",
     requirements: ["Classified"],
     responsibilities: [
       "Oversee the RC program",
       "Maintain standards and training",
       "Command representative for the RC program",
+      "Other responsibilities are classified",
     ],
   },
   {
     title: "Squad Leader",
-    code: "SGT",
+    code: "RC-SL",
     description: "Leader of a squad of 4 RCs",
     requirements: ["Classified"],
     responsibilities: [
@@ -33,9 +34,6 @@ export const rcPositions: Position[] = [
       "Extract data from secured terminals",
       "Reprogram enemy systems and droids",
     ],
-    equipment: [
-      "Classified"
-    ],
   },
   {
     title: "Sniper",
@@ -48,7 +46,6 @@ export const rcPositions: Position[] = [
       "Conduct reconnaissance",
       "Provide covering fire during extractions",
     ],
-    equipment: ["Classified"],
   },
   {
     title: "Demolitions Expert",
@@ -61,7 +58,6 @@ export const rcPositions: Position[] = [
       "Destroy critical enemy infrastructure",
       "Create entry and exit points for the squad",
     ],
-    equipment: ["Classified"],
   },
     {
     title: "Assault Specialist",
@@ -74,6 +70,5 @@ export const rcPositions: Position[] = [
       "Provide suppressive fire for the squad",
       "Utilize advanced weaponry and tactics",
     ],
-    equipment: ["Classified"],
   },
 ]

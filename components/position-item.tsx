@@ -63,11 +63,19 @@ export default function PositionItem({ title, code, description, requirements, r
           <div className="space-y-2 mb-6">
             <div className="flex items-center gap-2 text-zinc-300 font-mono text-sm">
               <FileText size={14} className="text-blue-400" />
-              <span>REQUIREMENTS</span>
+              <span>ELIGIBLE RANKS</span>
             </div>
-            <ul className="space-y-2 pl-5 list-disc text-zinc-400 text-sm">
-              {requirements && requirements.map((item, i) => <li key={i}>{item}</li>)}
-            </ul>
+            <div className="flex flex-wrap gap-2 pl-5">
+              {requirements &&
+                requirements.map((item, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex px-2 py-1 rounded-md text-xs bg-zinc-800 text-blue-300 border border-zinc-700"
+                  >
+                    {item}
+                  </span>
+                ))}
+            </div>
           </div>
         </motion.div>
       )}

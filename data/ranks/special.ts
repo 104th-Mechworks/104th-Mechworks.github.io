@@ -10,15 +10,7 @@ export const arcRanks: Rank[] = [
     level: "CS-1",
     additionalInfo: {
       responsibilities: [
-        "Overall command of ARC program",
-        "Strategic planning for special operations",
-        "Resource allocation for ARC units",
-        "Coordination with battalion command",
-      ],
-      qualifications: [
-        "Previous service as ARC Major",
-        "Advanced special operations certification",
-        "Command staff training",
+        "Classified",
       ],
       reportsTo: "Marshal Commander",
     },
@@ -32,10 +24,7 @@ export const arcRanks: Rank[] = [
     level: "CS-2",
     additionalInfo: {
       responsibilities: [
-        "Command of ARC Captain teams",
-        "Special operations planning",
-        "Training program oversight",
-        "Command staff duties",
+        "Classiefied",
       ],
       qualifications: ["Previous service as ARC Captain", "Advanced tactical planning", "Leadership assessment"],
       reportsTo: "ARC Commander",
@@ -50,15 +39,7 @@ export const arcRanks: Rank[] = [
     level: "HO-1",
     additionalInfo: {
       responsibilities: [
-        "ARC admissions oversight",
-        "Training implementation",
-        "Special operations execution",
-        "Team leadership",
-      ],
-      qualifications: [
-        "Previous service as ARC Lieutenant",
-        "Advanced combat certification",
-        "Selection process training",
+        "Classified",
       ],
       reportsTo: "ARC Major",
     },
@@ -71,8 +52,7 @@ export const arcRanks: Rank[] = [
     category: "high-officer",
     level: "HO-2",
     additionalInfo: {
-      responsibilities: ["ARC admissions processing", "Training assistance", "Special operations", "Team leadership"],
-      qualifications: ["Previous service as ARC Sergeant", "Advanced combat training", "Selection process experience"],
+      responsibilities: ["Classified"],
       reportsTo: "ARC Captain",
     },
   },
@@ -84,8 +64,7 @@ export const arcRanks: Rank[] = [
     category: "officer",
     level: "O-1",
     additionalInfo: {
-      responsibilities: ["ARC staff duties", "Training implementation", "Special operations", "Team leadership"],
-      qualifications: ["Previous service as ARC Trooper", "Advanced combat proficiency", "Leadership assessment"],
+      responsibilities: ["Classified"],
       reportsTo: "ARC Lieutenant",
     },
   },
@@ -99,12 +78,8 @@ export const arcRanks: Rank[] = [
     level: "O-2",
     additionalInfo: {
       responsibilities: [
-        "Special operations execution",
-        "Scouting session hosting",
-        "Advanced combat operations",
-        "Mentoring potential ARC candidates",
+        "Classified",
       ],
-      qualifications: ["Selection from CT or staff ranks", "Exceptional combat record", "Advanced training completion"],
       reportsTo: "ARC Sergeant",
     },
   },
@@ -121,14 +96,7 @@ export const rcRanks: Rank[] = [
     additionalInfo: {
       responsibilities: [
         "Command of RC program",
-        "Covert operations planning",
-        "Resource allocation",
-        "Coordination with ARC program",
-      ],
-      qualifications: [
-        "Previous service as RC Sergeant",
-        "Advanced covert operations training",
-        "Leadership assessment",
+        "Classified",
       ],
       reportsTo: "Marshal Commander",
     },
@@ -233,8 +201,7 @@ export const rcRanks: Rank[] = [
     category: "high-officer",
     level: "HO-1",
     additionalInfo: {
-      responsibilities: ["Team leadership", "Mission planning", "Training implementation", "Covert operations"],
-      qualifications: ["Previous service as RC Corporal", "Advanced tactical training", "Leadership assessment"],
+      responsibilities: ["Classified"],
       reportsTo: "RC Commander",
     },
   },
@@ -246,12 +213,7 @@ export const rcRanks: Rank[] = [
     category: "high-officer",
     level: "HO-2",
     additionalInfo: {
-      responsibilities: ["Team operations", "Training assistance", "Equipment specialization", "Covert missions"],
-      qualifications: [
-        "Previous service as RC Private",
-        "Specialized equipment training",
-        "Combat proficiency assessment",
-      ],
+      responsibilities: ["Classified"],
       reportsTo: "RC Sergeant",
     },
   },
@@ -263,8 +225,7 @@ export const rcRanks: Rank[] = [
     category: "officer",
     level: "O-2",
     additionalInfo: {
-      responsibilities: ["Basic commando operations", "Mission execution", "Equipment maintenance", "Team support"],
-      qualifications: ["Selection from CT ranks", "Commando training completion", "Advanced combat certification"],
+      responsibilities: ["Classified"],
       reportsTo: "RC Corporal",
     },
   },

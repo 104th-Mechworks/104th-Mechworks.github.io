@@ -129,27 +129,39 @@ export default function RankItem({ rank, code, description, additionalInfo, insi
                   <Users size={14} className="text-blue-400" />
                   <span>ELIGIBLE POSITIONS</span>
                 </div>
-                <ul className="space-y-2 pl-5 list-disc text-zinc-400 text-sm">
+                <div className="flex flex-wrap gap-2">
                   {additionalInfo?.positions?.map((item, i) => (
-                    <li key={i}>{item}</li>
+                    <span
+                      key={i}
+                      className="px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-md text-xs text-blue-400"
+                    >
+                      {item}
+                    </span>
                   ))}
                   {additionalInfo?.eligiblePositions?.map((item, i) => (
-                    <li key={i}>{item}</li>
+                    <span
+                      key={i}
+                      className="px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-md text-xs text-blue-400"
+                    >
+                      {item}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
             )}
 
             {/* Reports To Section */}
-            {additionalInfo?.reportsTo && (
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-zinc-300 font-mono text-sm">
-                  <Shield size={14} className="text-blue-400" />
-                  <span>REPORTS TO</span>
-                </div>
-                <p className="text-zinc-400 text-sm">{additionalInfo.reportsTo}</p>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-zinc-300 font-mono text-sm">
+                <Shield size={14} className="text-blue-400" />
+                <span>REPORTS TO</span>
               </div>
-            )}
+              <div className="flex flex-wrap gap-2">
+                <span className="px-2 py-1 bg-zinc-800 border border-zinc-700 rounded-md text-xs text-blue-400">
+                  {additionalInfo?.reportsTo || "N/A"}
+                </span>
+              </div>
+            </div>
           </div>
         </motion.div>
       )}

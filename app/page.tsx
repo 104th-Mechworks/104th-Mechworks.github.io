@@ -6,7 +6,7 @@ import LoadingScreen from "@/components/loading-screen"
 import Header from "@/components/layout/header"
 import Footer from "@/components/layout/footer"
 import HomeSection from "@/components/sections/home/home-section"
-import BranchesSection from "@/components/sections/branches/branches-section"
+// import BranchesSection from "@/components/sections/branches/branches-section"
 import RanksSection from "@/components/sections/ranks/ranks-section"
 import PositionsSection from "@/components/sections/positions/positions-section"
 import ClassesSection from "@/components/sections/classes/classes-section"
@@ -90,9 +90,9 @@ export default function Home() {
         <AnimatePresence mode="wait">
           {activeSection === "home" && <HomeSection onNavigate={handleNavigation} />}
 
-          {activeSection === "branches" && (
-            <BranchesSection getIconComponent={getIconComponent} onNavigate={handleNavigation} />
-          )}
+          {/*{activeSection === "branches" && (*/}
+          {/*  <BranchesSection getIconComponent={getIconComponent} onNavigate={handleNavigation} />*/}
+          {/*)}*/}
 
           {activeSection === "ranks" && <RanksSection />}
 

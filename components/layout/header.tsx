@@ -40,14 +40,14 @@ export default function Header({ activeSection, onNavigate, onLogoClick }: Heade
           </div>
 
           <nav className="hidden space-x-6">
-            <button
-              onClick={() => handleMobileNavigation("branches")}
-              className={`text-sm font-mono transition-colors ${
-                activeSection === "branches" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
-              }`}
-            >
-              BRANCHES
-            </button>
+            {/*<button*/}
+            {/*  onClick={() => handleMobileNavigation("branches")}*/}
+            {/*  className={`text-sm font-mono transition-colors ${*/}
+            {/*    activeSection === "branches" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"*/}
+            {/*  }`}*/}
+            {/*>*/}
+            {/*  BRANCHES*/}
+            {/*</button>*/}
             <button
               onClick={() => handleMobileNavigation("ranks")}
               className={`text-sm font-mono transition-colors ${
@@ -137,16 +137,16 @@ export default function Header({ activeSection, onNavigate, onLogoClick }: Heade
               >
                 HOME
               </button>
-              <button
-                onClick={() => handleMobileNavigation("branches")}
-                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
-                  activeSection === "branches"
-                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
-                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
-                }`}
-              >
-                BRANCHES
-              </button>
+              {/*<button*/}
+              {/*  onClick={() => handleMobileNavigation("branches")}*/}
+              {/*  className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${*/}
+              {/*    activeSection === "branches"*/}
+              {/*      ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"*/}
+              {/*      : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"*/}
+              {/*  }`}*/}
+              {/*>*/}
+              {/*  BRANCHES*/}
+              {/*</button>*/}
               <button
                 onClick={() => handleMobileNavigation("ranks")}
                 className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${

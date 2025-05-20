@@ -3,36 +3,48 @@ import type { Position } from "../../types"
 export const arcPositions: Position[] = [
   {
     title: "Admissions Officer",
-    code: "ACDR",
+    code: "AAO",
     description: "Oversees and maintains standards for the ARC pipeline",
-    requirements: ["Classified"],
+    requirements: ["ACDR"],
     responsibilities: [
       "Oversee ARC Pipeline",
       "Maintain standards",
       "Work the Executive Officers and Trooper Commanding Officers",
+      "Other responsibilities are classified",
     ],
   },
   {
     title: "Executive Officer",
-    code: "AMAJ",
+    code: "AXEC",
     description: "2nd in command of the ARC program and specialise in a specific sector",
-    requirements: ["Classified"],
+    requirements: ["AMAJ"],
     responsibilities: [
       "Assist the ARC Commanding Officer",
       "Oversee the ARC program",
+      "Other responsibilities are classified",
     ],
   },
   {
     title: "Troop Commander",
-    code: "ACPT",
+    code: "TCDR",
     description: "Leads a Troop of ARC troopers",
-    requirements: ["Classified"],
+    requirements: ["ACPT"],
     responsibilities: [
       "Oversee a Troop of ARC troopers",
       "Oversee selection and candidacy of new ARCs",
       "Resolve issues within the Troop",
-      "Senior liason betwene the troop and the rest of the milsim",
+      "Senior liason between the troop and the rest of the milsim",
+      "Other responsibilities are classified",
     ],
-    // equipment: ["Standard ARC Armor", "Advanced Communications", "Tactical Display"],
+  },
+    {
+    title: "Troop Liaison",
+    code: "TL",
+    description: "Liaison between the Troop and the rest of the milsim",
+    requirements: ["AT", "ASGT", "ALT"],
+    responsibilities: [
+      "Liaison between the Troop and the rest of the milsim",
+      "Other responsibilities are classified",
+    ],
   },
 ]

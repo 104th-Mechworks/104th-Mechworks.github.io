@@ -10,13 +10,10 @@ export const navalRanks: Rank[] = [
     level: "HO-1",
     additionalInfo: {
       responsibilities: [
-        "Advisory role to active command",
-        "Training oversight",
-        "Strategic planning assistance",
-        "Mentoring officers",
+        "Administrative support",
+        "Moderate servers",
       ],
-      qualifications: ["Previous service as Captain or Major", "Retirement eligibility", "Advisory training"],
-      reportsTo: "Marshal Commander",
+      reportsTo: "N/A",
     },
   },
   {
@@ -28,13 +25,10 @@ export const navalRanks: Rank[] = [
     level: "HO-2",
     additionalInfo: {
       responsibilities: [
-        "Advisory role to active officers",
-        "Training assistance",
         "Administrative support",
-        "Mentoring junior officers",
+        "Moderate servers",
       ],
-      qualifications: ["Previous service as Lieutenant", "Retirement eligibility", "Advisory training"],
-      reportsTo: "Naval Commander",
+      reportsTo: "N/A",
     },
   },
   {
@@ -46,13 +40,10 @@ export const navalRanks: Rank[] = [
     level: "O-1",
     additionalInfo: {
       responsibilities: [
-        "Advisory role to active officers",
-        "Training assistance",
         "Administrative support",
-        "Mentoring junior officers",
+        "Moderate servers",
       ],
-      qualifications: ["Previous service as 2nd Lieutenant", "Retirement eligibility", "Advisory training"],
-      reportsTo: "Lieutenant Commander",
+      reportsTo: "N/A",
     },
   },
   {
@@ -64,13 +55,10 @@ export const navalRanks: Rank[] = [
     level: "O-2",
     additionalInfo: {
       responsibilities: [
-        "Advisory role to active NCOs",
-        "Training assistance",
         "Administrative support",
-        "Mentoring enlisted personnel",
+        "Moderate channels",
       ],
-      qualifications: ["Previous service as Sergeant Major", "Retirement eligibility", "Advisory training"],
-      reportsTo: "Naval Lieutenant",
+      reportsTo: "N/A",
     },
   },
   {
@@ -82,13 +70,9 @@ export const navalRanks: Rank[] = [
     level: "NCO-1",
     additionalInfo: {
       responsibilities: [
-        "Advisory role to active NCOs",
-        "Training assistance",
         "Administrative support",
-        "Mentoring enlisted personnel",
       ],
-      qualifications: ["Previous service as Sergeant", "Retirement eligibility", "Advisory training"],
-      reportsTo: "Petty Officer 1st Class",
+      reportsTo: "N/A",
     },
   },
   {
@@ -101,12 +85,9 @@ export const navalRanks: Rank[] = [
     additionalInfo: {
       responsibilities: [
         "Advisory role to active NCOs",
-        "Training assistance",
         "Administrative support",
-        "Mentoring enlisted personnel",
       ],
-      qualifications: ["Previous service as Corporal", "Retirement eligibility", "Advisory training"],
-      reportsTo: "Petty Officer 2nd Class",
+      reportsTo: "N/A",
     },
   },
 ]

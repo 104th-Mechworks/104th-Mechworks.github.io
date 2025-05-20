@@ -235,43 +235,40 @@ export const armyMajorMembers: CommandStaffMember[] = [
     ],
     specializations: ["Ground Combat Tactics", "Combined Arms Operations", "Defensive Strategy", "Troop Leadership"],
     commandDuties: [
-      "104th Battalion - Army Major (03 Sector)",
-      "Resilient Server - Major",
-      "Republic Military Academy - Tactics Instructor (former)",
+      "104th Battalion - ",
+      "RAS Vanguard - Head of Department of Standards",
+      "KMC - Chief Training Officer",
     ],
   },
   {
     id: "uchiha",
     name: "Uchiha",
     rank: "MAJ",
-    role: "Major of the Vanguard - 02 Sector",
+    role: "Head of Analysis",
     imageSrc: "/placeholder.svg?key=uchiha",
     description:
-      "Major Uchiha serves as the Major of the Vanguard for 02 Sector, leading elite forward operations and reconnaissance missions. His innovative approach to battlefield tactics has repeatedly given Republic forces the edge in contested territories.",
+      "Major Uchiha oversees the analysis and data collection for the 104th Battalion, ensuring the effective operation of the unit.",
     achievements: [
-      "Pioneered new rapid-deployment tactics for infantry units",
-      "Led the vanguard force that secured the landing zone on Umbara",
-      "Recipient of the Republic Strategic Operations Medal",
-      "Veteran of over 25 high-risk forward operations",
+      "Head of Department of Analysis",
+      "Desert Trooper",
     ],
-    specializations: ["Forward Operations", "Rapid Deployment", "Reconnaissance", "Tactical Innovation"],
+    // specializations: [],
     commandDuties: [
-      "104th Battalion - Major of the Vanguard (02 Sector)",
-      "Resilient Server - Major",
-      "Republic Special Tactics Division - Officer (former)",
+      "104th Battalion - Head of Analysis",
+      "RAS Vanguard - Deputy Director of Analysis",
     ],
   },
-  {
-    id: "vacant-01",
-    name: "VACANT",
-    rank: "MAJ",
-    role: "Army Major - 01 Sector",
-    imageSrc: "/placeholder.svg?key=vacant",
-    description: "This position is currently vacant and awaiting assignment.",
-    achievements: [],
-    specializations: [],
-    commandDuties: [],
-  },
+  // {
+  //   id: "vacant-01",
+  //   name: "VACANT",
+  //   rank: "MAJ",
+  //   role: "Army Major - 01 Sector",
+  //   imageSrc: "/placeholder.svg?key=vacant",
+  //   description: "This position is currently vacant and awaiting assignment.",
+  //   achievements: [],
+  //   specializations: [],
+  //   commandDuties: [],
+  // },
 ]
 
 // Separate array for sector commanders that will be displayed in a row
@@ -294,7 +291,7 @@ export const sectorCommandMembers: CommandStaffMember[] = [
     commandDuties: [
       "104th Battalion - 01 Sector Commander",
       "Resilient Server - Clone Commander",
-      "Republic Strategic Command - Analyst (former)",
+      "KMC - Head Marksman Cadre",
     ],
   },
   {
@@ -316,7 +313,6 @@ export const sectorCommandMembers: CommandStaffMember[] = [
     commandDuties: [
       "104th Battalion - 02 Sector Commander",
       "Resilient Server - Clone Commander",
-      "Republic Special Tactics Division - Officer (former)",
     ],
   },
   {

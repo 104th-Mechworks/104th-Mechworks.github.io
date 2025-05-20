@@ -6,7 +6,7 @@ import { standardsDepartment } from "./standards"
 import { securityDepartment } from "./security"
 import { operationsDepartment } from "./operations"
 import { intelligenceDepartment } from "./intelligence"
-import { disciplineDepartment } from "./discipline"
+// import { disciplineDepartment } from "./discipline"
 
 export const rasDepartments: Department[] = [
   adminDepartment,
@@ -16,5 +16,5 @@ export const rasDepartments: Department[] = [
   securityDepartment,
   operationsDepartment,
   intelligenceDepartment,
-  disciplineDepartment,
+  // disciplineDepartment,
 ]
