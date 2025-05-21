@@ -37,7 +37,7 @@ export const comengDepartment: Department = {
     {
       name: "Website Team",
       lead: {
-        name: "TBC ",
+        name: "SGM Ollie",
       },
       groups: [
         { name: "Design", members: [
