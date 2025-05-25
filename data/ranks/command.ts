@@ -7,20 +7,14 @@ export const commandRanks: Rank[] = [
     description: "Commander of the 104th Fleet",
     insigniaPath: "/images/ranks/MCDR.webp",
     category: "fleet-command",
+    level: "FC-1",
     additionalInfo: {
       responsibilities: [
         "Overall command of the 104th Battalion",
         "Strategic planning for all operations",
         "Final authority on all battalion matters",
-        "Direct liaison with Jedi Generals",
       ],
-      qualifications: [
-        "Minimum 1 year of service in Command Staff",
-        "Exceptional leadership record",
-        "Advanced tactical training certification",
-      ],
-      notableMembers: ["Wolffe", "Cody", "Bly"],
-      reportingTo: "Jedi General",
+      reportsTo: "N/A",
     },
   },
   {
@@ -29,20 +23,15 @@ export const commandRanks: Rank[] = [
     description: "Advisor to the Marshal Commander",
     insigniaPath: "/images/ranks/SCDR.webp",
     category: "fleet-command",
+    level: "FC-2",
     additionalInfo: {
       responsibilities: [
         "Direct support to the Marshal Commander",
         "Oversight of battalion operations",
         "Command in the Marshal Commander's absence",
-        "Strategic planning and analysis",
+        "Senior Advisor to all fleet commanders",
       ],
-      qualifications: [
-        "Previous service as Battalion Commander",
-        "Advanced command training",
-        "Strategic operations certification",
-      ],
-      notableMembers: ["Fox", "Gree", "Bacara"],
-      reportingTo: "Marshal Commander",
+      reportsTo: "Marshal Commander",
     },
   },
   {
@@ -51,16 +40,14 @@ export const commandRanks: Rank[] = [
     description: "Advisor to the Marshal Commander",
     insigniaPath: "/images/ranks/marshal.png",
     category: "fleet-command",
+    level: "FC-2",
     additionalInfo: {
       responsibilities: [
-        "Command of all air and space operations",
-        "Strategic planning for aerial combat",
-        "Coordination between ground and air forces",
-        "Fleet deployment and management",
+        "Advisor for Starfighter Corps operations",
+        "Support for the Marshal Commander",
+        "Oversight of fleet operations",
       ],
-      qualifications: ["Previous service as Commodore", "Advanced flight certification", "Fleet command training"],
-      notableMembers: ["Hawk", "Oddball", "Matchstick"],
-      reportingTo: "Marshal Commander",
+      reportsTo: "Marshal Commander",
     },
   },
 ]

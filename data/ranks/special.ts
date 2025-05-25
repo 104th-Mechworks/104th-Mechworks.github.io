@@ -7,20 +7,12 @@ export const arcRanks: Rank[] = [
     description: "In charge of the ARC Program, in Command Staff",
     insigniaPath: "/images/ranks/CDR.webp",
     category: "command-staff",
+    level: "CS-1",
     additionalInfo: {
       responsibilities: [
-        "Overall command of ARC program",
-        "Strategic planning for special operations",
-        "Resource allocation for ARC units",
-        "Coordination with battalion command",
+        "Classified",
       ],
-      qualifications: [
-        "Previous service as ARC Major",
-        "Advanced special operations certification",
-        "Command staff training",
-      ],
-      notableMembers: ["Blitz", "Hammer", "Havoc"],
-      reportingTo: "Marshal Commander",
+      reportsTo: "Marshal Commander",
     },
   },
   {
@@ -29,16 +21,13 @@ export const arcRanks: Rank[] = [
     description: "In charge of the ACPTs and is part of Command staff. Same power as a MAJ",
     insigniaPath: "/images/ranks/AMAJ.webp",
     category: "command-staff",
+    level: "CS-2",
     additionalInfo: {
       responsibilities: [
-        "Command of ARC Captain teams",
-        "Special operations planning",
-        "Training program oversight",
-        "Command staff duties",
+        "Classiefied",
       ],
       qualifications: ["Previous service as ARC Captain", "Advanced tactical planning", "Leadership assessment"],
-      notableMembers: ["Vanok", "Colt", "Havoc"],
-      reportingTo: "ARC Commander",
+      reportsTo: "ARC Commander",
     },
   },
   {
@@ -47,20 +36,12 @@ export const arcRanks: Rank[] = [
     description: "ARC Admissions Officer, same power as a CPT",
     insigniaPath: "/images/ranks/ACPT.webp",
     category: "high-officer",
+    level: "HO-1",
     additionalInfo: {
       responsibilities: [
-        "ARC admissions oversight",
-        "Training implementation",
-        "Special operations execution",
-        "Team leadership",
+        "Classified",
       ],
-      qualifications: [
-        "Previous service as ARC Lieutenant",
-        "Advanced combat certification",
-        "Selection process training",
-      ],
-      notableMembers: ["Fordo", "Hammer", "Colt"],
-      reportingTo: "ARC Major",
+      reportsTo: "ARC Major",
     },
   },
   {
@@ -69,11 +50,10 @@ export const arcRanks: Rank[] = [
     description: "ARC Admissions Officer, same power as a LT",
     insigniaPath: "/images/ranks/ALT.webp",
     category: "high-officer",
+    level: "HO-2",
     additionalInfo: {
-      responsibilities: ["ARC admissions processing", "Training assistance", "Special operations", "Team leadership"],
-      qualifications: ["Previous service as ARC Sergeant", "Advanced combat training", "Selection process experience"],
-      notableMembers: ["Garmr", "Fives", "Echo"],
-      reportingTo: "ARC Captain",
+      responsibilities: ["Classified"],
+      reportsTo: "ARC Captain",
     },
   },
   {
@@ -82,11 +62,10 @@ export const arcRanks: Rank[] = [
     description: "ARC Staff, same power as a 2LT",
     insigniaPath: "/images/ranks/ASGT.webp",
     category: "officer",
+    level: "O-1",
     additionalInfo: {
-      responsibilities: ["ARC staff duties", "Training implementation", "Special operations", "Team leadership"],
-      qualifications: ["Previous service as ARC Trooper", "Advanced combat proficiency", "Leadership assessment"],
-      notableMembers: ["Dalen", "Jesse", "Kix"],
-      reportingTo: "ARC Lieutenant",
+      responsibilities: ["Classified"],
+      reportsTo: "ARC Lieutenant",
     },
   },
   {
@@ -96,16 +75,12 @@ export const arcRanks: Rank[] = [
       "Troopers found to be the best of the best out of staff and CTs. Has the same power as a SGM. ATs may also host scouting sessions",
     insigniaPath: "/images/ranks/AT.webp",
     category: "officer",
+    level: "O-2",
     additionalInfo: {
       responsibilities: [
-        "Special operations execution",
-        "Scouting session hosting",
-        "Advanced combat operations",
-        "Mentoring potential ARC candidates",
+        "Classified",
       ],
-      qualifications: ["Selection from CT or staff ranks", "Exceptional combat record", "Advanced training completion"],
-      notableMembers: ["Fives", "Echo", "Jesse"],
-      reportingTo: "ARC Sergeant",
+      reportsTo: "ARC Sergeant",
     },
   },
 ]
@@ -117,20 +92,13 @@ export const rcRanks: Rank[] = [
     description: "Program Admissions Officer",
     insigniaPath: "/images/ranks/CDR.webp",
     category: "command-staff",
+    level: "CS-1",
     additionalInfo: {
       responsibilities: [
         "Command of RC program",
-        "Covert operations planning",
-        "Resource allocation",
-        "Coordination with ARC program",
+        "Classified",
       ],
-      qualifications: [
-        "Previous service as RC Sergeant",
-        "Advanced covert operations training",
-        "Leadership assessment",
-      ],
-      notableMembers: ["Boss", "Sev"],
-      reportingTo: "Marshal Commander",
+      reportsTo: "Marshal Commander",
     },
   },
   // {
@@ -151,8 +119,7 @@ export const rcRanks: Rank[] = [
   //       "Advanced covert operations certification",
   //       "Leadership assessment",
   //     ],
-  //     notableMembers: ["Ordo", "Mereel"],
-  //     reportingTo: "RC Commander",
+  //     reportsTo: "RC Commander",
   //   },
   // },
   // {
@@ -173,8 +140,7 @@ export const rcRanks: Rank[] = [
   //       "Advanced tactical leadership",
   //       "Specialized equipment training",
   //     ],
-  //     notableMembers: ["Boss", "Niner"],
-  //     reportingTo: "RC Major",
+  //     reportsTo: "RC Major",
   //   },
   // },
   // {
@@ -191,8 +157,7 @@ export const rcRanks: Rank[] = [
   //       "Equipment maintenance",
   //     ],
   //     qualifications: ["Previous service as RC 2nd Lieutenant", "Advanced tactical training", "Leadership assessment"],
-  //     notableMembers: ["Fixer", "Atin"],
-  //     reportingTo: "RC Captain",
+  //     reportsTo: "RC Captain",
   //   },
   // },
   // {
@@ -213,8 +178,7 @@ export const rcRanks: Rank[] = [
   //       "Technical specialization",
   //       "Advanced equipment training",
   //     ],
-  //     notableMembers: ["Scorch", "Corr"],
-  //     reportingTo: "RC Lieutenant",
+  //     reportsTo: "RC Lieutenant",
   //   },
   // },
   // {
@@ -226,8 +190,7 @@ export const rcRanks: Rank[] = [
   //   additionalInfo: {
   //     responsibilities: ["Senior enlisted advisor", "Training oversight", "Equipment maintenance", "Team coordination"],
   //     qualifications: ["Previous service as RC Sergeant", "Advanced combat experience", "Leadership assessment"],
-  //     notableMembers: ["Sev", "Fi"],
-  //     reportingTo: "RC 2nd Lieutenant",
+  //     reportsTo: "RC 2nd Lieutenant",
   //   },
   // },
   {
@@ -236,11 +199,10 @@ export const rcRanks: Rank[] = [
     description: "Third Rank of the RCs",
     insigniaPath: "/images/ranks/RCSGT.webp",
     category: "high-officer",
+    level: "HO-1",
     additionalInfo: {
-      responsibilities: ["Team leadership", "Mission planning", "Training implementation", "Covert operations"],
-      qualifications: ["Previous service as RC Corporal", "Advanced tactical training", "Leadership assessment"],
-      notableMembers: ["Fixer", "Scorch"],
-      reportingTo: "RC Sergeant Major",
+      responsibilities: ["Classified"],
+      reportsTo: "RC Commander",
     },
   },
   {
@@ -249,15 +211,10 @@ export const rcRanks: Rank[] = [
     description: "Second Rank of the RCs",
     insigniaPath: "/images/ranks/RCCPL.webp",
     category: "high-officer",
+    level: "HO-2",
     additionalInfo: {
-      responsibilities: ["Team operations", "Training assistance", "Equipment specialization", "Covert missions"],
-      qualifications: [
-        "Previous service as RC Private",
-        "Specialized equipment training",
-        "Combat proficiency assessment",
-      ],
-      notableMembers: ["Darman", "Niner"],
-      reportingTo: "RC Sergeant",
+      responsibilities: ["Classified"],
+      reportsTo: "RC Sergeant",
     },
   },
   {
@@ -266,11 +223,10 @@ export const rcRanks: Rank[] = [
     description: "First Rank of RCs",
     insigniaPath: "/images/ranks/RCPVT.webp",
     category: "officer",
+    level: "O-2",
     additionalInfo: {
-      responsibilities: ["Basic commando operations", "Mission execution", "Equipment maintenance", "Team support"],
-      qualifications: ["Selection from CT ranks", "Commando training completion", "Advanced combat certification"],
-      notableMembers: ["Oiler", "Fi"],
-      reportingTo: "RC Corporal",
+      responsibilities: ["Classified"],
+      reportsTo: "RC Corporal",
     },
   },
 ]

@@ -1,0 +1,58 @@
+import type { Medal } from "../types"
+
+export const longevityMedals: Medal[] = [
+    {
+    id: "6-year-service",
+    name: "6 Year Service Medal",
+    description: "Awarded for six years of service in the 104th Battalion.",
+    imageSrc: "/images/medals/6ys.webp",
+    requirements: ["Must be in the 104th for more than 6 years"],
+    category: "longevity",
+    rarity: "mythic",
+  },
+    {
+    id: "5-year-service",
+    name: "5 Year Service Medal",
+    description: "Awarded for five years of service in the 104th Battalion.",
+    imageSrc: "/images/medals/5ys.webp",
+    requirements: ["Must be in the 104th for more than 5 years"],
+    category: "longevity",
+    rarity: "mythic",
+  },
+  {
+    id: "4-year-service",
+    name: "4 Year Service Medal",
+    description: "Awarded for four years of service in the 104th Battalion.",
+    imageSrc: "/images/medals/4ys.webp",
+    requirements: ["Must be in the 104th for more than 4 years"],
+    category: "longevity",
+    rarity: "legendary",
+  },
+  {
+    id: "3-year-service",
+    name: "3 Year Service Medal",
+    description: "Awarded for three years of service in the 104th Battalion.",
+    imageSrc: "/images/medals/3ys.webp",
+    requirements: ["Must be in the 104th for more than 3 years"],
+    category: "longevity",
+    rarity: "rare",
+  },
+  {
+    id: "2-year-service",
+    name: "2 Year Service Medal",
+    description: "Awarded for two years of service in the 104th Battalion.",
+    imageSrc: "/images/medals/2ys.webp",
+    requirements: ["Must be in the 104th for more than 2 years"],
+    category: "longevity",
+    rarity: "uncommon",
+  },
+  {
+    id: "1-year-service",
+    name: "1 Year Service Medal",
+    description: "Awarded for one year of service in the 104th Battalion.",
+    imageSrc: "/images/medals/1ys.webp",
+    requirements: ["Must be in the 104th for more than 1 year"],
+    category: "longevity",
+    rarity: "common",
+  },
+]

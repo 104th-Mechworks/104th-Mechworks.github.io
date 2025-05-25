@@ -7,16 +7,13 @@ export const navalRanks: Rank[] = [
     description: "Retired CPT / MAJ",
     insigniaPath: "/images/ranks/NCDR.webp",
     category: "high-officer",
+    level: "HO-1",
     additionalInfo: {
       responsibilities: [
-        "Advisory role to active command",
-        "Training oversight",
-        "Strategic planning assistance",
-        "Mentoring officers",
+        "Administrative support",
+        "Moderate servers",
       ],
-      qualifications: ["Previous service as Captain or Major", "Retirement eligibility", "Advisory training"],
-      notableMembers: ["Kix", "Coric"],
-      reportingTo: "Marshal Commander",
+      reportsTo: "N/A",
     },
   },
   {
@@ -25,16 +22,13 @@ export const navalRanks: Rank[] = [
     description: "Retired LT",
     insigniaPath: "/images/ranks/LTCDR.webp",
     category: "high-officer",
+    level: "HO-2",
     additionalInfo: {
       responsibilities: [
-        "Advisory role to active officers",
-        "Training assistance",
         "Administrative support",
-        "Mentoring junior officers",
+        "Moderate servers",
       ],
-      qualifications: ["Previous service as Lieutenant", "Retirement eligibility", "Advisory training"],
-      notableMembers: ["Coric", "Kano"],
-      reportingTo: "Naval Commander",
+      reportsTo: "N/A",
     },
   },
   {
@@ -43,16 +37,13 @@ export const navalRanks: Rank[] = [
     description: "Retired 2LT",
     insigniaPath: "/images/ranks/NLT.webp",
     category: "officer",
+    level: "O-1",
     additionalInfo: {
       responsibilities: [
-        "Advisory role to active officers",
-        "Training assistance",
         "Administrative support",
-        "Mentoring junior officers",
+        "Moderate servers",
       ],
-      qualifications: ["Previous service as 2nd Lieutenant", "Retirement eligibility", "Advisory training"],
-      notableMembers: ["Kano", "Zeer"],
-      reportingTo: "Lieutenant Commander",
+      reportsTo: "N/A",
     },
   },
   {
@@ -61,16 +52,13 @@ export const navalRanks: Rank[] = [
     description: "Retired SGM",
     insigniaPath: "/images/ranks/PO1.webp",
     category: "officer",
+    level: "O-2",
     additionalInfo: {
       responsibilities: [
-        "Advisory role to active NCOs",
-        "Training assistance",
         "Administrative support",
-        "Mentoring enlisted personnel",
+        "Moderate channels",
       ],
-      qualifications: ["Previous service as Sergeant Major", "Retirement eligibility", "Advisory training"],
-      notableMembers: ["Zeer", "Attie"],
-      reportingTo: "Naval Lieutenant",
+      reportsTo: "N/A",
     },
   },
   {
@@ -79,16 +67,12 @@ export const navalRanks: Rank[] = [
     description: "Retired SGT",
     insigniaPath: "/images/ranks/PO2.webp",
     category: "nco",
+    level: "NCO-1",
     additionalInfo: {
       responsibilities: [
-        "Advisory role to active NCOs",
-        "Training assistance",
         "Administrative support",
-        "Mentoring enlisted personnel",
       ],
-      qualifications: ["Previous service as Sergeant", "Retirement eligibility", "Advisory training"],
-      notableMembers: ["Attie", "Del"],
-      reportingTo: "Petty Officer 1st Class",
+      reportsTo: "N/A",
     },
   },
   {
@@ -97,16 +81,13 @@ export const navalRanks: Rank[] = [
     description: "Retired CPL",
     insigniaPath: "/images/ranks/PO3.webp",
     category: "nco",
+    level: "NCO-2",
     additionalInfo: {
       responsibilities: [
         "Advisory role to active NCOs",
-        "Training assistance",
         "Administrative support",
-        "Mentoring enlisted personnel",
       ],
-      qualifications: ["Previous service as Corporal", "Retirement eligibility", "Advisory training"],
-      notableMembers: ["Del", "Atin"],
-      reportingTo: "Petty Officer 2nd Class",
+      reportsTo: "N/A",
     },
   },
 ]

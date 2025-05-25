@@ -39,15 +39,15 @@ export default function Header({ activeSection, onNavigate, onLogoClick }: Heade
             </div>
           </div>
 
-          <nav className="hidden md:flex space-x-6">
-            <button
-              onClick={() => handleMobileNavigation("branches")}
-              className={`text-sm font-mono transition-colors ${
-                activeSection === "branches" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
-              }`}
-            >
-              BRANCHES
-            </button>
+          <nav className="hidden space-x-6">
+            {/*<button*/}
+            {/*  onClick={() => handleMobileNavigation("branches")}*/}
+            {/*  className={`text-sm font-mono transition-colors ${*/}
+            {/*    activeSection === "branches" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"*/}
+            {/*  }`}*/}
+            {/*>*/}
+            {/*  BRANCHES*/}
+            {/*</button>*/}
             <button
               onClick={() => handleMobileNavigation("ranks")}
               className={`text-sm font-mono transition-colors ${
@@ -73,6 +73,14 @@ export default function Header({ activeSection, onNavigate, onLogoClick }: Heade
               CLASSES
             </button>
             <button
+              onClick={() => handleMobileNavigation("medals")}
+              className={`text-sm font-mono transition-colors ${
+                activeSection === "medals" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
+              }`}
+            >
+              MEDALS
+            </button>
+            <button
               onClick={() => handleMobileNavigation("servers")}
               className={`text-sm font-mono transition-colors ${
                 activeSection === "servers" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
@@ -88,10 +96,18 @@ export default function Header({ activeSection, onNavigate, onLogoClick }: Heade
             >
               COMMAND STAFF
             </button>
+            <button
+              onClick={() => handleMobileNavigation("rules")}
+              className={`text-sm font-mono transition-colors ${
+                activeSection === "rules" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
+              }`}
+            >
+              RULES
+            </button>
           </nav>
 
           {/* Mobile menu button */}
-          <button onClick={toggleMobileMenu} className="md:hidden text-zinc-400 hover:text-zinc-200">
+          <button onClick={toggleMobileMenu} className="text-zinc-400 hover:text-zinc-200">
             <Menu size={24} />
           </button>
         </div>
@@ -105,78 +121,101 @@ export default function Header({ activeSection, onNavigate, onLogoClick }: Heade
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed top-[70px] left-0 right-0 bg-zinc-900 border-b border-zinc-800 z-40"
+            className="fixed top-[70px] left-0 right-0 bg-zinc-900 border-b border-zinc-800 z-40 shadow-lg w-full"
           >
-            <div className="flex flex-col p-4 pt-6 space-y-3">
+            <div className="flex flex-col p-5 space-y-2 bg-gradient-to-b from-zinc-900 to-zinc-950 shadow-inner">
+              <div className="mb-2 pb-2 border-b border-zinc-800/50">
+                <p className="text-xs uppercase text-zinc-500 font-mono tracking-wider">Navigation</p>
+              </div>
               <button
                 onClick={() => handleMobileNavigation("home")}
-                className={`text-sm font-mono py-2 px-4 rounded-sm transition-colors ${
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
                   activeSection === "home"
-                    ? "bg-zinc-800 text-blue-400"
-                    : "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200"
+                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
+                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
                 }`}
               >
                 HOME
               </button>
-              <button
-                onClick={() => handleMobileNavigation("branches")}
-                className={`text-sm font-mono py-2 px-4 rounded-sm transition-colors ${
-                  activeSection === "branches"
-                    ? "bg-zinc-800 text-blue-400"
-                    : "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200"
-                }`}
-              >
-                BRANCHES
-              </button>
+              {/*<button*/}
+              {/*  onClick={() => handleMobileNavigation("branches")}*/}
+              {/*  className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${*/}
+              {/*    activeSection === "branches"*/}
+              {/*      ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"*/}
+              {/*      : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"*/}
+              {/*  }`}*/}
+              {/*>*/}
+              {/*  BRANCHES*/}
+              {/*</button>*/}
               <button
                 onClick={() => handleMobileNavigation("ranks")}
-                className={`text-sm font-mono py-2 px-4 rounded-sm transition-colors ${
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
                   activeSection === "ranks"
-                    ? "bg-zinc-800 text-blue-400"
-                    : "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200"
+                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
+                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
                 }`}
               >
                 RANKS
               </button>
               <button
                 onClick={() => handleMobileNavigation("positions")}
-                className={`text-sm font-mono py-2 px-4 rounded-sm transition-colors ${
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
                   activeSection === "positions"
-                    ? "bg-zinc-800 text-blue-400"
-                    : "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200"
+                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
+                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
                 }`}
               >
                 POSITIONS
               </button>
               <button
                 onClick={() => handleMobileNavigation("classes")}
-                className={`text-sm font-mono py-2 px-4 rounded-sm transition-colors ${
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
                   activeSection === "classes"
-                    ? "bg-zinc-800 text-blue-400"
-                    : "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200"
+                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
+                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
                 }`}
               >
                 CLASSES
               </button>
               <button
+                onClick={() => handleMobileNavigation("medals")}
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
+                  activeSection === "medals"
+                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
+                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
+                }`}
+              >
+                MEDALS
+              </button>
+              <button
                 onClick={() => handleMobileNavigation("servers")}
-                className={`text-sm font-mono py-2 px-4 rounded-sm transition-colors ${
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
                   activeSection === "servers"
-                    ? "bg-zinc-800 text-blue-400"
-                    : "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200"
+                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
+                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
                 }`}
               >
                 SERVERS
               </button>
               <button
                 onClick={() => handleMobileNavigation("command-staff")}
-                className={`text-sm font-mono py-2 px-4 rounded-sm transition-colors ${
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
                   activeSection === "command-staff"
-                    ? "bg-zinc-800 text-blue-400"
-                    : "text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200"
+                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
+                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
                 }`}
               >
                 COMMAND STAFF
+              </button>
+              <button
+                onClick={() => handleMobileNavigation("rules")}
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
+                  activeSection === "rules"
+                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
+                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
+                }`}
+              >
+                RULES & POLICIES
               </button>
             </div>
           </motion.div>

@@ -26,7 +26,7 @@ export default function MobileTabSelect({ options, value, onChange }: MobileTabS
   }
 
   return (
-    <div className="relative">
+    <div className="relative w-full md:w-64 lg:w-80">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between bg-zinc-900 border border-zinc-800 p-3 rounded-sm text-zinc-200 font-mono text-sm"
@@ -42,7 +42,7 @@ export default function MobileTabSelect({ options, value, onChange }: MobileTabS
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.15 }}
-            className="absolute z-10 w-full mt-1 bg-zinc-900 border border-zinc-800 rounded-sm shadow-lg"
+            className="absolute z-10 w-full mt-1 bg-zinc-900 border border-zinc-800 rounded-sm shadow-lg max-h-60 overflow-y-auto"
           >
             {options.map((option) => (
               <button

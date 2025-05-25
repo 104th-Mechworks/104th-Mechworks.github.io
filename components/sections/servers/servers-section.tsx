@@ -8,20 +8,50 @@ import { servers } from "@/data"
 import { rasDepartments } from "@/data/servers/ras"
 import { resilientCompanies } from "@/data/servers/resilient"
 import { triumphantWings } from "@/data/servers/triumphant"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import type { Department, Company, Wing, SpecialDepartment, Troop } from "@/data/types"
 
 interface ServersSectionProps {
   getBreadcrumbItems: (items: any[]) => any[]
+  initialServerId?: string
+  initialSpecialDepartment?: string
 }
 
-export default function ServersSection({ getBreadcrumbItems }: ServersSectionProps) {
-  const [selectedServer, setSelectedServer] = useState<string | null>(null)
+export default function ServersSection({
+  getBreadcrumbItems,
+  initialServerId,
+  initialSpecialDepartment,
+}: ServersSectionProps) {
+  const [selectedServer, setSelectedServer] = useState<string | null>(initialServerId || null)
   const [selectedDepartment, setSelectedDepartment] = useState<Department | null>(null)
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null)
   const [selectedWing, setSelectedWing] = useState<Wing | null>(null)
   const [selectedSpecialDepartment, setSelectedSpecialDepartment] = useState<SpecialDepartment | null>(null)
   const [selectedTroop, setSelectedTroop] = useState<Troop | null>(null)
+
+  // Handle initial navigation from other sections
+  useEffect(() => {
+    if (initialServerId) {
+      setSelectedServer(initialServerId)
+
+      // If we have a special department specified (for Ravager server)
+      if (initialServerId === "ravager" && initialSpecialDepartment) {
+        // Find the special department
+        const specialDepts = [
+          { id: "arc", name: "ARC Troopers" },
+          { id: "rc", name: "Republic Commandos" },
+        ]
+
+        const dept = specialDepts.find((d) => d.id === initialSpecialDepartment)
+        if (dept) {
+          setSelectedSpecialDepartment({
+            id: dept.id,
+            name: dept.name,
+          } as SpecialDepartment)
+        }
+      }
+    }
+  }, [initialServerId, initialSpecialDepartment])
 
   const handleServerClick = (serverId: string) => {
     setSelectedServer(serverId)

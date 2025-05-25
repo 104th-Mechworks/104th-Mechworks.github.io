@@ -56,19 +56,19 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-zinc-900 border border-zinc-800 rounded-sm p-6">
-          <h3 className="text-lg font-bold font-mono text-zinc-200 mb-4 flex items-center gap-2">
-            <Shield size={18} className="text-blue-400" />
-            BATTALION STRUCTURE
-          </h3>
-          <p className="text-zinc-400 mb-4">
-            The 104th Battalion is organized into specialized branches, each with its own command structure and
-            operational focus.
-          </p>
-          <button onClick={() => onNavigate("branches")} className="text-blue-400 font-mono text-sm hover:underline">
-            VIEW BRANCHES →
-          </button>
-        </div>
+        {/*<div className="bg-zinc-900 border border-zinc-800 rounded-sm p-6">*/}
+        {/*  <h3 className="text-lg font-bold font-mono text-zinc-200 mb-4 flex items-center gap-2">*/}
+        {/*    <Shield size={18} className="text-blue-400" />*/}
+        {/*    BATTALION STRUCTURE*/}
+        {/*  </h3>*/}
+        {/*  <p className="text-zinc-400 mb-4">*/}
+        {/*    The 104th Battalion is organized into specialized branches, each with its own command structure and*/}
+        {/*    operational focus.*/}
+        {/*  </p>*/}
+        {/*  <button onClick={() => onNavigate("branches")} className="text-blue-400 font-mono text-sm hover:underline">*/}
+        {/*    VIEW BRANCHES →*/}
+        {/*  </button>*/}
+        {/*</div>*/}
 
         <div className="bg-zinc-900 border border-zinc-800 rounded-sm p-6">
           <h3 className="text-lg font-bold font-mono text-zinc-200 mb-4 flex items-center gap-2">
@@ -80,6 +80,21 @@ export default function HomeSection({ onNavigate }: HomeSectionProps) {
           </p>
           <button onClick={() => onNavigate("positions")} className="text-blue-400 font-mono text-sm hover:underline">
             VIEW POSITIONS →
+          </button>
+        </div>
+
+
+        <div className="bg-zinc-900 border border-zinc-800 rounded-sm p-6">
+          <h3 className="text-lg font-bold font-mono text-zinc-200 mb-4 flex items-center gap-2">
+            <Shield size={18} className="text-blue-400" />
+            MEDALS & ACHIEVEMENTS
+          </h3>
+          <p className="text-zinc-400 mb-4">
+            The 104th Battalion recognizes and honors the achievements of its members through a system of medals and
+            awards.
+          </p>
+          <button onClick={() => onNavigate("medals")} className="text-blue-400 font-mono text-sm hover:underline">
+            VIEW MEDALS →
           </button>
         </div>
       </div>
