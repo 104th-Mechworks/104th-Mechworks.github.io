@@ -23,6 +23,7 @@ export default function Icon({ name, size = 24, className = "text-blue-400" }: I
     "V-Wing": "/images/icons/VWingClass.png",
     "Y-Wing": "/images/icons/YWingClass.png",
     Rifle: "/images/icons/RiflemanClass.png",
+    Medic: "/images/icons/medic.png", // Added Medic icon
     // Add more custom icons here as needed
   }
 
@@ -49,6 +50,23 @@ export default function Icon({ name, size = 24, className = "text-blue-400" }: I
               unoptimized={true} // Bypass image optimization
             />
           </div>
+        </div>
+      )
+    }
+
+    // Special case for Medic icon to make it appear smaller
+    if (name === "Medic") {
+      const medicDisplaySize = Math.round(size * 0.7) // Adjust this factor as needed (e.g., 0.75 for 75%)
+      return (
+        <div className="relative flex-shrink-0 flex items-center justify-center" style={{ height: size, width: size }}>
+          <Image
+            src={customIcons[name] || "/placeholder.svg"} // Assumes customIcons[name] is the correct path
+            alt={name}
+            width={medicDisplaySize}
+            height={medicDisplaySize}
+            className="object-contain"
+            unoptimized={true} // Bypass image optimization
+          />
         </div>
       )
     }

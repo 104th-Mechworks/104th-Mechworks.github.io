@@ -2,7 +2,7 @@ import type { QualificationPathway } from "../../../types"
 
 export const medicQualification: QualificationPathway = {
   name: "Medic",
-  icon: "HeartPulse",
+  icon: "Medic",
   description: "Field medicine and emergency care",
   cadre: {
     headCadre: "NCDR Kix",

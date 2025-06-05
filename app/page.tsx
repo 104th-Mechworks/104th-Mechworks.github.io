@@ -6,7 +6,7 @@ import LoadingScreen from "@/components/loading-screen"
 import Header from "@/components/layout/header"
 import Footer from "@/components/layout/footer"
 import HomeSection from "@/components/sections/home/home-section"
-// import BranchesSection from "@/components/sections/branches/branches-section"
+import BranchesSection from "@/components/sections/branches/branches-section"
 import RanksSection from "@/components/sections/ranks/ranks-section"
 import PositionsSection from "@/components/sections/positions/positions-section"
 import ClassesSection from "@/components/sections/classes/classes-section"
@@ -15,6 +15,8 @@ import CommandStaffSectionComponent from "@/components/sections/command-staff/co
 import RulesSection from "@/components/sections/rules/rules-section"
 import MedalsSection from "@/components/sections/medals/medals-section"
 import { getIconComponent } from "@/components/utils/icon-helper"
+import QualificationsSection from "@/components/sections/qualifications/qualifications-section"
+import DecalsSection from "@/components/sections/decals/decals-section"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home")
@@ -90,15 +92,19 @@ export default function Home() {
         <AnimatePresence mode="wait">
           {activeSection === "home" && <HomeSection onNavigate={handleNavigation} />}
 
-          {/*{activeSection === "branches" && (*/}
-          {/*  <BranchesSection getIconComponent={getIconComponent} onNavigate={handleNavigation} />*/}
-          {/*)}*/}
+          {activeSection === "branches" && (
+            <BranchesSection getIconComponent={getIconComponent} onNavigate={handleNavigation} />
+          )}
 
           {activeSection === "ranks" && <RanksSection />}
 
           {activeSection === "positions" && <PositionsSection />}
 
           {activeSection === "classes" && <ClassesSection />}
+
+          {activeSection === "qualifications" && <QualificationsSection />}
+
+          {activeSection === "decals" && <DecalsSection />}
 
           {activeSection === "medals" && <MedalsSection />}
 
@@ -115,8 +121,6 @@ export default function Home() {
           )}
 
           {activeSection === "rules" && <RulesSection />}
-
-
         </AnimatePresence>
       </main>
 

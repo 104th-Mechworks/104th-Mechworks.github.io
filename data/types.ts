@@ -1,250 +1,148 @@
-export type Server = {
+export interface Server {
   id: string
   name: string
   description: string
-  imageSrc: string
-  status?: string
-  purpose?: string
-  departments?: string[]
-  commandingOfficer?: string
-  hasCustomStructure?: boolean
-  specialDepartments?: SpecialDepartment[]
-  qualificationCategories?: QualificationCategory[]
-  supervisingOfficer?: string
-  standardsOfficer?: string
-  companies?: Company[]
-  wings?: Wing[]
+  imagePath: string
+  memberCount?: number
+  inviteLink?: string
+  departments?: Department[]
 }
 
-export type Department = {
+export interface Department {
   id: string
   name: string
-  head: string
-  focus: string
-  icon: string
-  teams: Team[]
+  description: string
+  imagePath: string
+  serverId: string
+  troops?: Troop[]
 }
 
-export type TeamMember = {
-  role?: string
+export interface Troop {
+  id: string
   name: string
-  clearances?: string[]
+  description: string
+  departmentId: string
+  serverId: string
 }
 
-export type TeamGroup = {
+export interface Branch {
+  id: string
   name: string
-  officer?: TeamMember
-  members: TeamMember[]
+  description: string
+  imagePath: string
 }
 
-export type Team = {
-  name: string
-  lead?: TeamMember | null
-  members?: TeamMember[]
-  classified?: boolean
-  leadership?: TeamMember[]
-  groups?: TeamGroup[]
-  description?: string
-}
-
-export type Rank = {
+export interface Rank {
   rank: string
   code: string
   description: string
-  insigniaPath?: string
-  category?: "fleet-command" | "command-staff" | "high-officer" | "officer" | "nco"
-  level?: "FC-1" | "FC-2" | "FC-3" | "CS-1" | "CS-2" | "CS-3" | "HO-1" | "HO-2" | "HO-3" | "O-1" | "O-2" | "O-3" | "NCO-1" | "NCO-2" | "NCO-3"
+  insigniaPath?: string | null
+  category: string
+  level?: string
   additionalInfo?: {
     responsibilities?: string[]
-    eligiblePositions?: string[]
-    reportsTo?: string
     qualifications?: string[]
+    notableMembers?: string[]
+    reportingTo?: string
   }
 }
 
-export type Branch = {
+export interface Position {
   id: string
   title: string
-  description: string
-  icon: string
-}
-
-export type SpecialOp = {
-  id: string
-  title: string
-  description: string
-}
-
-export type Position = {
-  title: string
-  code: string
   description: string
   requirements: string[]
   responsibilities: string[]
-  equipment?: string[] // Make equipment optional
+  branch: string
+  department?: string
+  imagePath?: string
 }
 
-export type CommandStaffMember = {
-  id: string
-  name: string
-  rank: string
-  role: string
-  imageSrc?: string
-  branch?: string
-  description: string
-  responsibilities?: string[]
-  achievements?: string[]
-  specializations?: string[]
-  commandDuties?: string[]
-  contactInfo?: {
-    office?: string
-    comms?: string
-  }
-}
-
-export type QualificationPathway = {
-  name: string
-  icon: string
-  description: string
-  cadre?: {
-    headCadre: string
-    sectorCadres: {
-      [key: string]: string
-    }
-  }
-  rewards: string[]
-  requirementPhases: RequirementPhase[]
-  nextQualifications?: Qualification[]
-  isAdvanced?: boolean
-  classifiedRequirements?: boolean
-}
-
-export type Qualification = {
-  name: string
-  icon: string
-  description: string
-  cadre?: {
-    headCadre: string
-    sectorCadres: {
-      [key: string]: string
-    }
-  }
-  rewards: string[]
-  requirementPhases?: RequirementPhase[]
-  isAdvanced?: boolean
-  classifiedRequirements?: boolean
-}
-
-export type RequirementPhase = {
-  phase: string
-  requirements: string[]
-}
-
-export type QualificationCategory = {
-  name: string
-  qualifications: (Qualification | QualificationPathway)[]
-}
-
-export type Company = {
-  id: string
-  name: string
-  description: string
-  commandingOfficer: string
-  executiveOfficer?: string
-  nonCommissionedOfficer?: string
-  platforms: string[]
-  platoons: Platoon[]
-}
-
-export type Platoon = {
-  id: string
-  name: string
-  specialization?: string
-  leadership: {
-    pco: string
-    pxo: string
-    pnco: string
-  }
-  squads: string[]
-  platform?: string
-}
-
-export type Wing = {
-  id: string
-  name: string
-  description: string
-  commandingOfficer: string
-  executiveOfficer?: string
-  nonCommissionedOfficer?: string
-  platforms: string[]
-  squadrons: Squadron[]
-}
-
-export type Squadron = {
-  id: string
-  name: string
-  specialization: string
-  leadership: {
-    sco: string
-    sxo: string
-    snco: string
-  }
-  flights: string[]
-  platform: string
-}
-
-export type SpecialDepartment = {
-  id: string
-  name: string
-  description: string
-  commandingOfficer: string
-  executiveOfficers: { position: string; name: string }[]
-  troops: Troop[]
-  color: string
-}
-
-export type Troop = {
-  id: string
-  name: string
-  commandingOfficer: string
-  lieutenants?: string[]
-  sergeants?: string[]
-  squadLeaders?: string[]
-  members?: string[]
-  description?: string
-  specialization?: string
-  platformBadge?: string
-  platform?: string
-  leadership?: {
-    tco: string
-  }
-}
-
-// New type for Classes
-export type TrooperClass = {
+export interface CommandStaffPosition {
   id: string
   title: string
   description: string
-  equipment: string[]
-  imageSrc: string
+  requirements: string[]
+  responsibilities: string[]
+  imagePath?: string
 }
 
-export type ClassCategory = {
-  name: string
-  classes: TrooperClass[]
-}
-
-// New types for Medals
-export type Medal = {
+export interface Class {
   id: string
   name: string
   description: string
-  imageSrc: string
-  requirements: string[]
-  category: MedalCategory
-  rarity: "common" | "uncommon" | "rare" | "legendary" | "mythic"
-  issuedBy?: string
-  dateIntroduced?: string
+  imagePath: string
+  branch: string
+  requirements?: string[]
+  abilities?: string[]
+  equipment?: string[]
+  specializations?: Specialization[]
 }
 
-export type MedalCategory = "service" | "achievement" | "operation" | "longevity" | "class"
+export interface Specialization {
+  id: string
+  name: string
+  description: string
+  requirements?: string[]
+  abilities?: string[]
+  equipment?: string[]
+}
+
+export interface Rule {
+  id: string
+  title: string
+  description: string
+  details: string[]
+  category: string
+  importance: "critical" | "high" | "medium" | "low"
+  lastUpdated?: string
+}
+
+export interface Policy {
+  id: string
+  title: string
+  description: string
+  details: string[]
+  category: string
+  lastUpdated?: string
+}
+
+export interface Medal {
+  id: string
+  name: string
+  description: string
+  imagePath: string
+  category: string
+  requirements: string[]
+  awardedFor: string
+  rarity: "common" | "uncommon" | "rare" | "legendary" | "mythic"
+}
+
+export interface Qualification {
+  id: string
+  name: string
+  description: string
+  imagePath: string
+  category: string
+  requirements: string[]
+  abilities: string[]
+  equipment?: string[]
+}
+
+export interface DecalVariation {
+  helmetType: string
+  name: string
+  imagePath: string
+  description?: string
+}
+
+export interface Decal {
+  id: string
+  name: string
+  requirement: string // Stores the 'Requirement' text
+  category: string // Main category from the text file
+  subCategory?: string // Optional: for sub-categories
+  generalImagePath?: string
+  variations: DecalVariation[]
+  availableOn: string[]
+}

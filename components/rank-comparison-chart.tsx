@@ -205,7 +205,7 @@ export default function RankComparisonChart() {
             {/* Header */}
             <div className="grid grid-cols-12 gap-2 mb-6">
               <div className="col-span-1"></div>
-              <div className="col-span-2 text-center font-mono text-sm font-bold text-zinc-400">NAVAL</div>
+              <div className="col-span-2 text-center font-mono text-sm font-bold text-zinc-400">NAVAL AUX</div>
               <div className="col-span-2 text-center font-mono text-sm font-bold text-zinc-400">STARFIGHTER</div>
               <div className="col-span-2 text-center font-mono text-sm font-bold text-zinc-400">ARMY</div>
               <div className="col-span-2 text-center font-mono text-sm font-bold text-zinc-400">ARC</div>

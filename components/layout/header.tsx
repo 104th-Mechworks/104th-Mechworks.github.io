@@ -1,6 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import type React from "react"
+
+import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu } from "lucide-react"
 import Image from "next/image"
@@ -13,17 +15,46 @@ interface HeaderProps {
 
 export default function Header({ activeSection, onNavigate, onLogoClick }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null) // Ref for the menu panel
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null)
 
-  // Function to toggle the mobile menu
-  const toggleMobileMenu = () => {
+  // This function toggles the mobile menu state.
+  // If open, it closes. If closed, it opens.
+  const toggleMobileMenu = (event: React.MouseEvent) => {
+    event.stopPropagation() // Prevent this click from bubbling to the document listener
     setMobileMenuOpen((prev) => !prev)
   }
 
-  // Function to handle mobile navigation
   const handleMobileNavigation = (section: string) => {
     onNavigate(section)
-    setMobileMenuOpen(false)
+    setMobileMenuOpen(false) // Close menu after navigation
   }
+
+  // Effect to handle clicks outside the menu to close it
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      // If menu is open and the click is outside the menu panel (menuRef.current)
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        mobileMenuButtonRef.current &&
+        !mobileMenuButtonRef.current.contains(event.target as Node)
+      ) {
+        setMobileMenuOpen(false)
+      }
+    }
+
+    if (mobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside)
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+
+    // Cleanup listener on component unmount or when mobileMenuOpen changes
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [mobileMenuOpen]) // Dependency array ensures this runs when mobileMenuOpen changes
 
   return (
     <>
@@ -39,75 +70,73 @@ export default function Header({ activeSection, onNavigate, onLogoClick }: Heade
             </div>
           </div>
 
+          {/* Desktop navigation is hidden as per previous request */}
           <nav className="hidden space-x-6">
-            {/*<button*/}
-            {/*  onClick={() => handleMobileNavigation("branches")}*/}
-            {/*  className={`text-sm font-mono transition-colors ${*/}
-            {/*    activeSection === "branches" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"*/}
-            {/*  }`}*/}
-            {/*>*/}
-            {/*  BRANCHES*/}
-            {/*</button>*/}
+            {/* Desktop navigation items (kept for completeness but hidden) */}
             <button
               onClick={() => handleMobileNavigation("ranks")}
-              className={`text-sm font-mono transition-colors ${
-                activeSection === "ranks" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
-              }`}
+              className={`text-sm font-mono transition-colors ${activeSection === "ranks" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"}`}
             >
               RANKS
             </button>
             <button
               onClick={() => handleMobileNavigation("positions")}
-              className={`text-sm font-mono transition-colors ${
-                activeSection === "positions" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
-              }`}
+              className={`text-sm font-mono transition-colors ${activeSection === "positions" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"}`}
             >
               POSITIONS
             </button>
             <button
               onClick={() => handleMobileNavigation("classes")}
-              className={`text-sm font-mono transition-colors ${
-                activeSection === "classes" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
-              }`}
+              className={`text-sm font-mono transition-colors ${activeSection === "classes" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"}`}
             >
               CLASSES
             </button>
             <button
+              onClick={() => handleMobileNavigation("qualifications")}
+              className={`text-sm font-mono transition-colors ${activeSection === "qualifications" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"}`}
+            >
+              QUALIFICATIONS
+            </button>
+            <button
+              onClick={() => handleMobileNavigation("decals")}
+              className={`text-sm font-mono transition-colors ${activeSection === "decals" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"}`}
+            >
+              DECALS
+            </button>
+            <button
               onClick={() => handleMobileNavigation("medals")}
-              className={`text-sm font-mono transition-colors ${
-                activeSection === "medals" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
-              }`}
+              className={`text-sm font-mono transition-colors ${activeSection === "medals" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"}`}
             >
               MEDALS
             </button>
             <button
               onClick={() => handleMobileNavigation("servers")}
-              className={`text-sm font-mono transition-colors ${
-                activeSection === "servers" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
-              }`}
+              className={`text-sm font-mono transition-colors ${activeSection === "servers" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"}`}
             >
               SERVERS
             </button>
             <button
               onClick={() => handleMobileNavigation("command-staff")}
-              className={`text-sm font-mono transition-colors ${
-                activeSection === "command-staff" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
-              }`}
+              className={`text-sm font-mono transition-colors ${activeSection === "command-staff" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"}`}
             >
               COMMAND STAFF
             </button>
             <button
               onClick={() => handleMobileNavigation("rules")}
-              className={`text-sm font-mono transition-colors ${
-                activeSection === "rules" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"
-              }`}
+              className={`text-sm font-mono transition-colors ${activeSection === "rules" ? "text-blue-400" : "text-zinc-500 hover:text-zinc-300"}`}
             >
               RULES
             </button>
           </nav>
 
-          {/* Mobile menu button */}
-          <button onClick={toggleMobileMenu} className="text-zinc-400 hover:text-zinc-200">
+          {/* Mobile menu button - always visible */}
+          <button
+            ref={mobileMenuButtonRef}
+            onClick={(e) => toggleMobileMenu(e)} // Pass the event to the handler
+            className="text-zinc-400 hover:text-zinc-200"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
+          >
             <Menu size={24} />
           </button>
         </div>
@@ -117,103 +146,70 @@ export default function Header({ activeSection, onNavigate, onLogoClick }: Heade
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
+            ref={menuRef}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-[70px] left-0 right-0 bg-zinc-900 border-b border-zinc-800 z-40 shadow-lg w-full"
+            className="fixed top-[70px] left-0 right-0 bg-zinc-900 border-b border-zinc-800 z-40 shadow-lg w-full max-h-[calc(100vh-70px)] overflow-y-auto"
+            role="dialog"
+            aria-modal="true"
           >
             <div className="flex flex-col p-5 space-y-2 bg-gradient-to-b from-zinc-900 to-zinc-950 shadow-inner">
               <div className="mb-2 pb-2 border-b border-zinc-800/50">
                 <p className="text-xs uppercase text-zinc-500 font-mono tracking-wider">Navigation</p>
               </div>
               <button
-                onClick={() => handleMobileNavigation("home")}
-                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
-                  activeSection === "home"
-                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
-                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
-                }`}
-              >
-                HOME
-              </button>
-              {/*<button*/}
-              {/*  onClick={() => handleMobileNavigation("branches")}*/}
-              {/*  className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${*/}
-              {/*    activeSection === "branches"*/}
-              {/*      ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"*/}
-              {/*      : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"*/}
-              {/*  }`}*/}
-              {/*>*/}
-              {/*  BRANCHES*/}
-              {/*</button>*/}
-              <button
                 onClick={() => handleMobileNavigation("ranks")}
-                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
-                  activeSection === "ranks"
-                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
-                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
-                }`}
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${activeSection === "ranks" ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm" : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"}`}
               >
                 RANKS
               </button>
               <button
                 onClick={() => handleMobileNavigation("positions")}
-                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
-                  activeSection === "positions"
-                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
-                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
-                }`}
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${activeSection === "positions" ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm" : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"}`}
               >
                 POSITIONS
               </button>
               <button
                 onClick={() => handleMobileNavigation("classes")}
-                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
-                  activeSection === "classes"
-                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
-                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
-                }`}
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${activeSection === "classes" ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm" : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"}`}
               >
                 CLASSES
               </button>
               <button
+                onClick={() => handleMobileNavigation("qualifications")}
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${activeSection === "qualifications" ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm" : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"}`}
+              >
+                QUALIFICATIONS
+              </button>
+              <button
+                onClick={() => handleMobileNavigation("decals")}
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${activeSection === "decals" ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm" : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"}`}
+              >
+                DECALS
+              </button>
+              <button
                 onClick={() => handleMobileNavigation("medals")}
-                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
-                  activeSection === "medals"
-                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
-                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
-                }`}
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${activeSection === "medals" ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm" : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"}`}
               >
                 MEDALS
               </button>
               <button
                 onClick={() => handleMobileNavigation("servers")}
-                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
-                  activeSection === "servers"
-                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
-                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
-                }`}
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${activeSection === "servers" ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm" : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"}`}
               >
                 SERVERS
               </button>
               <button
                 onClick={() => handleMobileNavigation("command-staff")}
-                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
-                  activeSection === "command-staff"
-                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
-                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
-                }`}
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${activeSection === "command-staff" ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm" : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"}`}
               >
                 COMMAND STAFF
               </button>
               <button
                 onClick={() => handleMobileNavigation("rules")}
-                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${
-                  activeSection === "rules"
-                    ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm"
-                    : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"
-                }`}
+                className={`text-sm font-mono py-3 px-4 rounded transition-all flex items-center ${activeSection === "rules" ? "bg-zinc-800/80 text-blue-400 border-l-2 border-blue-400 shadow-sm" : "text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-200 hover:border-l-2 hover:border-zinc-600"}`}
               >
                 RULES & POLICIES
               </button>

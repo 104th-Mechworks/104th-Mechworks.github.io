@@ -23,7 +23,7 @@ export default function RanksSection() {
     { value: "army", label: "ARMY" },
     { value: "starfighter", label: "STARFIGHTER" },
     { value: "special", label: "SPECIAL OPS" },
-    { value: "naval", label: "NAVAL" },
+    { value: "naval", label: "NAVAL AUX" },
   ]
 
   // Filter ranks based on search query
@@ -303,7 +303,7 @@ export default function RanksSection() {
                     SPECIAL OPS
                   </TabsTrigger>
                   <TabsTrigger value="naval" className="font-mono text-xs">
-                    NAVAL
+                    NAVAL AUX
                   </TabsTrigger>
                 </TabsList>
 
