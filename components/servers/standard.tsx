@@ -1,10 +1,11 @@
 "use client"
 
-import { Activity, Clock } from "lucide-react"
+import { Activity, Clock, ChevronDown } from "lucide-react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import type { Server } from "@/data/types"
 import Breadcrumb from "../breadcrumb"
+import { useState } from "react"
 
 export default function StandardServer({
   server,
@@ -15,6 +16,18 @@ export default function StandardServer({
   onServerListClick: () => void
   showBreadcrumb?: boolean
 }) {
+  const [expandedDepartments, setExpandedDepartments] = useState<Set<number>>(new Set())
+
+  const toggleDepartment = (index: number) => {
+    const newExpanded = new Set(expandedDepartments)
+    if (newExpanded.has(index)) {
+      newExpanded.delete(index)
+    } else {
+      newExpanded.add(index)
+    }
+    setExpandedDepartments(newExpanded)
+  }
+
   return (
     <motion.div
       key="standard-server-details"
@@ -68,11 +81,32 @@ export default function StandardServer({
         </div>
 
         <div className="mt-8 border-t border-zinc-800 pt-6">
-          <h3 className="text-lg font-bold font-mono text-zinc-200 mb-4">DEPARTMENTS</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {server.departments?.map((dept, index) => (
-              <div key={index} className="bg-zinc-800 p-3 rounded-sm">
-                <span className="text-sm font-mono text-zinc-300">{dept}</span>
+          <h3 className="text-lg font-bold font-mono text-zinc-200 mb-4">SECTIONS</h3>
+          <div className="space-y-3">
+            {server.departments?.map((section, index) => (
+              <div key={index} className="bg-zinc-800 rounded-sm overflow-hidden">
+                <button
+                  onClick={() => toggleDepartment(index)}
+                  className="w-full flex items-center justify-between p-3 text-left hover:bg-zinc-700 transition-colors"
+                >
+                  <span className="text-sm font-mono text-zinc-300">{section}</span>
+                  <ChevronDown
+                    size={16}
+                    className={`text-zinc-400 transition-transform ${
+                      expandedDepartments.has(index) ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {expandedDepartments.has(index) && (
+                  <div className="px-3 pb-3 border-t border-zinc-700">
+                    <div className="pt-3 text-xs text-zinc-400">
+                      <p>
+                        {server.sectionDescriptions?.[section] ||
+                          `Detailed information about the ${section} section and its purpose within the ${server.name}.`}
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>

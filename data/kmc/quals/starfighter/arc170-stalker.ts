@@ -5,11 +5,11 @@ export const arc170StalkerQualification: QualificationPathway = {
   icon: "ARC-170",
   description: "Operation of ARC-170 starfighter",
   cadre: {
-    headCadre: "WCDR Odd Ball",
+    headCadre: "COM Snips",
     sectorCadres: {
-      "01": "GCPT Tucker",
-      "02": "SL Warthog",
-      "03": "FCPT Slammer",
+      "01": "COM Snips",
+      "02": "FCPT Stryfe",
+      "03": "WCDR Dys",
     },
   },
   rewards: ["ARC-170 pilot certification", "Long-range patrol authorization", "Multi-crew coordination training"],
@@ -42,22 +42,8 @@ export const arc170StalkerQualification: QualificationPathway = {
   nextQualifications: [
     {
       name: "ACE Pilot",
-      icon: "BadgePlus",
-      description: "Elite pilot certification",
-      cadre: {
-        headCadre: "COM Hawk",
-        sectorCadres: {
-          "01": "Air CPT Axe",
-          "02": "WCDR Matchstick",
-          "03": "GCPT Swoop",
-        },
-      },
-      rewards: [
-        "Ace pilot designation",
-        "Priority starfighter assignment",
-        "Squadron leadership eligibility",
-        "Custom fighter markings",
-      ],
+      description: "Advanced aerial deployment training",
+      rewards: ["ACE Fighter Helmet", "Actis-class Light Interceptor"],
       isAdvanced: true,
       classifiedRequirements: true,
     },

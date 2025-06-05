@@ -15,12 +15,14 @@ interface ServersSectionProps {
   getBreadcrumbItems: (items: any[]) => any[]
   initialServerId?: string
   initialSpecialDepartment?: string
+  onNavigateToMainQualifications?: () => void // Add this prop
 }
 
 export default function ServersSection({
   getBreadcrumbItems,
   initialServerId,
   initialSpecialDepartment,
+  onNavigateToMainQualifications, // Destructure the new prop
 }: ServersSectionProps) {
   const [selectedServer, setSelectedServer] = useState<string | null>(initialServerId || null)
   const [selectedDepartment, setSelectedDepartment] = useState<Department | null>(null)
@@ -196,6 +198,7 @@ export default function ServersSection({
               selectedSpecialDepartment={selectedSpecialDepartment}
               onTroopClick={selectedServer === "ravager" ? handleTroopClick : undefined}
               selectedTroop={selectedTroop}
+              onNavigateToQualificationsSection={onNavigateToMainQualifications} // Pass the prop down
             />
           </motion.div>
         ) : (

@@ -26,6 +26,7 @@ export default function ServerDetail({
   selectedSpecialDepartment,
   onTroopClick,
   selectedTroop,
+  onNavigateToQualificationsSection,
 }: {
   server: Server
   onBack: () => void
@@ -44,13 +45,20 @@ export default function ServerDetail({
   selectedSpecialDepartment?: SpecialDepartment | null
   onTroopClick?: (troop: Troop) => void
   selectedTroop?: Troop | null
+  onNavigateToQualificationsSection?: () => void
 }) {
   // Render the appropriate server component based on the server ID
   return (
     <div className="space-y-6">
       <AnimatePresence mode="wait">
         {server.id === "kmc" ? (
-          <KMCServer server={server} onServerListClick={onServerListClick} showBreadcrumb={showBreadcrumb} />
+          <KMCServer
+            server={server}
+            onServerListClick={onServerListClick}
+            showBreadcrumb={showBreadcrumb}
+            // onNavigateToRasSecurity={...} // Ensure this is also passed if needed by KMCServer
+            onNavigateToQualificationsSection={onNavigateToQualificationsSection} // Pass the prop to KMCServer
+          />
         ) : server.id === "ras" ? (
           <RASServer
             server={server}

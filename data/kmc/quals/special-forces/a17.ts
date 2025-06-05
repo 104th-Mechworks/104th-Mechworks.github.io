@@ -1,12 +1,11 @@
 import type { QualificationPathway } from "../../../types"
 
-export const arcQualification: QualificationPathway = {
-  name: "Advanced Recon Commando",
+export const a17Qualification: QualificationPathway = {
+  name: "Alpha-17 (LT+ ONLY)",
   icon: "ARC",
   description: "Advanced Recon Commando training",
   rewards: [
-    "ARC trooper designation",
-    "Access to all base army qualification rewards",
+    "Access to ARC Trooper reinforcement",
   ],
   classifiedRequirements: true,
 }

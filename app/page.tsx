@@ -50,6 +50,11 @@ export default function Home() {
     }
   }, [])
 
+  const navigateToMainQualifications = () => {
+  // "qualifications" should be the key that makes your main QualificationsSection visible
+  handleNavigation("qualifications");
+};
+
   // Function to handle when loading is complete
   const handleLoadingComplete = () => {
     setIsLoading(false)
@@ -110,9 +115,11 @@ export default function Home() {
 
           {activeSection === "servers" && (
             <ServersSection
-              getBreadcrumbItems={getBreadcrumbItems}
-              initialServerId={navigationParams?.serverId}
-              initialSpecialDepartment={navigationParams?.specialDepartment}
+              getBreadcrumbItems={getBreadcrumbItems} // You likely have this
+              initialServerId={navigationParams?.serverId} // If you use these
+              initialSpecialDepartment={navigationParams?.specialDepartment} // If you use these
+              onNavigateToMainQualifications={navigateToMainQualifications} // <-- THIS IS THE IMPORTANT ADDITION
+              // Ensure you also pass any other necessary props like onNavigateToRasSecurity if you've set that up
             />
           )}
 

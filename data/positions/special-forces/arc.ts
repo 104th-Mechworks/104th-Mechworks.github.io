@@ -37,13 +37,23 @@ export const arcPositions: Position[] = [
       "Other responsibilities are classified",
     ],
   },
-    {
+  {
     title: "Troop Liaison",
     code: "TL",
     description: "Liaison between the Troop and the rest of the milsim",
     requirements: ["AT", "ASGT", "ALT"],
     responsibilities: [
       "Liaison between the Troop and the rest of the milsim",
+      "Other responsibilities are classified",
+    ],
+  },
+  {
+    title: "Alpha-17",
+    code: "A-17",
+    description: "Army officer who has passed ARC candidacy and acts as a liason between the Troop and the army branch",
+    requirements: ["Requires Authorisation"],
+    responsibilities: [
+      "Liaison between the Troop and army branch",
       "Other responsibilities are classified",
     ],
   },

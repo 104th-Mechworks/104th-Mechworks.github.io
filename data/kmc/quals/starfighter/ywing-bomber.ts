@@ -5,11 +5,11 @@ export const ywingBomberQualification: QualificationPathway = {
   icon: "Y-Wing",
   description: "Operation of BTL Y-wing starfighter",
   cadre: {
-    headCadre: "FO Tracker",
+    headCadre: "COM Snips",
     sectorCadres: {
-      "01": "FO Kickstart",
-      "02": "PO Afterburn",
-      "03": "PO Boost",
+      "01": "COM Snips",
+      "02": "FCPT Stryfe",
+      "03": "WCDR Dys",
     },
   },
   rewards: ["Y-wing pilot certification", "Bombing run authorization", "Heavy ordnance handling certification"],
@@ -39,25 +39,11 @@ export const ywingBomberQualification: QualificationPathway = {
       ],
     },
   ],
-  nextQualifications: [
+   nextQualifications: [
     {
       name: "ACE Pilot",
-      icon: "BadgePlus",
-      description: "Elite pilot certification",
-      cadre: {
-        headCadre: "COM Hawk",
-        sectorCadres: {
-          "01": "Air CPT Axe",
-          "02": "WCDR Matchstick",
-          "03": "GCPT Swoop",
-        },
-      },
-      rewards: [
-        "Ace pilot designation",
-        "Priority starfighter assignment",
-        "Squadron leadership eligibility",
-        "Custom fighter markings",
-      ],
+      description: "Advanced aerial deployment training",
+      rewards: ["ACE Bomber Helmet", "Actis-class Light Interceptor"],
       isAdvanced: true,
       classifiedRequirements: true,
     },

@@ -8,7 +8,7 @@ export const resilientServer: Server = {
   imageSrc: "/images/resilient.png",
   status: "ONLINE",
   purpose: "Primary base for ground forces and infantry operations. Contains training facilities and equipment depots.",
-  commandingOfficer: "BDCR Shatterstorm",
+  commandingOfficer: "BCDR Shatterstorm",
   companies: resilientCompanies,
   hasCustomStructure: true,
 }

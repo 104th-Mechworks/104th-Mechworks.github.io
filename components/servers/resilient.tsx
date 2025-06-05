@@ -127,7 +127,7 @@ export default function ResilientServer({
               <div className="flex flex-col md:flex-row md:items-center gap-2 text-sm">
                 <span className="text-zinc-400 font-mono">Company Commander:</span>
                 {selectedCompany.commandingOfficer === "VACANT" ? (
-                  <span className="text-xs bg-zinc-700/70 px-2 py-0.5 rounded-sm text-zinc-400">VACANT</span>
+                  <span className="text-xs bg-zinc-700/70 px-2 py-0.5 rounded-sm text-zinc-400 w-fit">VACANT</span>
                 ) : (
                   <span className="text-zinc-200 font-mono">{selectedCompany.commandingOfficer}</span>
                 )}
@@ -136,7 +136,7 @@ export default function ResilientServer({
               <div className="flex flex-col md:flex-row md:items-center gap-2 text-sm">
                 <span className="text-zinc-400 font-mono">Executive Officer:</span>
                 {selectedCompany.executiveOfficer === "VACANT" ? (
-                  <span className="text-xs bg-zinc-700/70 px-2 py-0.5 rounded-sm text-zinc-400">VACANT</span>
+                  <span className="text-xs bg-zinc-700/70 px-2 py-0.5 rounded-sm text-zinc-400 w-fit">VACANT</span>
                 ) : (
                   <span className="text-zinc-200 font-mono">{selectedCompany.executiveOfficer}</span>
                 )}
@@ -145,7 +145,7 @@ export default function ResilientServer({
               <div className="flex flex-col md:flex-row md:items-center gap-2 text-sm">
                 <span className="text-zinc-400 font-mono">Company NCO:</span>
                 {selectedCompany.nonCommissionedOfficer === "VACANT" ? (
-                  <span className="text-xs bg-zinc-700/70 px-2 py-0.5 rounded-sm text-zinc-400">VACANT</span>
+                  <span className="text-xs bg-zinc-700/70 px-2 py-0.5 rounded-sm text-zinc-400 w-fit">VACANT</span>
                 ) : (
                   <span className="text-zinc-200 font-mono">{selectedCompany.nonCommissionedOfficer}</span>
                 )}
@@ -205,7 +205,7 @@ export default function ResilientServer({
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-mono text-zinc-300">PCO:</span>
                           {platoon.leadership.pco === "VACANT" ? (
-                            <span className="text-xs bg-zinc-700/70 px-2 py-0.5 rounded-sm text-zinc-400">VACANT</span>
+                            <span className="text-xs bg-zinc-700/70 px-2 py-0.5 rounded-sm text-zinc-400 w-fit">VACANT</span>
                           ) : (
                             <span className="text-xs text-zinc-300">{platoon.leadership.pco}</span>
                           )}
@@ -215,7 +215,7 @@ export default function ResilientServer({
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-mono text-zinc-300">PXO:</span>
                           {platoon.leadership.pxo === "VACANT" ? (
-                            <span className="text-xs bg-zinc-700/70 px-2 py-0.5 rounded-sm text-zinc-400">VACANT</span>
+                            <span className="text-xs bg-zinc-700/70 px-2 py-0.5 rounded-sm text-zinc-400 w-fit">VACANT</span>
                           ) : (
                             <span className="text-xs text-zinc-300">{platoon.leadership.pxo}</span>
                           )}
@@ -225,7 +225,7 @@ export default function ResilientServer({
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-mono text-zinc-300">PNCO:</span>
                           {platoon.leadership.pnco === "VACANT" ? (
-                            <span className="text-xs bg-zinc-700/70 px-2 py-0.5 rounded-sm text-zinc-400">VACANT</span>
+                            <span className="text-xs bg-zinc-700/70 px-2 py-0.5 rounded-sm text-zinc-400 w-fit">VACANT</span>
                           ) : (
                             <span className="text-xs text-zinc-300">{platoon.leadership.pnco}</span>
                           )}

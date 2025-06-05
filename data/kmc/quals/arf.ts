@@ -5,11 +5,11 @@ export const arfQualification: QualificationPathway = {
   icon: "ARF",
   description: "Advanced Recon Force training",
   cadre: {
-    headCadre: "ASGT Dalen",
+    headCadre: "CPT Electrik",
     sectorCadres: {
-      "01": "SGT Datti",
-      "02": "AMAJ Vanok",
-      "03": "SGM Ollie",
+      "01": "ALT Atin",
+      "02": "2LT Kieboom",
+      "03": "SGT Jedidiah",
     },
   },
   rewards: ["ARF trooper designation", "Specialized reconnaissance equipment", "Access to stealth operations"],
@@ -44,18 +44,9 @@ export const arfQualification: QualificationPathway = {
       name: "AT-RT Driver",
       icon: "Footprints",
       description: "Operation of All Terrain Recon Transport",
-      cadre: {
-        headCadre: "MAJ Liveshot",
-        sectorCadres: {
-          "01": "SGT Datti",
-          "02": "CPL Thinker",
-          "03": "SGM Poiser",
-        },
-      },
       rewards: [
         "AT-RT operation certification",
-        "Rapid deployment specialist designation",
-        "Scout walker tactical training",
+        "AT-RT Helmet"
       ],
       isAdvanced: true,
       classifiedRequirements: true,

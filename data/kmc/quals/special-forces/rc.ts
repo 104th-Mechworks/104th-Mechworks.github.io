@@ -1,14 +1,12 @@
 import type { QualificationPathway } from "../../../types"
 
 export const rcQualification: QualificationPathway = {
-  name: "RC",
+  name: "Republic Commando",
   icon: "RC",
   description: "Republic Commando training",
   rewards: [
     "RC trooper designation",
-    "Specialized equipment access",
-    "Covert operations clearance",
-    "Squad-based tactical training",
+    "Able to earn all army qualification including advanced qualifications",
   ],
   classifiedRequirements: true,
 }

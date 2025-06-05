@@ -21,7 +21,6 @@ export const fleetCommandMembers: CommandStaffMember[] = [
     commandDuties: [
       "104th Battalion - Marshal Commander",
       "RAS Vanguard - Director of Intelligance",
-      "KMC - Rifleman Head Cadre",
     ],
   },
   {
@@ -42,8 +41,7 @@ export const fleetCommandMembers: CommandStaffMember[] = [
     specializations: ["Tactical Operations", "Ground Combat Strategy", "Troop Deployment", "Defensive Operations"],
     commandDuties: [
       "104th Battalion - Senior Commander",
-      "212th Attack Battalion - Commander (former)",
-      "Advanced Combat Training Program - Lead Instructor (former)",
+      "Ravager Server - Head of the A-17 Program",
     ],
   },
   {
@@ -64,8 +62,8 @@ export const fleetCommandMembers: CommandStaffMember[] = [
     specializations: ["Aerial Combat Tactics", "Fleet Coordination", "Pilot Training", "Air Support Operations"],
     commandDuties: [
       "104th Battalion - Air Marshal",
-      "Triumphant Server - Commodore (former)",
-      "Republic Flight Academy - Chief Instructor (former)",
+      "Triumphant Server - Advisor",
+
     ],
   },
 ]
@@ -91,7 +89,7 @@ export const branchCommandMembers: CommandStaffMember[] = [
     commandDuties: [
       "104th Battalion - Army Commanding Officer",
       "Resilient Server - Battalion Commander",
-      "Advanced Infantry Training Program - Instructor (former)",
+      "RAS Vanguard - Deputy Director of Intelligence",
     ],
   },
   {
@@ -102,7 +100,7 @@ export const branchCommandMembers: CommandStaffMember[] = [
     imageSrc:
       "/images/command_renders/SnipsRender.png",
     description:
-      "Commodore Snips commands the Starfighter Corps with exceptional skill and innovative tactics. Under his leadership, the 104th's pilots have become renowned throughout the Republic for their precision and effectiveness.",
+      "Commodore Snips commands the Starfighter Corps with exceptional skill and innovative tactics. Under her leadership, the 104th's pilots have become renowned throughout the Republic for their precision and effectiveness.",
     achievements: [
       "Led the decisive air victory at the Battle of Bothawui",
       "Pioneered new starfighter combat formations",
@@ -118,7 +116,7 @@ export const branchCommandMembers: CommandStaffMember[] = [
     commandDuties: [
       "104th Battalion - Starfighter Corps Commander",
       "Triumphant Server - Commodore",
-      "Republic Flight Academy - Wing Commander (former)",
+      "KMC - ACE Pilot Cadre"
     ],
   },
 ]
@@ -143,8 +141,7 @@ export const specialForcesCommandMembers: CommandStaffMember[] = [
     specializations: ["Special Operations", "Covert Tactics", "RC Training", "High-Risk Deployments"],
     commandDuties: [
       "104th Battalion - Special Forces Commander",
-      "Ravager Server - RC Admissions Officer",
-      "Coruscant Guard - Commander (former)",
+      "Ravager Server - RC Admissions Officer and Head of Special Forces",
     ],
   },
   {
@@ -166,7 +163,6 @@ export const specialForcesCommandMembers: CommandStaffMember[] = [
     commandDuties: [
       "104th Battalion - ARC Program Commander",
       "Ravager Server - ARC Admissions Officer",
-      "ARC Trooper Alpha Squad - Leader (former)",
     ],
   },
 ]
@@ -177,10 +173,10 @@ export const specialForcesExecutiveMembers: CommandStaffMember[] = [
     id: "vanok",
     name: "Vanok",
     rank: "AMAJ",
-    role: "Special Forces Executive Officer - 03 Sector",
+    role: "Special Forces Executive Officer",
     imageSrc: "/images/command_renders/VanokRender.png",
     description:
-      "ARC Major Vanok serves as the Special Forces Executive Officer for 03 Sector, coordinating covert operations and specialized training. His expertise in infiltration tactics has been crucial for numerous successful missions behind enemy lines.",
+      "ARC Major Vanok serves as the Special Forces Executive Officer and oversees the operation of the Kaminoan Military Complex.",
     achievements: [
       "Coordinated the extraction of vital intelligence from Separatist strongholds",
       "Developed advanced infiltration protocols for ARC operations",
@@ -189,9 +185,9 @@ export const specialForcesExecutiveMembers: CommandStaffMember[] = [
     ],
     specializations: ["Covert Intelligence", "Infiltration Strategy", "Asset Extraction", "Counter-Intelligence"],
     commandDuties: [
-      "104th Battalion - Special Forces Executive Officer (03 Sector)",
-      "Ravager Server - ARC Operations Coordinator",
-      "Republic Intelligence - Field Operative (former)",
+      "KMC - Tipoca City Clone Director",
+      "Ravager Server - ARC Program Executive Officer",
+      "RAS Vanguard - Lead Hacking Investigator",
     ],
   },
   {
@@ -201,18 +197,16 @@ export const specialForcesExecutiveMembers: CommandStaffMember[] = [
     role: "Special Forces Executive Officer - 02 Sector",
     imageSrc: "/images/command_renders/JesseRender.png",
     description:
-      "ARC Major Jesse oversees Special Forces operations in 02 Sector with exceptional tactical acumen. His leadership in high-risk missions has earned him a reputation as one of the most reliable officers in the 104th's special operations division.",
+      "ARC Major Jesse oversees ARC operations with the rest of ARC command. His leadership in high-risk missions has earned him a reputation as one of the most reliable officers in the 104th's special operations division.",
     achievements: [
       "Led the assault team that captured a Separatist communications relay on Raxus",
       "Established specialized training protocols for urban infiltration",
       "Recipient of the Republic Valor Cross with distinction",
       "Veteran of over 40 special operations missions",
     ],
-    specializations: ["Urban Warfare", "Demolitions", "Close-Quarters Combat", "Tactical Planning"],
+    // specializations: ["Urban Warfare", "Demolitions", "Close-Quarters Combat", "Tactical Planning"],
     commandDuties: [
-      "104th Battalion - Special Forces Executive Officer (02 Sector)",
-      "Ravager Server - Special Operations Trainer",
-      "501st Legion - ARC Trooper (former)",
+      "Ravager Server - ARC Program Executive Officer",
     ],
   },
 ]
@@ -223,10 +217,10 @@ export const armyMajorMembers: CommandStaffMember[] = [
     id: "liveshot",
     name: "Liveshot",
     rank: "MAJ",
-    role: "Army Major - 03 Sector",
+    role: "CHief Training Officer",
     imageSrc: "/placeholder.svg?key=liveshot",
     description:
-      "Major Liveshot serves as the Army Major for 03 Sector, providing tactical leadership and strategic planning for ground operations. His expertise in combined arms warfare has been vital to the sector's operational success.",
+      "Major Liveshot serves as the Chief Traing Officer, managing all qualifications in the KMC and other in-game events.",
     achievements: [
       "Led the successful defense of Republic outposts on Felucia",
       "Coordinated multiple battalion-level operations against Separatist forces",
@@ -235,7 +229,6 @@ export const armyMajorMembers: CommandStaffMember[] = [
     ],
     specializations: ["Ground Combat Tactics", "Combined Arms Operations", "Defensive Strategy", "Troop Leadership"],
     commandDuties: [
-      "104th Battalion - ",
       "RAS Vanguard - Head of Department of Standards",
       "KMC - Chief Training Officer",
     ],
@@ -255,7 +248,7 @@ export const armyMajorMembers: CommandStaffMember[] = [
     // specializations: [],
     commandDuties: [
       "104th Battalion - Head of Analysis",
-      "RAS Vanguard - Deputy Director of Analysis",
+      "RAS Vanguard - Chief of Analysis",
     ],
   },
   // {
@@ -289,8 +282,8 @@ export const sectorCommandMembers: CommandStaffMember[] = [
     ],
     specializations: ["Strategic Analysis", "Resource Allocation", "Defensive Operations", "Tactical Planning"],
     commandDuties: [
-      "104th Battalion - 01 Sector Commander",
-      "Resilient Server - Clone Commander",
+      "104th Battalion - Clone Commander",
+      "Resilient Server - 01 Sector Commander",
       "KMC - Head Marksman Cadre",
     ],
   },
@@ -311,8 +304,8 @@ export const sectorCommandMembers: CommandStaffMember[] = [
     ],
     specializations: ["Unconventional Warfare", "Urban Combat", "Assault Operations", "Guerrilla Tactics"],
     commandDuties: [
-      "104th Battalion - 02 Sector Commander",
-      "Resilient Server - Clone Commander",
+      "104th Battalion - Clone Commander",
+      "Resilient Server - 02 Sector Commander",
     ],
   },
   {
@@ -331,9 +324,8 @@ export const sectorCommandMembers: CommandStaffMember[] = [
     ],
     specializations: ["Logistics Operations", "Extended Campaigns", "Evacuation Procedures", "Supply Chain Security"],
     commandDuties: [
-      "104th Battalion - 03 Sector Commander",
-      "Resilient Server - Clone Commander",
-      "Republic Logistics Command - Officer (former)",
+      "104th Battalion - Clone Commander",
+      "Resilient Server - 03 Sector Commander",
     ],
   },
 ]

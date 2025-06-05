@@ -128,12 +128,9 @@ export default function QualificationsSection({}: QualificationsSectionProps) {
     )
   }
 
-  const renderAdvancedQualDetails = (qual: Qualification) => (
+  const renderAdvancedQualDetails = (qual: Qualification, qualIndex: number) => (
     <Accordion type="single" collapsible className="w-full">
-      <AccordionItem value="details" className="border-0">
-        <AccordionTrigger className="py-2 px-3 text-xs font-mono text-zinc-400 hover:text-zinc-300 accordion-trigger-no-underline">
-          VIEW DETAILS
-        </AccordionTrigger>
+      <AccordionItem value={`advanced-${qualIndex}`} className="border-0">
         <AccordionContent>
           <div className="pt-2 pb-1 px-1">
             {renderCadreInfo(qual)}
@@ -249,21 +246,37 @@ export default function QualificationsSection({}: QualificationsSectionProps) {
                             {renderRequirementPhases(pathway)}
                             <div className="space-y-3 mt-2">
                               {pathway.nextQualifications.map((nextQual, nextIndex) => (
-                                <div
+                                <Accordion
                                   key={nextIndex}
-                                  className="relative bg-gradient-to-r from-zinc-800 to-zinc-700/90 p-4 rounded-md border border-zinc-600/70 shadow-lg"
+                                  type="single"
+                                  collapsible
+                                  className="relative bg-zinc-800 rounded-md border border-zinc-600/70 shadow-lg"
                                 >
                                   <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-blue-600 rounded-l-md"></div>
-                                  <div className="flex items-center justify-between mb-3 pb-2 border-b border-zinc-600/50">
-                                    <span className="text-sm font-mono text-blue-400 font-medium">{nextQual.name}</span>
-                                    {nextQual.isAdvanced && (
-                                      <span className="text-xs bg-blue-600/20 text-blue-300 px-2 py-1 rounded-md border border-blue-500/30 font-semibold">
-                                        ADVANCED
-                                      </span>
-                                    )}
-                                  </div>
-                                  {renderAdvancedQualDetails(nextQual)}
-                                </div>
+                                  <AccordionItem value={`advanced-${nextIndex}`} className="border-0">
+                                    <AccordionTrigger className="py-3 px-4 pb-2 border-b border-zinc-600/50 hover:no-underline">
+                                      <div className="flex items-center justify-between w-full">
+                                        <span className="text-sm font-mono text-blue-400 font-medium">
+                                          {nextQual.name}
+                                        </span>
+                                        <div className="flex items-center gap-2 pr-2">
+                                          {nextQual.isAdvanced && (
+                                            <span className="text-xs bg-blue-600/20 text-blue-300 px-2 py-1 rounded-md border border-blue-500/30 font-semibold">
+                                              ADVANCED
+                                            </span>
+                                          )}
+                                        </div>
+                                      </div>
+                                    </AccordionTrigger>
+                                    <AccordionContent>
+                                      <div className="p-4 pt-2">
+                                        {renderCadreInfo(nextQual)}
+                                        {renderRewards(nextQual)}
+                                        {renderRequirementPhases(nextQual)}
+                                      </div>
+                                    </AccordionContent>
+                                  </AccordionItem>
+                                </Accordion>
                               ))}
                             </div>
                           </div>

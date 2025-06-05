@@ -7,6 +7,7 @@ import PositionItem from "@/components/position-item"
 import MobileTabSelect from "@/components/mobile-tab-select"
 import { positions } from "@/data"
 import { useState } from "react"
+import { Info } from "lucide-react"
 
 export default function PositionsSection() {
   const [activePositionTab, setActivePositionTab] = useState("command")
@@ -80,6 +81,36 @@ export default function PositionsSection() {
         </TabsContent>
 
         <TabsContent value="specialForces" className="mt-6">
+          {/* ARC Designations Information */}
+          <div className="mb-6 bg-zinc-900 border border-zinc-800 rounded-sm overflow-hidden">
+            <div className="p-4 bg-zinc-800/50 border-b border-zinc-700">
+              <div className="flex items-center gap-2">
+                <Info size={16} className="text-blue-400" />
+                <h3 className="text-base font-bold font-mono text-zinc-200">ARC DESIGNATIONS</h3>
+              </div>
+            </div>
+            <div className="p-4 space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                <span className="font-mono text-blue-400 text-sm min-w-[60px]">ARC-</span>
+                <span className="text-zinc-400 text-sm">
+                  Base designation that every ARC receives after graduation from candidacy
+                </span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                <span className="font-mono text-green-400 text-sm min-w-[60px]">A-</span>
+                <span className="text-zinc-400 text-sm">
+                  Alpha designation given to select ARCs (superior performance and capabilities)
+                </span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                <span className="font-mono text-red-400 text-sm min-w-[60px]">N-</span>
+                <span className="text-zinc-400 text-sm">
+                  Null designation given to the very best Special Forces has to offer
+                </span>
+              </div>
+            </div>
+          </div>
+
           <Accordion type="single" collapsible className="w-full space-y-4">
             <AccordionItem value="arc" className="border border-zinc-800 rounded-lg overflow-hidden">
               <AccordionTrigger className="text-base font-mono text-zinc-200 py-3 px-4 bg-zinc-900 hover:bg-zinc-800 accordion-trigger-no-underline">

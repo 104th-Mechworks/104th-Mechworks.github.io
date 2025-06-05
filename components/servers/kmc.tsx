@@ -1,176 +1,45 @@
 "use client"
 
-import { Shield, Award, Clock, ChevronRight, Users, Gift, FileCheck, Lock } from "lucide-react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import type { Server, QualificationPathway, Qualification, RequirementPhase } from "@/data/types"
+import { Shield, Award, Clock, ArrowRight } from "lucide-react"
+import type { Server } from "@/data/types"
 import Breadcrumb from "../breadcrumb"
-import { useState, useEffect } from "react"
-import MobileTabSelect from "../mobile-tab-select"
-import Icon from "../icon-library"
+import { Button } from "@/components/ui/button"
+
+interface KMCServerProps {
+  server: Server
+  onServerListClick: () => void
+  showBreadcrumb?: boolean
+  onNavigateToRasSecurity?: () => void
+  onNavigateToQualificationsSection?: () => void // This is the key prop
+}
 
 export default function KMCServer({
   server,
   onServerListClick,
   showBreadcrumb = true,
-}: {
-  server: Server
-  onServerListClick: () => void
-  showBreadcrumb?: boolean
-}) {
-  const [activeQualTab, setActiveQualTab] = useState("army")
+  onNavigateToRasSecurity,
+  onNavigateToQualificationsSection,
+}: KMCServerProps) {
   const [forceRefresh, setForceRefresh] = useState(0)
+  const [hasServerData, setHasServerData] = useState(false)
 
-  // Force a refresh of the component once on mount to ensure icons are properly loaded
   useEffect(() => {
-    // Small delay to ensure DOM is ready
     const timer = setTimeout(() => {
       setForceRefresh((prev) => prev + 1)
     }, 100)
-
     return () => clearTimeout(timer)
   }, [])
 
-  // Function to render a qualification item
-  const renderQualificationItem = (qual: Qualification | QualificationPathway) => (
-    <div className="flex items-center gap-3">
-      <Icon name={qual.icon} size={28} key={`icon-${qual.name}-${forceRefresh}`} />
-      <span className="text-sm font-mono text-blue-400 font-medium">{qual.name}</span>
-      {qual.description && <span className="text-xs text-zinc-500 hidden md:inline">- {qual.description}</span>}
-    </div>
-  )
-
-  // Function to render cadre information
-  const renderCadreInfo = (qual: Qualification | QualificationPathway) => {
-    if (!qual.cadre) return null
-
-    return (
-      <div className="space-y-3 mb-4">
-        <div className="flex items-center gap-2 text-zinc-300 font-mono text-sm">
-          <Users size={14} className="text-blue-400" />
-          <span>CADRE INFORMATION</span>
-        </div>
-
-        <div className="bg-zinc-800/50 p-3 rounded-sm">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            <div className="flex items-center gap-2">
-              <span className="text-zinc-400 text-xs font-mono">HEAD CADRE:</span>
-              <span className="text-zinc-300 text-xs">{qual.cadre.headCadre}</span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <span className="text-zinc-400 text-xs font-mono">SECTOR 01:</span>
-              <span className="text-zinc-300 text-xs">{qual.cadre.sectorCadres["01"]}</span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <span className="text-zinc-400 text-xs font-mono">SECTOR 02:</span>
-              <span className="text-zinc-300 text-xs">{qual.cadre.sectorCadres["02"]}</span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <span className="text-zinc-400 text-xs font-mono">SECTOR 03:</span>
-              <span className="text-zinc-300 text-xs">{qual.cadre.sectorCadres["03"]}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  // Function to render rewards
-  const renderRewards = (qual: Qualification | QualificationPathway) => {
-    if (!qual.rewards || qual.rewards.length === 0) return null
-
-    return (
-      <div className="space-y-3 mb-4">
-        <div className="flex items-center gap-2 text-zinc-300 font-mono text-sm">
-          <Gift size={14} className="text-blue-400" />
-          <span>REWARDS</span>
-        </div>
-
-        <div className="bg-zinc-800/50 p-3 rounded-sm">
-          <ul className="space-y-1 pl-5 list-disc text-zinc-300 text-xs">
-            {qual.rewards.map((reward, index) => (
-              <li key={index}>{reward}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    )
-  }
-
-  // Function to render requirement phases
-  const renderRequirementPhases = (qual: Qualification | QualificationPathway) => {
-    if (qual.classifiedRequirements) {
-      return (
-        <div className="space-y-3 mb-4">
-          <div className="flex items-center gap-2 text-zinc-300 font-mono text-sm">
-            <FileCheck size={14} className="text-blue-400" />
-            <span>REQUIREMENTS</span>
-          </div>
-
-          <div className="bg-zinc-800/50 p-3 rounded-sm flex items-center justify-center gap-2 text-zinc-400">
-            <Lock size={14} />
-            <span className="text-xs font-mono">CLASSIFIED INFORMATION</span>
-          </div>
-        </div>
-      )
+  useEffect(() => {
+    if (server) {
+      setHasServerData(true)
     }
+  }, [server])
 
-    if (!qual.requirementPhases || qual.requirementPhases.length === 0) return null
-
-    return (
-      <div className="space-y-3 mb-4">
-        <div className="flex items-center gap-2 text-zinc-300 font-mono text-sm">
-          <FileCheck size={14} className="text-blue-400" />
-          <span>REQUIREMENTS</span>
-        </div>
-
-        <div className="bg-zinc-800/50 p-3 rounded-sm space-y-4">
-          {qual.requirementPhases.map((phase: RequirementPhase, phaseIndex) => (
-            <div key={phaseIndex} className="space-y-2">
-              <div className="text-blue-400 text-xs font-mono border-b border-zinc-700 pb-1">{phase.phase}</div>
-              <ul className="space-y-1 pl-5 list-disc text-zinc-300 text-xs">
-                {phase.requirements.map((requirement, reqIndex) => (
-                  <li key={reqIndex}>{requirement}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-    )
-  }
-
-  // Function to render advanced qualification details
-  const renderAdvancedQualDetails = (qual: Qualification) => {
-    return (
-      <Accordion type="single" collapsible className="w-full">
-        <AccordionItem value="details" className="border-0">
-          <AccordionTrigger className="py-2 px-3 text-xs font-mono text-zinc-400 hover:text-zinc-300 accordion-trigger-no-underline">
-            VIEW DETAILS
-          </AccordionTrigger>
-          <AccordionContent>
-            <div className="pt-2 pb-1 px-1">
-              {renderCadreInfo(qual)}
-              {renderRewards(qual)}
-              {renderRequirementPhases(qual)}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-    )
-  }
-
-  // Create options for the mobile dropdown
-  const qualTabOptions =
-    server.qualificationCategories?.map((category) => ({
-      value: category.name.toLowerCase().replace(/\s+/g, "-"),
-      label: category.name.toUpperCase(),
-    })) || []
+  if (!hasServerData) return <div className="text-white p-4">Loading server data...</div>
 
   return (
     <motion.div
@@ -179,8 +48,9 @@ export default function KMCServer({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
+      className="text-zinc-200"
     >
-      {showBreadcrumb && (
+      {showBreadcrumb && server.name && (
         <Breadcrumb
           items={[
             { label: "SERVERS", onClick: onServerListClick },
@@ -189,12 +59,16 @@ export default function KMCServer({
         />
       )}
 
-      <div className="bg-zinc-900 border border-zinc-800 rounded-sm p-6">
+      <div className="bg-zinc-900 border border-zinc-800 rounded-sm p-6 mt-4">
         <div className="flex flex-col md:flex-row gap-6 items-start">
           <div className="relative h-24 w-24 flex-shrink-0 mx-auto md:mx-0">
-            <Image src={server.imageSrc || "/placeholder.svg"} alt={server.name} fill className="object-contain" />
+            <Image
+              src={server.imageSrc || "/placeholder.svg?width=96&height=96&query=KMC+Logo"}
+              alt={server.name || "Server Image"}
+              fill
+              className="object-contain"
+            />
           </div>
-
           <div className="flex-1 space-y-4">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
               <h2 className="text-2xl font-bold font-mono text-zinc-200">{server.name}</h2>
@@ -207,9 +81,10 @@ export default function KMCServer({
                 </span>
               </div>
             </div>
-
             <p className="text-zinc-400">{server.purpose}</p>
-
+            {server.locationDescription && (
+              <p className="text-sm text-zinc-500 italic mt-1">{server.locationDescription}</p>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
               <div className="flex items-center gap-2">
                 <Shield size={16} className="text-blue-400" />
@@ -228,144 +103,42 @@ export default function KMCServer({
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-8 border-t border-zinc-800 pt-6">
-          <h3 className="text-lg font-bold font-mono text-zinc-200 mb-4">QUALIFICATIONS</h3>
-
-          {server.qualificationCategories && (
-            <>
-              {/* Mobile dropdown for qualification categories */}
-              <div className="md:hidden mb-4">
-                <MobileTabSelect options={qualTabOptions} value={activeQualTab} onChange={setActiveQualTab} />
-              </div>
-
-              <Tabs value={activeQualTab} onValueChange={setActiveQualTab} className="w-full">
-                <TabsList className="hidden md:grid w-full grid-cols-4 bg-zinc-900 border border-zinc-800">
-                  {server.qualificationCategories.map((category) => (
-                    <TabsTrigger
-                      key={category.name}
-                      value={category.name.toLowerCase().replace(/\s+/g, "-")}
-                      className="font-mono text-xs"
-                    >
-                      {category.name.toUpperCase()}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-
-                {server.qualificationCategories.map((category) => (
-                  <TabsContent
-                    key={category.name}
-                    value={category.name.toLowerCase().replace(/\s+/g, "-")}
-                    className="mt-6"
-                  >
-                    <div className="space-y-3">
-                      {category.qualifications.map((pathway: QualificationPathway, index) => {
-                        // Special Forces qualifications have a simpler structure
-                        if (category.name === "Special Forces") {
-                          return (
-                            <Accordion
-                              key={index}
-                              type="single"
-                              collapsible
-                              className="border border-zinc-700 rounded-sm overflow-hidden"
-                            >
-                              <AccordionItem value={`pathway-${index}`} className="border-0">
-                                <AccordionTrigger className="py-3 px-4 bg-zinc-800 hover:bg-zinc-700 transition-colors accordion-trigger-no-underline">
-                                  {renderQualificationItem(pathway)}
-                                </AccordionTrigger>
-                                <AccordionContent className="bg-zinc-800/50 border-t border-zinc-700">
-                                  <div className="p-4 space-y-4">
-                                    {renderRewards(pathway)}
-                                    {renderRequirementPhases(pathway)}
-                                  </div>
-                                </AccordionContent>
-                              </AccordionItem>
-                            </Accordion>
-                          )
-                        }
-
-                        // If there are no next qualifications, render as a simple accordion
-                        if (!pathway.nextQualifications || pathway.nextQualifications.length === 0) {
-                          return (
-                            <Accordion
-                              key={index}
-                              type="single"
-                              collapsible
-                              className="border border-zinc-700 rounded-sm overflow-hidden"
-                            >
-                              <AccordionItem value={`pathway-${index}`} className="border-0">
-                                <AccordionTrigger className="py-3 px-4 bg-zinc-800 hover:bg-zinc-700 transition-colors accordion-trigger-no-underline">
-                                  {renderQualificationItem(pathway)}
-                                </AccordionTrigger>
-                                <AccordionContent className="bg-zinc-800/50 border-t border-zinc-700">
-                                  <div className="p-4 space-y-4">
-                                    {renderCadreInfo(pathway)}
-                                    {renderRewards(pathway)}
-                                    {renderRequirementPhases(pathway)}
-                                  </div>
-                                </AccordionContent>
-                              </AccordionItem>
-                            </Accordion>
-                          )
-                        }
-
-                        // Otherwise, render as an accordion with progression path
-                        return (
-                          <Accordion
-                            key={index}
-                            type="single"
-                            collapsible
-                            className="border border-zinc-700 rounded-sm overflow-hidden"
-                          >
-                            <AccordionItem value={`pathway-${index}`} className="border-0">
-                              <AccordionTrigger className="py-3 px-4 bg-zinc-800 hover:bg-zinc-700 transition-colors accordion-trigger-no-underline">
-                                {renderQualificationItem(pathway)}
-                              </AccordionTrigger>
-                              <AccordionContent className="bg-zinc-800/50 border-t border-zinc-700">
-                                <div className="p-4 space-y-4">
-                                  {renderCadreInfo(pathway)}
-                                  {renderRewards(pathway)}
-                                  {renderRequirementPhases(pathway)}
-
-                                  {/* Render next qualifications */}
-                                  <div className="space-y-3 mt-2">
-                                    {pathway.nextQualifications.map((nextQual, nextIndex) => (
-                                      <div
-                                        key={nextIndex}
-                                        className="pl-6 relative bg-zinc-700/80 p-3 rounded-sm border border-zinc-600/50"
-                                      >
-                                        {/* <ChevronRight size={12} className="absolute left-1 top-3 text-blue-400" /> */}
-                                        <div className="flex items-center gap-3">
-                                          {/* <Icon
-                                            name={nextQual.icon}
-                                            size={28}
-                                            key={`next-icon-${nextQual.name}-${forceRefresh}`}
-                                          /> */}
-                                          <span className="text-sm font-mono text-blue-400 font-medium">
-                                            {nextQual.name}
-                                          </span>
-                                          {nextQual.isAdvanced && (
-                                            <span className="text-xs bg-blue-900/50 text-blue-400 px-1.5 py-0.5 rounded-sm">
-                                              ADVANCED
-                                            </span>
-                                          )}
-                                        </div>
-
-                                        {renderAdvancedQualDetails(nextQual)}
-                                      </div>
-                                    ))}
-                                  </div>
-                                </div>
-                              </AccordionContent>
-                            </AccordionItem>
-                          </Accordion>
-                        )
-                      })}
-                    </div>
-                  </TabsContent>
-                ))}
-              </Tabs>
-            </>
+      <div className="mt-6 p-4 bg-zinc-900/70 border border-zinc-800 rounded-sm text-sm text-zinc-300 space-y-4">
+        <div>
+          <h3 className="font-semibold text-sky-400 mb-1">Kaminoan Security Force (KSF)</h3>
+          <p>
+            The KSF, operating under RAS Security, ensures order within Tipoca City and other Kaminoan installations,
+            working alongside the 104th to maintain KMC's operational integrity.
+          </p>
+          {onNavigateToRasSecurity && (
+            <Button
+              onClick={onNavigateToRasSecurity}
+              variant="link"
+              className="p-0 h-auto mt-1 text-sky-500 hover:text-sky-400 transition-colors inline-flex items-center text-xs"
+            >
+              View KSF Roster (RAS Security) <ArrowRight className="ml-1 h-3 w-3" />
+            </Button>
+          )}
+        </div>
+        <div>
+          <h3 className="font-semibold text-sky-400 mb-1">Qualification Trials & Process</h3>
+          <p>
+            Trials at KMC are instructor-led, multi-phase assessments. Meeting phase requirements earns the trooper the
+            qualification and its associated rewards. Advanced trials become available after earning base
+            qualifications. For a detailed list of all available qualifications, their requirements, and rewards, please
+            visit the main Qualifications Section.
+          </p>
+          {/* Button now only renders if the navigation function is provided */}
+          {onNavigateToQualificationsSection && (
+            <Button
+              onClick={onNavigateToQualificationsSection}
+              variant="solid"
+              className="mt-2 bg-sky-600 hover:bg-sky-500 text-white text-sm inline-flex items-center px-4 py-2 rounded-md"
+            >
+              View All KMC Qualifications <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           )}
         </div>
       </div>
