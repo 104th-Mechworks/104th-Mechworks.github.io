@@ -771,21 +771,21 @@ export const decals: Decal[] = [
     ],
     availableOn: ["ARC-170", "Y-Wing", "V-Wing"]
   },
-  {
-    id: generateId("Ace Pilot Instructor Decal"),
-    name: "Ace Pilot Instructor Decal",
-    requirement: "Become an Ace Instructor, Ace Head Instructor or Ace Cadre.",
-    category: "Starfighter Corps Decals",
-    generalImagePath: "/images/decals/image.png",
-    variations: [
-      {
-        helmetType: "Standard",
-        name: "Standard",
-        imagePath: "/images/decals/image.png"
-      }
-    ],
-    availableOn: ["Army"]
-  },
+  // {
+  //   id: generateId("Ace Pilot Instructor Decal"),
+  //   name: "Ace Pilot Instructor Decal",
+  //   requirement: "Become an Ace Instructor, Ace Head Instructor or Ace Cadre.",
+  //   category: "Starfighter Corps Decals",
+  //   generalImagePath: "/images/decals/image.png",
+  //   variations: [
+  //     {
+  //       helmetType: "Standard",
+  //       name: "Standard",
+  //       imagePath: "/images/decals/image.png"
+  //     }
+  //   ],
+  //   availableOn: ["Army"]
+  // },
   {
     id: generateId("Starfighter Aerial Instructor Decal"),
     name: "Starfighter Aerial Instructor Decal",
