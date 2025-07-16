@@ -88,3 +88,18 @@
     justify-content: center;
   }
 }
+
+
+/* styles/globals.css or a module */
+/*.scroll-area::-webkit-scrollbar {*/
+/*  width: 6px;*/
+/*}*/
+/*.scroll-area::-webkit-scrollbar-track {*/
+/*  background: #18181b; !* zinc-800 *!*/
+/*}*/
+/*.scroll-area::-webkit-scrollbar-thumb {*/
+/*  background: #d1d5db; !* gray-300 *!*/
+/*}*/
+/*.scroll-area:hover::-webkit-scrollbar-thumb {*/
+/*  background: #e5e7eb; !* gray-200 *!*/
+/*}*/

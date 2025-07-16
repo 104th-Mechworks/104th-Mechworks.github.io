@@ -10,7 +10,7 @@ export const artDepartment: Department = {
     {
       name: "Senior Art Team",
       lead: {
-        name: "WO Odd",
+        name: "WO Poiser",
         clearances: ["Adv", "SF", "SFC"],
       },
       members: [
@@ -29,7 +29,7 @@ export const artDepartment: Department = {
     {
       name: "Primary Art Team",
       lead: {
-        name: "WO Odd",
+        name: "WO Poiser",
         clearances: ["Adv", "SF", "SFC"],
       },
       members: [

@@ -9,7 +9,7 @@ export const marksmanQualification: QualificationPathway = {
     sectorCadres: {
       "01": "SGM Ollie",
       "02": "CPT Hondo",
-      "03": "SGT Mood",
+      "03": "SGT Moon",
     },
   },
   rewards: ["Access to NT-242 sniper rifle", "Raised binoculars in helmet"],

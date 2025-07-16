@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React, { useRef } from "react"
 
 import { useState, useMemo } from "react"
 import Image from "next/image"
@@ -11,7 +11,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
-import { Search } from "lucide-react"
+import { Search, Check } from "lucide-react"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Button } from "@/components/ui/button"
+import { ChevronDown } from "lucide-react"
+import {cn} from "@/lib/utils";
 
 const DecalCard: React.FC<{ decal: Decal }> = ({ decal }) => {
   const [selectedVariation, setSelectedVariation] = useState<DecalVariation | null>(
@@ -53,10 +57,10 @@ const DecalCard: React.FC<{ decal: Decal }> = ({ decal }) => {
                   <SelectTrigger className="w-full bg-zinc-800 border-zinc-700 text-zinc-300">
                     <SelectValue placeholder="Select Helmet/Variation" />
                   </SelectTrigger>
-                  <SelectContent className="bg-zinc-800 border-zinc-700 text-zinc-300">
+                  <SelectContent className="bg-zinc-800 border-zinc-700 text-zinc-300 max-h-60 overflow-y-scroll scrollbar-thin scrollbar-track-zinc-800 scrollbar-thumb-zinc-600 [&::-webkit-scrollbar-button]:hidden">
                     {decal.variations.map((variation) => (
                       <SelectItem key={variation.name} value={variation.name} className="hover:bg-zinc-700">
-                        {variation.name}
+                        {variation.name} ({variation.helmetType})
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -111,6 +115,8 @@ const DecalCard: React.FC<{ decal: Decal }> = ({ decal }) => {
 export default function DecalsSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All Categories")
   const [searchTerm, setSearchTerm] = useState<string>("")
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   const categories = useMemo(() => {
     const uniqueCategories = Array.from(new Set(decals.map((d) => d.category))).sort()
@@ -138,6 +144,28 @@ export default function DecalsSection() {
     })
   }, [decals, selectedCategory, searchTerm])
 
+  // Handle clicks outside the dropdown to close it
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsCategoryDropdownOpen(false)
+      }
+    }
+
+    if (isCategoryDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [isCategoryDropdownOpen])
+
+  const handleCategorySelect = (category: string) => {
+    setSelectedCategory(category)
+    setIsCategoryDropdownOpen(false)
+  }
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
@@ -160,18 +188,49 @@ export default function DecalsSection() {
           <label htmlFor="categoryFilter" className="block text-sm font-medium text-zinc-300 mb-1">
             Filter by Category:
           </label>
-          <Select onValueChange={setSelectedCategory} defaultValue="All Categories">
-            <SelectTrigger id="categoryFilter" className="w-full bg-zinc-800 border-zinc-700 text-zinc-300">
-              <SelectValue placeholder="Select Category" />
-            </SelectTrigger>
-            <SelectContent className="bg-zinc-800 border-zinc-700 text-zinc-300">
-              {categories.map((category) => (
-                <SelectItem key={category} value={category} className="hover:bg-zinc-700">
-                  {category}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <div className="relative" ref={dropdownRef}>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
+              className="w-full justify-between bg-zinc-800 border-zinc-700 text-zinc-300 hover:bg-zinc-700"
+              aria-haspopup="listbox"
+              aria-expanded={isCategoryDropdownOpen}
+            >
+              {selectedCategory}
+              <ChevronDown className="h-4 w-4 ml-2 shrink-0 opacity-50" />
+            </Button>
+            {isCategoryDropdownOpen && (
+              <div className="absolute top-full left-0 right-0 z-50 mt-1">
+                <ScrollArea
+                  className={cn(
+                    "h-60 w-full rounded-md border border-zinc-700 bg-zinc-800", // Base styles for ScrollArea root
+                    // Hide the custom Radix Scrollbar elements (both vertical and horizontal)
+                    "[&>[role='scrollbar']]:!hidden"
+                  )}
+                >
+                  <div className="p-2">
+                    {categories.map((category) => (
+                      <div
+                        key={category}
+                        role="option"
+                        aria-selected={selectedCategory === category}
+                        className={`flex items-center justify-between text-sm p-2 cursor-pointer rounded transition-colors ${
+                          selectedCategory === category
+                            ? "bg-blue-600 text-white"
+                            : "text-zinc-300 hover:bg-zinc-700"
+                        }`}
+                        onClick={() => handleCategorySelect(category)}
+                      >
+                        {category}
+                        {selectedCategory === category && <Check className="h-4 w-4 ml-2" />}
+                      </div>
+                    ))}
+                  </div>
+                </ScrollArea>
+              </div>
+            )}
+          </div>
         </div>
         <div>
           <label htmlFor="searchDecals" className="block text-sm font-medium text-zinc-300 mb-1">

@@ -6,8 +6,8 @@ export const navalRanks: Rank[] = [
     code: "NCDR",
     description: "Retired CPT / MAJ",
     insigniaPath: "/images/ranks/NCDR.webp",
-    category: "high-officer",
-    level: "HO-1",
+    category: "officer",
+    level: "O-3",
     additionalInfo: {
       responsibilities: [
         "Administrative support",
@@ -21,8 +21,8 @@ export const navalRanks: Rank[] = [
     code: "LTCDR",
     description: "Retired LT",
     insigniaPath: "/images/ranks/LTCDR.webp",
-    category: "high-officer",
-    level: "HO-2",
+    category: "officer",
+    level: "O-2",
     additionalInfo: {
       responsibilities: [
         "Administrative support",
@@ -51,8 +51,8 @@ export const navalRanks: Rank[] = [
     code: "PO1",
     description: "Retired SGM",
     insigniaPath: "/images/ranks/PO1.webp",
-    category: "officer",
-    level: "O-2",
+    category: "snco",
+    level: "NCO-5",
     additionalInfo: {
       responsibilities: [
         "Administrative support",
@@ -67,7 +67,7 @@ export const navalRanks: Rank[] = [
     description: "Retired SGT",
     insigniaPath: "/images/ranks/PO2.webp",
     category: "nco",
-    level: "NCO-1",
+    level: "NCO-3",
     additionalInfo: {
       responsibilities: [
         "Administrative support",

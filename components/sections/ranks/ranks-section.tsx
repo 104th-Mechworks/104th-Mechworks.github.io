@@ -177,8 +177,8 @@ export default function RanksSection() {
             <ul className="list-disc pl-5 space-y-2 text-zinc-300">
               <li>Fleet Command ranks represent the highest authority in the battalion</li>
               <li>Command Staff ranks are responsible for strategic planning and oversight</li>
-              <li>High Officer ranks lead major operational units</li>
-              <li>Officer ranks provide tactical leadership</li>
+              <li>Officer ranks lead major operational units</li>
+              <li>Senior NCO ranks provide tactical leadership</li>
               <li>NCO ranks form the backbone of day-to-day operations</li>
             </ul>
           </div>

@@ -5,9 +5,9 @@ export const commandRanks: Rank[] = [
     rank: "Marshal Commander",
     code: "MCDR",
     description: "Commander of the 104th Fleet",
-    insigniaPath: "/images/ranks/MCDR.webp",
+    insigniaPath: "/images/ranks/MCDR.png",
     category: "fleet-command",
-    level: "FC-1",
+    level: "FC-3",
     additionalInfo: {
       responsibilities: [
         "Overall command of the 104th Battalion",
@@ -21,7 +21,7 @@ export const commandRanks: Rank[] = [
     rank: "Senior Commander",
     code: "SCDR",
     description: "Advisor to the Marshal Commander",
-    insigniaPath: "/images/ranks/SCDR.webp",
+    insigniaPath: "/images/ranks/SCDR.png",
     category: "fleet-command",
     level: "FC-2",
     additionalInfo: {

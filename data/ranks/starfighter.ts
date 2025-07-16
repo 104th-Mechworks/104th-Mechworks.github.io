@@ -7,7 +7,7 @@ export const starfighterRanks: Rank[] = [
     description: "Head of the Starfighter Corps",
     insigniaPath: "/images/ranks/COM.webp",
     category: "fleet-command",
-    level: "FC-3",
+    level: "FC-1",
     additionalInfo: {
       responsibilities: [
         "Command of starfighter operations",
@@ -18,12 +18,12 @@ export const starfighterRanks: Rank[] = [
     },
   },
   {
-    rank: "Air Captain",
-    code: "CPT",
+    rank: "Wing Commander",
+    code: "WCDR",
     description: "2IC of the Starfighter Corps",
     insigniaPath: "/images/ranks/Air_CPT.webp",
     category: "command-staff",
-    level: "CS-1",
+    level: "CS-2",
     additionalInfo: {
       responsibilities: [
         "Second-in-command of starfighter corps",
@@ -34,12 +34,12 @@ export const starfighterRanks: Rank[] = [
     },
   },
   {
-    rank: "Wing Commander",
-    code: "WCDR",
-    description: "Head of Starfighter Wing",
+    rank: "Squadron Captain",
+    code: "SCPT",
+    description: "Head of a Starfighter Squadron",
     insigniaPath: "/images/ranks/WCDR.webp",
-    category: "high-officer",
-    level: "HO-1",
+    category: "officer",
+    level: "O-3",
     additionalInfo: {
       responsibilities: [
         "Command of starfighter wing",
@@ -47,58 +47,46 @@ export const starfighterRanks: Rank[] = [
         "Training and operations oversight",
         "Administrative oversight",
       ],
-      reportsTo: "Air Captain",
-    },
-  },
-  {
-    rank: "Group Captain",
-    code: "GCPT",
-    description: "2IC of Starfighter Wing",
-    insigniaPath: "/images/ranks/GCPT.webp",
-    category: "high-officer",
-    level: "HO-2",
-    additionalInfo: {
-      responsibilities: [
-        "Second-in-command of wing",
-        "Squadron coordination",
-        "Administrative duties",
-      ],
       reportsTo: "Wing Commander",
     },
   },
   {
     rank: "Squadron Leader",
     code: "SL",
-    description: "Senior Staff - Head of Squadron",
-    insigniaPath: "/images/ranks/SL.webp",
+    description: "2IC of Starfighter Squadron",
+    insigniaPath: "/images/ranks/GCPT.webp",
     category: "officer",
     level: "O-2",
     additionalInfo: {
-      responsibilities: ["Squadron command", "Liaise with Wing command", "Administrative duties"],
-      reportsTo: "Group Captain",
+      responsibilities: [
+        "Assist Squadron Captain",
+        "Squadron coordination",
+        "Administrative duties",
+      ],
+      reportsTo: "Squadron Captain",
     },
   },
   {
     rank: "Flight Captain",
     code: "FCPT",
-    description: "Key staff - Raid Hosts",
-    insigniaPath: "/images/ranks/FCPT.webp",
+    description: "Senior Staff withing the squadron usually leading a flight",
+    insigniaPath: "/images/ranks/SL.webp",
     category: "nco",
-    level: "NCO-1",
+    level: "NCO-3",
     additionalInfo: {
-      responsibilities: ["Flight leadership", "Raid hosting", "Training new staff"],
+      responsibilities: ["Flight command", "Liaise with Squadron command", "Administrative duties"],
       reportsTo: "Squadron Leader",
     },
   },
   {
     rank: "Flight Lieutenant",
     code: "FLT",
-    description: "Staff - Raid Hosts",
-    insigniaPath: "/images/ranks/FLT.webp",
+    description: "Key staff - Raid Hosts",
+    insigniaPath: "/images/ranks/FCPT.webp",
     category: "nco",
     level: "NCO-2",
     additionalInfo: {
-      responsibilities: ["Flight leadership", "Raid hosting", "Training assistance", "Administrative duties"],
+      responsibilities: ["Flight leadership", "Raid hosting", "Training new staff"],
       reportsTo: "Flight Captain",
     },
   },
@@ -108,7 +96,7 @@ export const starfighterRanks: Rank[] = [
     description: "Senior Pilot - Staff in Training",
     insigniaPath: "/images/ranks/FO.webp",
     category: "nco",
-    level: "NCO-3",
+    level: "NCO-1",
     additionalInfo: {
       responsibilities: ["Senior pilot duties", "Administrative duties", "Support Squadron staff", "Mentoring pilot officers"],
       reportsTo: "Flight Lieutenant",
@@ -119,10 +107,11 @@ export const starfighterRanks: Rank[] = [
     code: "PO",
     description: "Standard Pilot",
     insigniaPath: "/images/ranks/CT.webp",
-    // category: "nco",
+    category: "base",
+    level: "E-0",
     additionalInfo: {
       responsibilities: ["Maintain attendance"],
       reportsTo: "Flight Officer",
     },
-  },
+  }
 ]

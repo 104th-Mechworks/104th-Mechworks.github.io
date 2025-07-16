@@ -70,23 +70,30 @@ const categories = [
     name: "FLEET COMMAND",
     color: "text-red-600",
     bgColor: "bg-red-800",
-    levels: ["FC-1", "FC-2", "FC-3"],
+    levels: ["FC-3", "FC-2", "FC-1"],
   },
   {
     id: "command-staff",
     name: "COMMAND STAFF",
     color: "text-yellow-600",
     bgColor: "bg-yellow-800",
-    levels: ["CS-1", "CS-2"],
+    levels: ["CS-2", "CS-1"],
   },
-  { id: "high-officer", name: "HIGH OFFICERS", color: "text-red-800", bgColor: "bg-red-900", levels: ["HO-1", "HO-2"] },
-  { id: "officer", name: "OFFICERS", color: "text-blue-600", bgColor: "bg-blue-800", levels: ["O-1", "O-2"] },
+  { id: "officer", name: "OFFICERS", color: "text-blue-600", bgColor: "bg-blue-800", levels: ["O-3", "O-2", "O-1"] },
+  { id: "snco", name: "SENIOR NCO", color: "text-green-600", bgColor: "bg-green-800", levels: ["NCO-5", "NCO-4"] },
   {
     id: "nco",
     name: "NCOs",
-    color: "text-green-600",
-    bgColor: "bg-green-800",
-    levels: ["NCO-1", "NCO-2", "NCO-3"],
+    color: "text-lime-600",
+    bgColor: "bg-lime-800",
+    levels: ["NCO-3", "NCO-2", "NCO-1"],
+  },
+  {
+    id: "base",
+    name: "ENLISTED",
+    color: "text-zinc-400",
+    bgColor: "bg-zinc-600",
+    levels: ["E-0"],
   },
 ]
 
@@ -206,10 +213,10 @@ export default function RankComparisonChart() {
             <div className="grid grid-cols-12 gap-2 mb-6">
               <div className="col-span-1"></div>
               <div className="col-span-2 text-center font-mono text-sm font-bold text-zinc-400">NAVAL AUX</div>
-              <div className="col-span-2 text-center font-mono text-sm font-bold text-zinc-400">STARFIGHTER</div>
-              <div className="col-span-2 text-center font-mono text-sm font-bold text-zinc-400">ARMY</div>
-              <div className="col-span-2 text-center font-mono text-sm font-bold text-zinc-400">ARC</div>
-              <div className="col-span-2 text-center font-mono text-sm font-bold text-zinc-400">RC</div>
+              <div className="col-span-2 text-center font-mono text-sm font-bold text-blue-400">STARFIGHTER CORPS</div>
+              <div className="col-span-2 text-center font-mono text-sm font-bold text-green-600">ARMY</div>
+              <div className="col-span-2 text-center font-mono text-sm font-bold text-[#f009c9]">ADVANCED RECON COMMANDO</div>
+              <div className="col-span-2 text-center font-mono text-sm font-bold text-[#00dfff]">REPUBLIC COMMANDO</div>
             </div>
 
             {/* Categories and Levels */}
@@ -248,7 +255,7 @@ export default function RankComparisonChart() {
           <Tabs defaultValue="fleet-command" value={selectedCategory} onValueChange={setSelectedCategory}>
             {/* Desktop Tabs */}
             <div className="hidden md:block">
-              <TabsList className="w-full grid grid-cols-5">
+              <TabsList className="w-full grid grid-cols-6">
                 {categories.map((category) => (
                   <TabsTrigger key={category.id} value={category.id} className="text-xs">
                     {category.name}

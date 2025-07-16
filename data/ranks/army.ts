@@ -5,9 +5,9 @@ export const armyRanks: Rank[] = [
     rank: "Battalion Commander",
     code: "BCDR",
     description: "Commander of the Army",
-    insigniaPath: "/images/ranks/CDR.webp",
+    insigniaPath: "/images/ranks/CDR.png",
     category: "fleet-command",
-    level: "FC-3",
+    level: "FC-1",
     additionalInfo: {
       responsibilities: [
         "Overall command of infantry and armoured units",
@@ -23,9 +23,9 @@ export const armyRanks: Rank[] = [
     rank: "Clone Commander",
     code: "CDR",
     description: "Commander of Console Sector",
-    insigniaPath: "/images/ranks/CDR.webp",
+    insigniaPath: "/images/ranks/CDR.png",
     category: "command-staff",
-    level: "CS-1",
+    level: "CS-2",
     additionalInfo: {
       responsibilities: [
         "Command of assigned army sector",
@@ -40,9 +40,9 @@ export const armyRanks: Rank[] = [
     rank: "Major",
     code: "MAJ",
     description: "Junior Command Staff member, usually assigned a specific task",
-    insigniaPath: "/images/ranks/MAJ.webp",
+    insigniaPath: "/images/ranks/MAJ.png",
     category: "command-staff",
-    level: "CS-2",
+    level: "CS-1",
     additionalInfo: {
       responsibilities: [
         "Given a specific assignment within the unit",
@@ -56,9 +56,9 @@ export const armyRanks: Rank[] = [
     rank: "Captain",
     code: "CPT",
     description: "Head of an Army Company",
-    insigniaPath: "/images/ranks/CPT.webp",
-    category: "high-officer",
-    level: "HO-1",
+    insigniaPath: "/images/ranks/CPT.png",
+    category: "officer",
+    level: "O-3",
     additionalInfo: {
       responsibilities: [
         "Lead a company",
@@ -75,9 +75,9 @@ export const armyRanks: Rank[] = [
     rank: "Lieutenant",
     code: "LT",
     description: "2nd highest rank within a company, usually the CXO or a PCO",
-    insigniaPath: "/images/ranks/LT.webp",
-    category: "high-officer",
-    level: "HO-2",
+    insigniaPath: "/images/ranks/LT.png",
+    category: "officer",
+    level: "O-2",
     additionalInfo: {
       responsibilities: [
         "Work closely with the Captain",
@@ -90,25 +90,10 @@ export const armyRanks: Rank[] = [
     },
   },
   {
-    rank: "Warrant Officer",
-    code: "WO",
-    description: "Special Rank only available by appointment of fleet command",
-    insigniaPath: "/images/ranks/WO.webp",
-    category: "high-officer",
-    additionalInfo: {
-      responsibilities: [
-          "Work with various members across the fleet",
-          "Assist in training and operations"
-      ],
-      eligiblePositions: ["CNCO", "PNCO", "SNCO", "FTL"],
-      reportsTo: "Fleet Command",
-    },
-  },
-  {
     rank: "2nd Lieutenant",
     code: "2LT",
     description: "Officer",
-    insigniaPath: "/images/ranks/2LT.webp",
+    insigniaPath: "/images/ranks/2LT.png",
     category: "officer",
     level: "O-1",
     additionalInfo: {
@@ -122,28 +107,44 @@ export const armyRanks: Rank[] = [
     },
   },
   {
+    rank: "Warrant Officer",
+    code: "WO",
+    description: "Special Rank only available by appointment of fleet command",
+    insigniaPath: "/images/ranks/WO.png",
+    category: "snco",
+    level: "NCO-5",
+    additionalInfo: {
+      responsibilities: [
+          "Work with various members across the fleet",
+          "Assist in training and operations"
+      ],
+      eligiblePositions: ["CNCO", "PNCO", "SNCO", "FTL"],
+      reportsTo: "Command Staff",
+    },
+  },
+  {
     rank: "Sergeant Major",
     code: "SGM",
-    description: "Junior Officer",
-    insigniaPath: "/images/ranks/SGM.webp",
-    category: "officer",
-    level: "O-2",
+    description: "Senior NCO",
+    insigniaPath: "/images/ranks/SGM.png",
+    category: "snco",
+    level: "NCO-4",
     additionalInfo: {
       responsibilities: [
           "Various administrative tasks",
           "Advise and assist platoon and company command",
       ],
       eligiblePositions: ["CNCO", "PXO", "PNCO", "SL"],
-      reportsTo: "Warrant Officer",
+      reportsTo: "2nd Lieutenant",
     },
   },
   {
     rank: "Sergeant",
     code: "SGT",
     description: "Senior Army NCO",
-    insigniaPath: "/images/ranks/SGT.webp",
+    insigniaPath: "/images/ranks/SGT.png",
     category: "nco",
-    level: "NCO-1",
+    level: "NCO-3",
     additionalInfo: {
       responsibilities: [
           "Squad leadership",
@@ -159,7 +160,7 @@ export const armyRanks: Rank[] = [
     rank: "Corporal",
     code: "CPL",
     description: "Junior NCO",
-    insigniaPath: "/images/ranks/CPL.webp",
+    insigniaPath: "/images/ranks/CPL.png",
     category: "nco",
     level: "NCO-2",
     additionalInfo: {
@@ -172,9 +173,9 @@ export const armyRanks: Rank[] = [
     rank: "Lance Corporal",
     code: "LCPL",
     description: "Senior Trooper - Staff in Training",
-    insigniaPath: "/images/ranks/LCPL.webp",
+    insigniaPath: "/images/ranks/LCPL.png",
     category: "nco",
-    level: "NCO-3",
+    level: "NCO-1",
     additionalInfo: {
       responsibilities: ["Encouraging attendance", "Administrative Support"],
       eligiblePositions: ["SNCO", "FTL"],
@@ -185,10 +186,12 @@ export const armyRanks: Rank[] = [
     rank: "Clone Trooper",
     code: "CT",
     description: "Standard Trooper",
-    insigniaPath: "/images/ranks/CT.webp",
+    insigniaPath: "/images/ranks/CT.png",
+    category: "base",
+    level: "E-0",
     additionalInfo: {
       responsibilities: ["Maintain consistent activity"],
-
+      eligiblePositions: ["FTL"],
       reportsTo: "Lance Corporal",
     },
   },

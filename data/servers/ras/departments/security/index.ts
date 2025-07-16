@@ -42,15 +42,6 @@ export const securityDepartment: Department = {
       ],
     },
     {
-      name: "Regulations Team",
-      lead: {
-        role: "SGM",
-        name: "Ollie",
-      },
-      description: "Team under development",
-      members: [],
-    },
-    {
   name: "Kamino Security Force",
   lead: {
     role: "LT",

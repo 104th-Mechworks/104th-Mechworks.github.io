@@ -13,10 +13,7 @@ export const operationsDepartment: Department = {
         role: "ASGT",
         name: "Dalen",
       },
-      members: [
-        { role: "SGT", name: "Datti" },
-        { role: "AMAJ", name: "Vanok" },
-      ],
+      classified: true,
     },
     {
       name: "Operatives",

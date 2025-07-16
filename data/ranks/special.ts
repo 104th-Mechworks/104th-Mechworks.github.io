@@ -7,7 +7,7 @@ export const arcRanks: Rank[] = [
     description: "In charge of the ARC Program, in Command Staff",
     insigniaPath: "/images/ranks/CDR.webp",
     category: "command-staff",
-    level: "CS-1",
+    level: "CS-2",
     additionalInfo: {
       responsibilities: [
         "Classified",
@@ -21,7 +21,7 @@ export const arcRanks: Rank[] = [
     description: "In charge of the ACPTs and is part of Command staff. Same power as a MAJ",
     insigniaPath: "/images/ranks/AMAJ.webp",
     category: "command-staff",
-    level: "CS-2",
+    level: "CS-1",
     additionalInfo: {
       responsibilities: [
         "Classiefied",
@@ -35,8 +35,8 @@ export const arcRanks: Rank[] = [
     code: "ACPT",
     description: "ARC Admissions Officer, same power as a CPT",
     insigniaPath: "/images/ranks/ACPT.webp",
-    category: "high-officer",
-    level: "HO-1",
+    category: "officer",
+    level: "O-3",
     additionalInfo: {
       responsibilities: [
         "Classified",
@@ -49,8 +49,8 @@ export const arcRanks: Rank[] = [
     code: "ALT",
     description: "ARC Admissions Officer, same power as a LT",
     insigniaPath: "/images/ranks/ALT.webp",
-    category: "high-officer",
-    level: "HO-2",
+    category: "officer",
+    level: "O-2",
     additionalInfo: {
       responsibilities: ["Classified"],
       reportsTo: "ARC Captain",
@@ -61,8 +61,8 @@ export const arcRanks: Rank[] = [
     code: "ASGT",
     description: "ARC Staff, same power as a 2LT",
     insigniaPath: "/images/ranks/ASGT.webp",
-    category: "officer",
-    level: "O-1",
+    category: "snco",
+    level: "NCO-5",
     additionalInfo: {
       responsibilities: ["Classified"],
       reportsTo: "ARC Lieutenant",
@@ -74,8 +74,8 @@ export const arcRanks: Rank[] = [
     description:
       "Troopers found to be the best of the best out of staff and CTs. Has the same power as a SGM. ATs may also host scouting sessions",
     insigniaPath: "/images/ranks/AT.webp",
-    category: "officer",
-    level: "O-2",
+    category: "snco",
+    level: "NCO-4",
     additionalInfo: {
       responsibilities: [
         "Classified",
@@ -92,7 +92,7 @@ export const rcRanks: Rank[] = [
     description: "Program Admissions Officer",
     insigniaPath: "/images/ranks/CDR.webp",
     category: "command-staff",
-    level: "CS-1",
+    level: "CS-2",
     additionalInfo: {
       responsibilities: [
         "Command of RC program",
@@ -198,8 +198,8 @@ export const rcRanks: Rank[] = [
     code: "SGT",
     description: "Third Rank of the RCs",
     insigniaPath: "/images/ranks/RCSGT.webp",
-    category: "high-officer",
-    level: "HO-1",
+    category: "officer",
+    level: "O-3",
     additionalInfo: {
       responsibilities: ["Classified"],
       reportsTo: "RC Commander",
@@ -210,8 +210,8 @@ export const rcRanks: Rank[] = [
     code: "CPL",
     description: "Second Rank of the RCs",
     insigniaPath: "/images/ranks/RCCPL.webp",
-    category: "high-officer",
-    level: "HO-2",
+    category: "officer",
+    level: "O-2",
     additionalInfo: {
       responsibilities: ["Classified"],
       reportsTo: "RC Sergeant",
@@ -222,8 +222,8 @@ export const rcRanks: Rank[] = [
     code: "PVT",
     description: "First Rank of RCs",
     insigniaPath: "/images/ranks/RCPVT.webp",
-    category: "officer",
-    level: "O-2",
+    category: "snco",
+    level: "NCO-4",
     additionalInfo: {
       responsibilities: ["Classified"],
       reportsTo: "RC Corporal",

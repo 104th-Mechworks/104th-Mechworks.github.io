@@ -28,7 +28,7 @@ export const starfighterClasses: ClassCategory[] = [
           "Ion Pulse",
           "Advanced Targeting Computer",
         ],
-        imageSrc: "/placeholder.svg",
+        imageSrc: "/images/classes/yodaClass.png",
       },
     ],
   },

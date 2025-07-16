@@ -25,7 +25,9 @@ export default function RankItem({ rank, code, description, additionalInfo, insi
     "command-staff": "border-yellow-600 text-yellow-600",
     "high-officer": "border-red-900 text-red-900",
     officer: "border-blue-700 text-blue-700",
-    nco: "border-green-800 text-green-800",
+    nco: "border-lime-600 text-lime-600",
+    base: "border-zinc-300 text-zinc-300",
+    snco: "border-green-700 text-green-700",
   }
 
   // Category display names
@@ -35,6 +37,8 @@ export default function RankItem({ rank, code, description, additionalInfo, insi
     "high-officer": "HIGH OFFICER",
     officer: "OFFICER",
     nco: "NCO",
+    base: "ENLISTED",
+    snco: "SENIOR NCO",
   }
 
   return (

@@ -43,7 +43,8 @@ export interface Rank {
     responsibilities?: string[]
     qualifications?: string[]
     notableMembers?: string[]
-    reportingTo?: string
+    reportsTo?: string
+    eligiblePositions?: string[]
   }
 }
 
