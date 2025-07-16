@@ -8,7 +8,7 @@ export default function ClassItem({ title, description, equipment, imageSrc }: C
   return (
     <Card className="bg-zinc-900 border-zinc-800 overflow-hidden">
       <div className="relative w-full h-64">
-        <Image src={imageSrc || "/placeholder.svg"} alt={title} fill className="object-cover" />
+        <Image src={imageSrc || "/placeholder.svg"} alt={title} fill className="object-cover" priority={true} />
       </div>
       <CardHeader className="pb-2">
         <CardTitle className="text-xl font-mono text-zinc-200">{title}</CardTitle>
