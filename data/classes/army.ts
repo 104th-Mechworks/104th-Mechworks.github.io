@@ -87,7 +87,7 @@ export const armyClasses: ClassCategory[] = [
         description:
           "Specialising in airborne combat, jet troopers are highly mobile and can quickly traverse the battlefield. They are equipped with jetpacks and specialized weaponry, making them formidable in both aerial and ground engagements.",
         equipment: ["Modified DC-17 Blaster Pistol", "Jump Pack", "Rocket Launcher"],
-        imageSrc: "/images/classes/JetClass.png",
+        imageSrc: "/images/classes/jetClass.png",
       },
       {
         id: "atrt",
